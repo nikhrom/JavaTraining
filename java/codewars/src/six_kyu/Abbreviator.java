@@ -42,7 +42,7 @@ public class Abbreviator{
     }
 
     private String[] parse(String text){
-        return text.split("\\b");
+        return text.split("(?<=[^a-zA-Z])|(?=[^a-zA-Z])");
     }
 
 
