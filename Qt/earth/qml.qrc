@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>earthMax.jpg</file>
+    </qresource>
+</RCC>
