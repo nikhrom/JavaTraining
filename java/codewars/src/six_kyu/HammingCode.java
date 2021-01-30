@@ -37,9 +37,8 @@ public class HammingCode {
 
         for (char ch: text.toCharArray()){
             String bits = Integer.toBinaryString((int)ch);
-            for(int i = bits.length(); i < 8; i++)
-                builder.append(tripleCharsInString("0"));
-            builder.append(tripleCharsInString(bits));
+            builder.append("0".repeat((8-bits.length()) * 3) +
+                    tripleCharsInString(bits));
         }
 
         return builder.toString();
@@ -80,7 +79,7 @@ public class HammingCode {
     private static String tripleCharsInString(String text){
         StringBuilder builder = new StringBuilder();
         for (char ch: text.toCharArray())
-            builder.append("" + ch + ch + ch);
+            builder.append(String.valueOf(ch).repeat(3));
         return builder.toString();
     }
 
