@@ -41,8 +41,6 @@ public class ReversingProcess {
         String[] split = split(r);
         StringBuilder message = new StringBuilder();
 
-
-
         try{
             long key = Long.parseLong(split[0]);
             if(key % 2 == 0 || key % 13 == 0)
@@ -59,7 +57,7 @@ public class ReversingProcess {
         return message.toString();
     }
 
-    public static char decodeLetter(char letter, long key) throws Exception{
+    private static char decodeLetter(char letter, long key) throws Exception{
         for(long i = 0; i < alphabet.length(); i++){
             int res = (int)(i * key % alphabet.length());
 
@@ -69,7 +67,7 @@ public class ReversingProcess {
         throw new Exception("Impossible to decode");
     }
 
-    public static String[] split(String text) {
+    private static String[] split(String text) {
         return text.split("(?=[a-z])", 2);
     }
 
