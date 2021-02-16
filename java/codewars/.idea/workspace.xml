@@ -56,7 +56,7 @@
       <recent name="six_kyu" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.HammingCode">
+  <component name="RunManager" selected="Application.BinaryToTextConversion">
     <configuration name="Abbreviator (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="kyu.Abbreviator" />
       <module name="codewars" />
@@ -83,8 +83,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="HammingCode" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="six_kyu.HammingCode" />
+    <configuration name="BinaryToTextConversion" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="six_kyu.BinaryToTextConversion" />
       <module name="codewars" />
       <extension name="coverage">
         <pattern>
@@ -96,12 +96,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true">
-      <option name="MAIN_CLASS_NAME" value="Main" />
+    <configuration name="HammingCode" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="six_kyu.HammingCode" />
       <module name="codewars" />
-      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
-      <RunnerSettings RunnerId="Run" />
-      <ConfigurationWrapper RunnerId="Run" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="six_kyu.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -120,14 +123,15 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.Main" />
       <item itemvalue="Application.Abbreviator (1)" />
       <item itemvalue="Application.Abbreviator (2)" />
       <item itemvalue="Application.ReversingProcess" />
       <item itemvalue="Application.HammingCode" />
+      <item itemvalue="Application.BinaryToTextConversion" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.BinaryToTextConversion" />
         <item itemvalue="Application.HammingCode" />
         <item itemvalue="Application.ReversingProcess" />
         <item itemvalue="Application.Abbreviator (2)" />
@@ -176,29 +180,37 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="440" y="93" key="#Project_Structure/0.0.1920.1040@0.0.1920.1040" timestamp="1612017721156" />
+    <state x="-1506" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1613482086785">
+      <screen x="-1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="-1506" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1613482086785" />
     <state x="-1230" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1611560466841">
       <screen x="-1920" y="0" width="1920" height="1040" />
     </state>
     <state x="-1230" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1611560466841" />
-    <state width="1876" height="342" key="GridCell.Tab.0.bottom" timestamp="1612037545819">
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1613483982441">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1611671849774" />
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1613482893957" />
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1613483982441" />
     <state width="1876" height="342" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1612037545819" />
-    <state width="1876" height="342" key="GridCell.Tab.0.center" timestamp="1612037545818">
+    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1613483982441">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1611671849774" />
+    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1613482893957" />
+    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1613483982441" />
     <state width="1876" height="342" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1612037545818" />
-    <state width="1876" height="342" key="GridCell.Tab.0.left" timestamp="1612037545818">
+    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1613483982441">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1611671849774" />
+    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1613482893957" />
+    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1613483982441" />
     <state width="1876" height="342" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1612037545818" />
-    <state width="1876" height="342" key="GridCell.Tab.0.right" timestamp="1612037545819">
+    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1613483982441">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1611671849774" />
+    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1613482893957" />
+    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1613483982441" />
     <state width="1876" height="342" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1612037545819" />
     <state width="1876" height="342" key="GridCell.Tab.1.bottom" timestamp="1612037545819">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -220,10 +232,10 @@
     </state>
     <state width="1877" height="348" key="GridCell.Tab.1.right/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1611669542839" />
     <state width="1876" height="342" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1612037545819" />
-    <state x="-1480" y="94" key="SettingsEditor" timestamp="1611560502275">
+    <state x="-1480" y="94" key="SettingsEditor" timestamp="1613482105105">
       <screen x="-1920" y="0" width="1920" height="1040" />
     </state>
-    <state x="-1480" y="94" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1611560502275" />
+    <state x="-1480" y="94" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1613482105105" />
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1611514936858">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
