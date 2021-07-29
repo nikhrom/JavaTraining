@@ -83,4 +83,9 @@ public class HammingCode {
         return builder.toString();
     }
 
+
+    public static void main(String[] args) {
+        System.out.println("few1234vsdfg1234fs00".replaceAll("\\w", "a"));
+    }
+
 }

@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="48297326-ba48-4519-aea2-7c25370d1bfc" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectId" id="1vAroiVlPNEg7VGaIj8TISldX5V" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="extract.method.default.visibility" value="private" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+  </component>
+  <component name="RunManager" selected="Application.CashboxRunner">
+    <configuration name="CashboxRunner" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="dmdev.threads.lesson25.queue.CashboxRunner" />
+      <module name="dmdev" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="dmdev.threads.lesson25.queue.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="HomeworkTask1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="dmdev.files.HomeworkTask1" />
+      <module name="dmdev" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="dmdev.files.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SerializationDemo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="dmdev.serialization.SerializationDemo" />
+      <module name="dmdev" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="dmdev.serialization.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Task5" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="dmdev.functional.Task5" />
+      <module name="dmdev" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="dmdev.functional.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ThreadDemo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="dmdev.threads.lesson25.ThreadDemo" />
+      <module name="dmdev" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="dmdev.threads.lesson25.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.Task5" />
+      <item itemvalue="Application.HomeworkTask1" />
+      <item itemvalue="Application.SerializationDemo" />
+      <item itemvalue="Application.ThreadDemo" />
+      <item itemvalue="Application.CashboxRunner" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.CashboxRunner" />
+        <item itemvalue="Application.ThreadDemo" />
+        <item itemvalue="Application.SerializationDemo" />
+        <item itemvalue="Application.HomeworkTask1" />
+        <item itemvalue="Application.Task5" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="48297326-ba48-4519-aea2-7c25370d1bfc" name="Default Changelist" comment="" />
+      <created>1626015910199</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1626015910199</updated>
+      <workItem from="1626015914379" duration="7156000" />
+      <workItem from="1626185900292" duration="9024000" />
+      <workItem from="1626258192266" duration="4541000" />
+      <workItem from="1627406952276" duration="1751000" />
+      <workItem from="1627585369769" duration="1218000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="414" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1626017208268">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="414" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1626017208268" />
+    <state x="1194" y="321" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1626197593086">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="1194" y="321" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1626197593086" />
+    <state x="765" y="203" key="#com.intellij.ide.util.MemberChooser" timestamp="1627585501169">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="765" y="203" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1627585501169" />
+    <state x="1150" y="408" key="#com.intellij.refactoring.memberPushDown.PushDownDialog" timestamp="1626197747268">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="1150" y="408" key="#com.intellij.refactoring.memberPushDown.PushDownDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1626197747268" />
+    <state width="900" height="271" key="GridCell.Tab.0.bottom" timestamp="1626282282173">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="900" height="271" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1626282282173" />
+    <state width="900" height="271" key="GridCell.Tab.0.center" timestamp="1626282282173">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="900" height="271" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1626282282173" />
+    <state width="900" height="271" key="GridCell.Tab.0.left" timestamp="1626282282173">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="900" height="271" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1626282282173" />
+    <state width="900" height="271" key="GridCell.Tab.0.right" timestamp="1626282282173">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="900" height="271" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1626282282173" />
+    <state width="900" height="336" key="GridCell.Tab.1.bottom" timestamp="1626259788024">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="900" height="336" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1626259788024" />
+    <state width="900" height="336" key="GridCell.Tab.1.center" timestamp="1626259788024">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="900" height="336" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1626259788024" />
+    <state width="900" height="336" key="GridCell.Tab.1.left" timestamp="1626259788024">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="900" height="336" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1626259788024" />
+    <state width="900" height="336" key="GridCell.Tab.1.right" timestamp="1626259788024">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="900" height="336" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1626259788024" />
+    <state x="640" y="165" key="SettingsEditor" timestamp="1626197859558">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="640" y="165" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1626197859558" />
+    <state x="278" y="208" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1627586205816">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="278" y="208" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1627586205816" />
+    <state x="1249" y="433" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1626198519248">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="1249" y="433" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1626198519248" />
+    <state x="987" y="394" key="extract.method.dialog" timestamp="1626198445007">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="987" y="394" key="extract.method.dialog/0.0.1920.1040@0.0.1920.1040" timestamp="1626198445007" />
+    <state x="616" y="235" key="run.anything.popup" timestamp="1626186232866">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="616" y="235" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1626186232866" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1627585963213">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1627585963213" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/dmdev/threads/lesson25/SimpleThread.java</url>
+          <line>6</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/dmdev$Main.ic" NAME="Main Coverage Results" MODIFIED="1626017312129" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+  </component>
+</project>
