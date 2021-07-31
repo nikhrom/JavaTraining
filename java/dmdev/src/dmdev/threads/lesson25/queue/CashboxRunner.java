@@ -20,6 +20,18 @@ public class CashboxRunner {
                 new BuyerThread(cashboxes),
                 new BuyerThread(cashboxes),
                 new BuyerThread(cashboxes),
+                new BuyerThread(cashboxes),
+                new BuyerThread(cashboxes),
+                new BuyerThread(cashboxes),
+                new BuyerThread(cashboxes),
+                new BuyerThread(cashboxes),
+                new BuyerThread(cashboxes),
+                new BuyerThread(cashboxes),
+                new BuyerThread(cashboxes),
+                new BuyerThread(cashboxes),
+                new BuyerThread(cashboxes),
+                new BuyerThread(cashboxes),
+                new BuyerThread(cashboxes),
                 new BuyerThread(cashboxes)
         )
                 .map(Thread::new)

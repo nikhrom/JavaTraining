@@ -28,6 +28,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -47,7 +48,20 @@
     <property name="extract.method.default.visibility" value="private" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
-  <component name="RunManager" selected="Application.CashboxRunner">
+  <component name="RunManager" selected="Application.CompetitionRunner">
+    <configuration name="AccountDemo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="dmdev.threads.lesson25.account.AccountDemo" />
+      <module name="dmdev" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="dmdev.threads.lesson25.account.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="CashboxRunner" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="dmdev.threads.lesson25.queue.CashboxRunner" />
       <module name="dmdev" />
@@ -61,12 +75,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="HomeworkTask1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="dmdev.files.HomeworkTask1" />
+    <configuration name="CompetitionRunner" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="dmdev.threads.lesson25.homework.CompetitionRunner" />
       <module name="dmdev" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="dmdev.files.*" />
+          <option name="PATTERN" value="dmdev.threads.lesson25.homework.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -74,25 +88,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SerializationDemo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="dmdev.serialization.SerializationDemo" />
+    <configuration name="PracticeDemo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="dmdev.threads.lesson25.practice.PracticeDemo" />
       <module name="dmdev" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="dmdev.serialization.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Task5" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="dmdev.functional.Task5" />
-      <module name="dmdev" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="dmdev.functional.*" />
+          <option name="PATTERN" value="dmdev.threads.lesson25.practice.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -114,19 +115,19 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.Task5" />
-      <item itemvalue="Application.HomeworkTask1" />
-      <item itemvalue="Application.SerializationDemo" />
       <item itemvalue="Application.ThreadDemo" />
       <item itemvalue="Application.CashboxRunner" />
+      <item itemvalue="Application.AccountDemo" />
+      <item itemvalue="Application.PracticeDemo" />
+      <item itemvalue="Application.CompetitionRunner" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.CompetitionRunner" />
+        <item itemvalue="Application.PracticeDemo" />
+        <item itemvalue="Application.AccountDemo" />
         <item itemvalue="Application.CashboxRunner" />
         <item itemvalue="Application.ThreadDemo" />
-        <item itemvalue="Application.SerializationDemo" />
-        <item itemvalue="Application.HomeworkTask1" />
-        <item itemvalue="Application.Task5" />
       </list>
     </recent_temporary>
   </component>
@@ -144,7 +145,8 @@
       <workItem from="1626185900292" duration="9024000" />
       <workItem from="1626258192266" duration="4541000" />
       <workItem from="1627406952276" duration="1751000" />
-      <workItem from="1627585369769" duration="1218000" />
+      <workItem from="1627585369769" duration="1522000" />
+      <workItem from="1627738438208" duration="18859000" />
     </task>
     <servers />
   </component>
@@ -172,70 +174,70 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="1194" y="321" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1626197593086" />
-    <state x="765" y="203" key="#com.intellij.ide.util.MemberChooser" timestamp="1627585501169">
+    <state x="765" y="203" key="#com.intellij.ide.util.MemberChooser" timestamp="1627761889719">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="765" y="203" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1627585501169" />
+    <state x="765" y="203" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1627761889719" />
     <state x="1150" y="408" key="#com.intellij.refactoring.memberPushDown.PushDownDialog" timestamp="1626197747268">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="1150" y="408" key="#com.intellij.refactoring.memberPushDown.PushDownDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1626197747268" />
-    <state width="900" height="271" key="GridCell.Tab.0.bottom" timestamp="1626282282173">
+    <state width="1876" height="271" key="GridCell.Tab.0.bottom" timestamp="1627762779766">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="900" height="271" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1626282282173" />
-    <state width="900" height="271" key="GridCell.Tab.0.center" timestamp="1626282282173">
+    <state width="1876" height="271" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1627762779766" />
+    <state width="1876" height="271" key="GridCell.Tab.0.center" timestamp="1627762779766">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="900" height="271" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1626282282173" />
-    <state width="900" height="271" key="GridCell.Tab.0.left" timestamp="1626282282173">
+    <state width="1876" height="271" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1627762779766" />
+    <state width="1876" height="271" key="GridCell.Tab.0.left" timestamp="1627762779766">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="900" height="271" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1626282282173" />
-    <state width="900" height="271" key="GridCell.Tab.0.right" timestamp="1626282282173">
+    <state width="1876" height="271" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1627762779766" />
+    <state width="1876" height="271" key="GridCell.Tab.0.right" timestamp="1627762779766">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="900" height="271" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1626282282173" />
-    <state width="900" height="336" key="GridCell.Tab.1.bottom" timestamp="1626259788024">
+    <state width="1876" height="271" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1627762779766" />
+    <state width="1876" height="342" key="GridCell.Tab.1.bottom" timestamp="1627762757033">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="900" height="336" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1626259788024" />
-    <state width="900" height="336" key="GridCell.Tab.1.center" timestamp="1626259788024">
+    <state width="1876" height="342" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1627762757033" />
+    <state width="1876" height="342" key="GridCell.Tab.1.center" timestamp="1627762757033">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="900" height="336" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1626259788024" />
-    <state width="900" height="336" key="GridCell.Tab.1.left" timestamp="1626259788024">
+    <state width="1876" height="342" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1627762757033" />
+    <state width="1876" height="342" key="GridCell.Tab.1.left" timestamp="1627762757033">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="900" height="336" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1626259788024" />
-    <state width="900" height="336" key="GridCell.Tab.1.right" timestamp="1626259788024">
+    <state width="1876" height="342" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1627762757033" />
+    <state width="1876" height="342" key="GridCell.Tab.1.right" timestamp="1627762757033">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="900" height="336" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1626259788024" />
+    <state width="1876" height="342" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1627762757033" />
     <state x="640" y="165" key="SettingsEditor" timestamp="1626197859558">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="640" y="165" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1626197859558" />
-    <state x="278" y="208" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1627586205816">
+    <state x="278" y="208" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1627745660882">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="278" y="208" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1627586205816" />
+    <state x="278" y="208" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1627745660882" />
     <state x="1249" y="433" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1626198519248">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="1249" y="433" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1626198519248" />
-    <state x="987" y="394" key="extract.method.dialog" timestamp="1626198445007">
+    <state x="987" y="394" key="extract.method.dialog" timestamp="1627748523898">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="987" y="394" key="extract.method.dialog/0.0.1920.1040@0.0.1920.1040" timestamp="1626198445007" />
+    <state x="987" y="394" key="extract.method.dialog/0.0.1920.1040@0.0.1920.1040" timestamp="1627748523898" />
     <state x="616" y="235" key="run.anything.popup" timestamp="1626186232866">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="616" y="235" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1626186232866" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1627585963213">
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1627744169219">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1627585963213" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1627744169219" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -244,6 +246,16 @@
           <url>file://$PROJECT_DIR$/src/dmdev/threads/lesson25/SimpleThread.java</url>
           <line>6</line>
           <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/dmdev/threads/lesson25/homework/Slave.java</url>
+          <line>44</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/dmdev/threads/lesson25/homework/Slave.java</url>
+          <line>59</line>
+          <option name="timeStamp" value="9" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
