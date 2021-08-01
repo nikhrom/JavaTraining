@@ -46,15 +46,15 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="extract.method.default.visibility" value="private" />
-    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Language Defaults" />
   </component>
-  <component name="RunManager" selected="Application.CompetitionRunner">
-    <configuration name="AccountDemo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="dmdev.threads.lesson25.account.AccountDemo" />
+  <component name="RunManager" selected="Application.ThreadPoolDemo">
+    <configuration name="AccountDemo (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="dmdev.lesson26.lock.AccountDemo" />
       <module name="dmdev" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="dmdev.threads.lesson25.account.*" />
+          <option name="PATTERN" value="dmdev.lesson26.lock.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -62,12 +62,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CashboxRunner" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="dmdev.threads.lesson25.queue.CashboxRunner" />
+    <configuration name="AtomicDemo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="dmdev.lesson26.atomic.AtomicDemo" />
       <module name="dmdev" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="dmdev.threads.lesson25.queue.*" />
+          <option name="PATTERN" value="dmdev.lesson26.atomic.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -88,12 +88,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PracticeDemo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="dmdev.threads.lesson25.practice.PracticeDemo" />
+    <configuration name="FactoryDemo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="dmdev.threads.lesson25.dmdevhomework.FactoryDemo" />
       <module name="dmdev" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="dmdev.threads.lesson25.practice.*" />
+          <option name="PATTERN" value="dmdev.threads.lesson25.dmdevhomework.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -101,12 +101,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ThreadDemo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="dmdev.threads.lesson25.ThreadDemo" />
+    <configuration name="ThreadPoolDemo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="dmdev.lesson26.pool.ThreadPoolDemo" />
       <module name="dmdev" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="dmdev.threads.lesson25.*" />
+          <option name="PATTERN" value="dmdev.lesson26.pool.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -115,19 +115,19 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.ThreadDemo" />
-      <item itemvalue="Application.CashboxRunner" />
-      <item itemvalue="Application.AccountDemo" />
-      <item itemvalue="Application.PracticeDemo" />
       <item itemvalue="Application.CompetitionRunner" />
+      <item itemvalue="Application.FactoryDemo" />
+      <item itemvalue="Application.AtomicDemo" />
+      <item itemvalue="Application.AccountDemo (1)" />
+      <item itemvalue="Application.ThreadPoolDemo" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.ThreadPoolDemo" />
+        <item itemvalue="Application.AccountDemo (1)" />
+        <item itemvalue="Application.FactoryDemo" />
+        <item itemvalue="Application.AtomicDemo" />
         <item itemvalue="Application.CompetitionRunner" />
-        <item itemvalue="Application.PracticeDemo" />
-        <item itemvalue="Application.AccountDemo" />
-        <item itemvalue="Application.CashboxRunner" />
-        <item itemvalue="Application.ThreadDemo" />
       </list>
     </recent_temporary>
   </component>
@@ -146,7 +146,8 @@
       <workItem from="1626258192266" duration="4541000" />
       <workItem from="1627406952276" duration="1751000" />
       <workItem from="1627585369769" duration="1522000" />
-      <workItem from="1627738438208" duration="18859000" />
+      <workItem from="1627738438208" duration="19270000" />
+      <workItem from="1627814051771" duration="14612000" />
     </task>
     <servers />
   </component>
@@ -174,50 +175,54 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="1194" y="321" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1626197593086" />
-    <state x="765" y="203" key="#com.intellij.ide.util.MemberChooser" timestamp="1627761889719">
+    <state x="765" y="203" key="#com.intellij.ide.util.MemberChooser" timestamp="1627830892912">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="765" y="203" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1627761889719" />
+    <state x="765" y="203" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1627830892912" />
     <state x="1150" y="408" key="#com.intellij.refactoring.memberPushDown.PushDownDialog" timestamp="1626197747268">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="1150" y="408" key="#com.intellij.refactoring.memberPushDown.PushDownDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1626197747268" />
-    <state width="1876" height="271" key="GridCell.Tab.0.bottom" timestamp="1627762779766">
+    <state x="713" y="413" width="495" height="221" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1627815752776">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1876" height="271" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1627762779766" />
-    <state width="1876" height="271" key="GridCell.Tab.0.center" timestamp="1627762779766">
+    <state x="713" y="413" width="495" height="221" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1920.1040@0.0.1920.1040" timestamp="1627815752776" />
+    <state width="1855" height="128" key="GridCell.Tab.0.bottom" timestamp="1627836077192">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1876" height="271" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1627762779766" />
-    <state width="1876" height="271" key="GridCell.Tab.0.left" timestamp="1627762779766">
+    <state width="1855" height="128" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1627836077192" />
+    <state width="1855" height="128" key="GridCell.Tab.0.center" timestamp="1627836077192">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1876" height="271" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1627762779766" />
-    <state width="1876" height="271" key="GridCell.Tab.0.right" timestamp="1627762779766">
+    <state width="1855" height="128" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1627836077192" />
+    <state width="1855" height="128" key="GridCell.Tab.0.left" timestamp="1627836077191">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1876" height="271" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1627762779766" />
-    <state width="1876" height="342" key="GridCell.Tab.1.bottom" timestamp="1627762757033">
+    <state width="1855" height="128" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1627836077191" />
+    <state width="1855" height="128" key="GridCell.Tab.0.right" timestamp="1627836077192">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1876" height="342" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1627762757033" />
-    <state width="1876" height="342" key="GridCell.Tab.1.center" timestamp="1627762757033">
+    <state width="1855" height="128" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1627836077192" />
+    <state width="1876" height="342" key="GridCell.Tab.1.bottom" timestamp="1627828404385">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1876" height="342" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1627762757033" />
-    <state width="1876" height="342" key="GridCell.Tab.1.left" timestamp="1627762757033">
+    <state width="1876" height="342" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1627828404385" />
+    <state width="1876" height="342" key="GridCell.Tab.1.center" timestamp="1627828404385">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1876" height="342" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1627762757033" />
-    <state width="1876" height="342" key="GridCell.Tab.1.right" timestamp="1627762757033">
+    <state width="1876" height="342" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1627828404385" />
+    <state width="1876" height="342" key="GridCell.Tab.1.left" timestamp="1627828404385">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1876" height="342" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1627762757033" />
-    <state x="640" y="165" key="SettingsEditor" timestamp="1626197859558">
+    <state width="1876" height="342" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1627828404385" />
+    <state width="1876" height="342" key="GridCell.Tab.1.right" timestamp="1627828404385">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="640" y="165" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1626197859558" />
+    <state width="1876" height="342" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1627828404385" />
+    <state x="640" y="165" key="SettingsEditor" timestamp="1627829887019">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="640" y="165" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1627829887019" />
     <state x="278" y="208" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1627745660882">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -249,13 +254,18 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/dmdev/threads/lesson25/homework/Slave.java</url>
-          <line>44</line>
+          <line>43</line>
           <option name="timeStamp" value="7" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/dmdev/threads/lesson25/homework/Slave.java</url>
-          <line>59</line>
+          <line>58</line>
           <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/dmdev/threads/lesson25/dmdevhomework/model/Scientist.java</url>
+          <line>25</line>
+          <option name="timeStamp" value="13" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
