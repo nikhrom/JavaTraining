@@ -56,20 +56,7 @@
       <recent name="six_kyu" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
-    <configuration name="Abbreviator (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="kyu.Abbreviator" />
-      <module name="codewars" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="kyu.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Application.WhichAreIn">
     <configuration name="Abbreviator (2)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="six_kyu.Abbreviator" />
       <module name="codewars" />
@@ -119,20 +106,33 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="WhichAreIn" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="six_kyu.WhichAreIn" />
+      <module name="codewars" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="six_kyu.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
       <item itemvalue="Application.Main" />
-      <item itemvalue="Application.Abbreviator (1)" />
       <item itemvalue="Application.Abbreviator (2)" />
       <item itemvalue="Application.ReversingProcess" />
       <item itemvalue="Application.HammingCode" />
+      <item itemvalue="Application.WhichAreIn" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.WhichAreIn" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.HammingCode" />
         <item itemvalue="Application.ReversingProcess" />
         <item itemvalue="Application.Abbreviator (2)" />
-        <item itemvalue="Application.Abbreviator (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -156,6 +156,7 @@
       <workItem from="1624725539256" duration="1180000" />
       <workItem from="1625937237509" duration="1312000" />
       <workItem from="1626015395724" duration="370000" />
+      <workItem from="1627924949734" duration="3816000" />
     </task>
     <servers />
   </component>
@@ -179,25 +180,33 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="739" y="260" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1626015648233" />
-    <state width="1876" height="102" key="GridCell.Tab.0.bottom" timestamp="1624562622161">
+    <state width="1855" height="99" key="GridCell.Tab.0.bottom" timestamp="1627928944622">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1876" height="102" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1624562622161" />
-    <state width="1876" height="102" key="GridCell.Tab.0.center" timestamp="1624562622161">
+    <state width="1855" height="99" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1627928944622" />
+    <state width="1855" height="99" key="GridCell.Tab.0.center" timestamp="1627928944622">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1876" height="102" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1624562622161" />
-    <state width="1876" height="102" key="GridCell.Tab.0.left" timestamp="1624562622161">
+    <state width="1855" height="99" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1627928944622" />
+    <state width="1855" height="99" key="GridCell.Tab.0.left" timestamp="1627928944622">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1876" height="102" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1624562622161" />
-    <state width="1876" height="102" key="GridCell.Tab.0.right" timestamp="1624562622161">
+    <state width="1855" height="99" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1627928944622" />
+    <state width="1855" height="99" key="GridCell.Tab.0.right" timestamp="1627928944622">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1876" height="102" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1624562622161" />
+    <state width="1855" height="99" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1627928944622" />
+    <state x="437" y="93" key="SettingsEditor" timestamp="1627926121663">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="437" y="93" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1627926121663" />
     <state x="342" y="139" key="new project wizard" timestamp="1626015782806">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="342" y="139" key="new project wizard/0.0.1920.1040@0.0.1920.1040" timestamp="1626015782806" />
+    <state x="613" y="235" key="run.anything.popup" timestamp="1627926106453">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="613" y="235" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1627926106453" />
   </component>
 </project>
