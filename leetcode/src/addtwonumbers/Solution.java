@@ -29,9 +29,11 @@ Constraints:
 package addtwonumbers;
 
 
+import java.math.BigInteger;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
+
 import java.util.stream.Collectors;
 
 public class Solution {
@@ -51,16 +53,14 @@ public class Solution {
     }
 
     static public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+        BigInteger sum = reversedListToInt(l1).add(reversedListToInt(l2));
 
-
-        int sum = reversedListToInt(l1) + reversedListToInt(l2);
-
-        List<Integer> sumList = new LinkedList<>();
+        List<Byte> sumList = new LinkedList<>();
         while (true){
-            sumList.add(sum % 10);
-            sum /= 10;
+            sumList.add((byte) (sum.mod(BigInteger.TEN).intValue()));
+            sum = sum.divide(BigInteger.TEN);
 
-            if(sum == 0) break;
+            if(sum.equals(BigInteger.ZERO)) break;
         }
 
         Collections.reverse(sumList);
@@ -73,15 +73,20 @@ public class Solution {
 
 
 
-    static int reversedListToInt(ListNode l){
-        LinkedList<Integer> result = new LinkedList<>();
+    static BigInteger reversedListToInt(ListNode l){
+        List<Byte> digits = new LinkedList<>();
         while(l != null){
-            result.add(l.val);
+            digits.add((byte)l.val);
             l = l.next;
         }
-        Collections.reverse(result);
-        return result.stream()
-                .mapToInt(value -> value)
-                .reduce(0, (v1, v2) -> v1 * 10 + v2);
+        Collections.reverse(digits);
+
+        BigInteger bigint = BigInteger.ZERO;
+        for (var value : digits) {
+            bigint = bigint.multiply(BigInteger.TEN);
+            bigint = bigint.add(BigInteger.valueOf(value));
+        }
+
+        return bigint;
     };
 }
