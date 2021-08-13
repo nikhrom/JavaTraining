@@ -1,5 +1,7 @@
 package dmdev.lesson28.model;
 
+
+
 public class Person {
 
     private int id;

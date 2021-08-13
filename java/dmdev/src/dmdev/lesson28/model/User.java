@@ -7,10 +7,15 @@ public class User extends Person implements Serializable, Comparable<User> {
 
     private String name;
 
-    public User(int id, String name) {
+    @MinAge(age = 21)
+    private int age;
+
+    public User(int age, String name, int id) {
         super(id);
         this.name = name;
+        this.age = age;
     }
+
 
     @Override
     public int compareTo(User o) {
@@ -26,11 +31,13 @@ public class User extends Person implements Serializable, Comparable<User> {
         this.name = name;
     }
 
-
     @Override
     public String toString() {
         return "User{" +
                 "name='" + name + '\'' +
+                ", age=" + age +
                 "} " + super.toString();
     }
+
+
 }

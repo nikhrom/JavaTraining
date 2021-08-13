@@ -10,7 +10,7 @@ public class ReflectionApiExample {
     public static void main(String[] args) {
         testConstructor();
 
-        User user = new User(25, "Ivan");
+        User user = new User(20, "Ivan", 1);
         testFields(user);
         System.out.println(testMethods(user));
     }
@@ -27,8 +27,8 @@ public class ReflectionApiExample {
 
     private static void testConstructor(){
         try {
-            Constructor<User> constructor = User.class.getConstructor(int.class, String.class);
-            User petr = constructor.newInstance(5, "Petr");
+            Constructor<User> constructor = User.class.getConstructor(int.class, String.class, int.class);
+            User petr = constructor.newInstance(5, "Petr", 1);
             System.out.println(petr);
         } catch (NoSuchMethodException | InstantiationException | IllegalAccessException | InvocationTargetException e) {
             e.printStackTrace();
