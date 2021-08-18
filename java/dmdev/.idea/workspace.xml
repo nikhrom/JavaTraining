@@ -44,6 +44,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="postgresql" />
     <property name="Downloaded.Files.Path.Enabled" value="false" />
     <property name="Repository.Attach.Annotations" value="false" />
     <property name="Repository.Attach.JavaDocs" value="false" />
@@ -166,6 +167,10 @@
       <workItem from="1628755548472" duration="5320000" />
       <workItem from="1628835360051" duration="1486000" />
       <workItem from="1628837020961" duration="9487000" />
+      <workItem from="1629202350647" duration="293000" />
+      <workItem from="1629202672696" duration="3000" />
+      <workItem from="1629273732770" duration="5098000" />
+      <workItem from="1629290524880" duration="4932000" />
     </task>
     <servers />
   </component>
@@ -185,9 +190,10 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="414" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1626017208268">
+    <state x="414" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1629274481409">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state x="414" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040/1920.0.1920.1040/-1920.6.1920.1040@0.0.1920.1040" timestamp="1629274481409" />
     <state x="414" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1626017208268" />
     <state x="1194" y="321" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1626197593086">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -215,25 +221,25 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="737" y="3" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1628532696435" />
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1628861190525">
+    <state width="1293" height="213" key="GridCell.Tab.0.bottom" timestamp="1629292954655">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040/-1920.6.1920.1040@0.0.1920.1040" timestamp="1628861190525" />
+    <state width="1293" height="213" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040/-1920.6.1920.1040@0.0.1920.1040" timestamp="1629292954655" />
     <state width="900" height="364" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1628450442583" />
-    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1628861190524">
+    <state width="1293" height="213" key="GridCell.Tab.0.center" timestamp="1629292954655">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040/-1920.6.1920.1040@0.0.1920.1040" timestamp="1628861190524" />
+    <state width="1293" height="213" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040/-1920.6.1920.1040@0.0.1920.1040" timestamp="1629292954655" />
     <state width="900" height="364" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1628450442583" />
-    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1628861190524">
+    <state width="1293" height="213" key="GridCell.Tab.0.left" timestamp="1629292954655">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040/-1920.6.1920.1040@0.0.1920.1040" timestamp="1628861190524" />
+    <state width="1293" height="213" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040/-1920.6.1920.1040@0.0.1920.1040" timestamp="1629292954655" />
     <state width="900" height="364" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1628450442583" />
-    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1628861190525">
+    <state width="1293" height="213" key="GridCell.Tab.0.right" timestamp="1629292954655">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040/-1920.6.1920.1040@0.0.1920.1040" timestamp="1628861190525" />
+    <state width="1293" height="213" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040/-1920.6.1920.1040@0.0.1920.1040" timestamp="1629292954655" />
     <state width="900" height="364" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1628450442583" />
     <state width="1877" height="348" key="GridCell.Tab.1.bottom" timestamp="1628860498724">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -255,6 +261,10 @@
     </state>
     <state width="1877" height="348" key="GridCell.Tab.1.right/0.0.1920.1040/1920.0.1920.1040/-1920.6.1920.1040@0.0.1920.1040" timestamp="1628860498724" />
     <state width="1876" height="342" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1627837266563" />
+    <state width="196" height="457" key="HiddenNamespacesPopup" timestamp="1629274405503">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="196" height="457" key="HiddenNamespacesPopup/0.0.1920.1040/1920.0.1920.1040/-1920.6.1920.1040@0.0.1920.1040" timestamp="1629274405503" />
     <state x="640" y="165" key="SettingsEditor" timestamp="1627829887019">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -321,11 +331,6 @@
           <url>file://$PROJECT_DIR$/src/dmdev/lesson28/model/ReflectionApiExample.java</url>
           <line>13</line>
           <option name="timeStamp" value="15" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/dmdev/lesson28/tasks/task1/CarRunner.java</url>
-          <line>13</line>
-          <option name="timeStamp" value="16" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/dmdev/lesson26/barrier/BarrierDemo.java</url>
