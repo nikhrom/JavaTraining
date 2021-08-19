@@ -53,7 +53,14 @@
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="database.main" />
   </component>
-  <component name="RunManager" selected="Application.LongestSubstringRunner">
+  <component name="RunManager" selected="Application.LongestPalindromicRunner">
+    <configuration name="LongestPalindromicRunner" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="LongestPalindromicRunner" />
+      <module name="leetcode" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="LongestSubstringRunner" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="LongestSubstringRunner" />
       <module name="leetcode" />
@@ -76,6 +83,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.LongestPalindromicRunner" />
         <item itemvalue="Application.LongestSubstringRunner" />
       </list>
     </recent_temporary>
@@ -118,21 +126,25 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="552" y="177" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1629041684562" />
-    <state width="1876" height="342" key="GridCell.Tab.0.bottom" timestamp="1629314420039">
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1629376694565">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040/-1920.6.1920.1040@0.0.1920.1040" timestamp="1629376694565" />
     <state width="1876" height="342" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1629314420039" />
-    <state width="1876" height="342" key="GridCell.Tab.0.center" timestamp="1629314420039">
+    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1629376694565">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040/-1920.6.1920.1040@0.0.1920.1040" timestamp="1629376694565" />
     <state width="1876" height="342" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1629314420039" />
-    <state width="1876" height="342" key="GridCell.Tab.0.left" timestamp="1629314420039">
+    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1629376694565">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040/-1920.6.1920.1040@0.0.1920.1040" timestamp="1629376694565" />
     <state width="1876" height="342" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1629314420039" />
-    <state width="1876" height="342" key="GridCell.Tab.0.right" timestamp="1629314420039">
+    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1629376694565">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040/-1920.6.1920.1040@0.0.1920.1040" timestamp="1629376694565" />
     <state width="1876" height="342" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1629314420039" />
     <state width="1876" height="342" key="GridCell.Tab.1.bottom" timestamp="1629314420039">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -154,9 +166,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="196" height="457" key="HiddenNamespacesPopup/0.0.1920.1040@0.0.1920.1040" timestamp="1629034137687" />
-    <state x="461" y="151" key="SettingsEditor" timestamp="1629036724063">
+    <state x="461" y="151" key="SettingsEditor" timestamp="1629354621086">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state x="461" y="151" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040/-1920.6.1920.1040@0.0.1920.1040" timestamp="1629354621086" />
     <state x="461" y="151" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1629036724063" />
     <state x="889" y="464" key="com.intellij.database.run.ParametersPanel.Standalone" timestamp="1629057662899">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -168,7 +181,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/LongestSubstringRunner.java</url>
-          <line>10</line>
+          <line>11</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>
