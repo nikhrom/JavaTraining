@@ -47,11 +47,11 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../java/algorithms" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.0" />
-    <property name="settings.editor.selected.configurable" value="database.main" />
+    <property name="settings.editor.selected.configurable" value="SQL Resolution Scopes" />
   </component>
   <component name="RunManager" selected="Application.ZigZagConversion">
     <configuration name="LongestPalindromicRunner" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -112,7 +112,9 @@
       <workItem from="1629135874900" duration="2895000" />
       <workItem from="1629310379804" duration="3962000" />
       <workItem from="1629543678966" duration="5272000" />
-      <workItem from="1629553145352" duration="10189000" />
+      <workItem from="1629553145352" duration="14457000" />
+      <workItem from="1629641360164" duration="16837000" />
+      <workItem from="1629721476846" duration="5808000" />
     </task>
     <servers />
   </component>
@@ -132,30 +134,50 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="552" y="177" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1629041684562">
+    <state x="586" y="197" key="#Inspections" timestamp="1629652895583">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="177" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1629041684562" />
-    <state width="1876" height="342" key="GridCell.Tab.0.bottom" timestamp="1629577351611">
+    <state x="586" y="197" key="#Inspections/0.0.1920.1040@0.0.1920.1040" timestamp="1629652895583" />
+    <state x="552" y="177" width="816" height="733" key="#Intentions" timestamp="1629653161833">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="552" y="177" width="816" height="733" key="#Intentions/0.0.1920.1040@0.0.1920.1040" timestamp="1629653161833" />
+    <state x="552" y="160" key="#Plugins" timestamp="1629653160207">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="552" y="160" key="#Plugins/0.0.1920.1040@0.0.1920.1040" timestamp="1629653160207" />
+    <state x="552" y="177" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1629653419467">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="552" y="177" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1629653419467" />
+    <state x="92" y="92" width="1736" height="856" key="DiffContextDialog" timestamp="1629725848306">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="92" y="92" width="1736" height="856" key="DiffContextDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1629725848306" />
+    <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1629728591895">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1629728591895" />
+    <state width="967" height="336" key="GridCell.Tab.0.bottom" timestamp="1629723277043">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040/-1920.6.1920.1040@0.0.1920.1040" timestamp="1629376694565" />
-    <state width="1876" height="342" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1629577351611" />
-    <state width="1876" height="342" key="GridCell.Tab.0.center" timestamp="1629577351611">
+    <state width="967" height="336" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1629723277043" />
+    <state width="967" height="336" key="GridCell.Tab.0.center" timestamp="1629723277043">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040/-1920.6.1920.1040@0.0.1920.1040" timestamp="1629376694565" />
-    <state width="1876" height="342" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1629577351611" />
-    <state width="1876" height="342" key="GridCell.Tab.0.left" timestamp="1629577351611">
+    <state width="967" height="336" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1629723277043" />
+    <state width="967" height="336" key="GridCell.Tab.0.left" timestamp="1629723277043">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040/-1920.6.1920.1040@0.0.1920.1040" timestamp="1629376694565" />
-    <state width="1876" height="342" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1629577351611" />
-    <state width="1876" height="342" key="GridCell.Tab.0.right" timestamp="1629577351611">
+    <state width="967" height="336" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1629723277043" />
+    <state width="967" height="336" key="GridCell.Tab.0.right" timestamp="1629723277043">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040/-1920.6.1920.1040@0.0.1920.1040" timestamp="1629376694565" />
-    <state width="1876" height="342" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1629577351611" />
+    <state width="967" height="336" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1629723277043" />
     <state width="1876" height="342" key="GridCell.Tab.1.bottom" timestamp="1629577351612">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -176,11 +198,15 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="196" height="457" key="HiddenNamespacesPopup/0.0.1920.1040@0.0.1920.1040" timestamp="1629034137687" />
-    <state x="461" y="151" key="SettingsEditor" timestamp="1629354621086">
+    <state x="461" y="151" key="SettingsEditor" timestamp="1629653402182">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="151" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040/-1920.6.1920.1040@0.0.1920.1040" timestamp="1629354621086" />
-    <state x="461" y="151" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1629036724063" />
+    <state x="461" y="151" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1629653402182" />
+    <state width="354" height="441" key="SqlResolveConfigurable" timestamp="1629653360124">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="354" height="441" key="SqlResolveConfigurable/0.0.1920.1040@0.0.1920.1040" timestamp="1629653360124" />
     <state x="778" y="385" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1" timestamp="1629543961267">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -200,7 +226,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/ZigZagConversion.java</url>
-          <line>12</line>
+          <line>21</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
