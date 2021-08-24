@@ -53,7 +53,6 @@ public class MergeSort {
             integers.add(random.nextInt(100));
 
         integers = sort(integers, Integer::compareTo);
-        System.out.println(integers);
     }
 
 }
