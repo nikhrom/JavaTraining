@@ -53,7 +53,7 @@
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="SQL Resolution Scopes" />
   </component>
-  <component name="RunManager" selected="Application.StringToInteger">
+  <component name="RunManager" selected="Application.RangeAddition">
     <configuration name="LongestPalindromicRunner" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="LongestPalindromicRunner" />
       <module name="leetcode" />
@@ -63,6 +63,13 @@
     </configuration>
     <configuration name="LongestSubstringRunner" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="LongestSubstringRunner" />
+      <module name="leetcode" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RangeAddition" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="RangeAddition" />
       <module name="leetcode" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -97,6 +104,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.RangeAddition" />
         <item itemvalue="Application.StringToInteger" />
         <item itemvalue="Application.ZigZagConversion" />
         <item itemvalue="Application.LongestPalindromicRunner" />
@@ -167,25 +175,25 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1629728591895" />
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1630313856285">
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1630333995554">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040/-1920.6.1920.1040@0.0.1920.1040" timestamp="1630313856285" />
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040/-1920.6.1920.1040@0.0.1920.1040" timestamp="1630333995554" />
     <state width="967" height="336" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1629723277043" />
-    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1630313856285">
+    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1630333995554">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040/-1920.6.1920.1040@0.0.1920.1040" timestamp="1630313856285" />
+    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040/-1920.6.1920.1040@0.0.1920.1040" timestamp="1630333995554" />
     <state width="967" height="336" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1629723277043" />
-    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1630313856285">
+    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1630333995554">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040/-1920.6.1920.1040@0.0.1920.1040" timestamp="1630313856285" />
+    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040/-1920.6.1920.1040@0.0.1920.1040" timestamp="1630333995554" />
     <state width="967" height="336" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1629723277043" />
-    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1630313856285">
+    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1630333995554">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040/-1920.6.1920.1040@0.0.1920.1040" timestamp="1630313856285" />
+    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040/-1920.6.1920.1040@0.0.1920.1040" timestamp="1630333995554" />
     <state width="967" height="336" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1629723277043" />
     <state width="1877" height="348" key="GridCell.Tab.1.bottom" timestamp="1630309503431">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -228,15 +236,14 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="889" y="464" key="com.intellij.database.run.ParametersPanel.Standalone/0.0.1920.1040@0.0.1920.1040" timestamp="1629057662899" />
+    <state x="2912" y="234" width="585" height="795" key="find.popup" timestamp="1630333286829">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2912" y="234" width="585" height="795" key="find.popup/0.0.1920.1040/1920.0.1920.1040/-1920.6.1920.1040@0.0.1920.1040" timestamp="1630333286829" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/LongestSubstringRunner.java</url>
-          <line>7</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/ZigZagConversion.java</url>
           <line>17</line>

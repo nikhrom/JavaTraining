@@ -35,7 +35,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class Solution {
-    
+
     static public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         BigInteger sum = reversedListToInt(l1).add(reversedListToInt(l2));
 
