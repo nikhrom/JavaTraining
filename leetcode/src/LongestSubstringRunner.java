@@ -1,14 +1,11 @@
+/*Given a string s, find the length of the longest substring without repeating characters.*/
+
 import java.util.HashSet;
-import java.util.LinkedHashSet;
 import java.util.Set;
 
 public class LongestSubstringRunner {
 
-    public static void main(String[] args) {
-        System.out.println(lengthOfLongestSubstring("asdaffkl;"));
-    }
-
-    static public int lengthOfLongestSubstring(String s) {
+    public static int lengthOfLongestSubstring(String s) {
         Set<Character> substringWithoutRepeating = new HashSet<>();
         int maxSize = 0;
         for (int i = 0; i < s.length(); i++) {

@@ -14,11 +14,7 @@ import java.util.stream.Collectors;
 
 public class ZigZagConversion {
 
-    public static void main(String[] args) {
-        System.out.println(convert("PAYPALISHIRING", 4));
-    }
-
-    static public String convert(String s, int numRows) {
+    public static String convert(String s, int numRows) {
         if (numRows == 1) return s;
 
         StringBuilder[] table = new StringBuilder[numRows];

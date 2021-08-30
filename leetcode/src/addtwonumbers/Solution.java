@@ -34,24 +34,8 @@ import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
-import java.util.stream.Collectors;
-
 public class Solution {
-
-    public static void main(String[] args) {
-
-        ListNode l1 = new ListNode(0);
-        ListNode l2 = new ListNode(0);
-
-        ListNode result = addTwoNumbers(l1, l2);
-
-        while (result != null){
-            System.out.println(result.val);
-            result = result.next;
-        }
-
-    }
-
+    
     static public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         BigInteger sum = reversedListToInt(l1).add(reversedListToInt(l2));
 
