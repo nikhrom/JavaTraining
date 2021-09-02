@@ -6,9 +6,9 @@ import java.sql.SQLException;
 
 public class ConnectionManager {
 
-    private static final String URL = "jdbc:postgresql://localhost:5432/flight_repository";
-    private static final String USER = "postgres";
-    private static final String PASSWORD = "nikhrom23";
+    private static final String URL_KEY = "db.url";
+    private static final String USER_KEY = "db.user";
+    private static final String PASSWORD_KEY = "db.password";
 
     static {
         loadDriver();
@@ -16,6 +16,7 @@ public class ConnectionManager {
 
     private static void loadDriver() {
         try {
+            int a = 2;
             Class.forName("org.postgresql.Driver");
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
@@ -26,7 +27,11 @@ public class ConnectionManager {
 
     public static Connection open(){
         try {
-            return DriverManager.getConnection(URL, USER, PASSWORD);
+            return DriverManager.getConnection(
+                    PropertiesUtil.get(URL_KEY),
+                    PropertiesUtil.get(USER_KEY),
+                    PropertiesUtil.get(PASSWORD_KEY)
+            );
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
