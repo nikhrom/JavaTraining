@@ -48,13 +48,13 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
   </component>
   <component name="RunManager">
     <configuration name="JdbcRunner" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="jdbc.starter.JdbcRunner" />
+      <option name="MAIN_CLASS_NAME" value="com.github.nikhrom.javatraining.jdbc.starter.JdbcRunner" />
       <module name="jdbc" />
       <extension name="coverage">
         <pattern>
@@ -82,12 +82,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1630503805778</updated>
-<<<<<<< Updated upstream
-      <workItem from="1630503809044" duration="3123000" />
-      <workItem from="1630602940893" duration="8827000" />
-=======
       <workItem from="1630503809044" duration="3914000" />
->>>>>>> Stashed changes
     </task>
     <servers />
   </component>
@@ -107,10 +102,10 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1630606376274">
+    <state x="468" y="206" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1630668985494">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040/1920.0.1920.1040/-1920.6.1920.1040@0.0.1920.1040" timestamp="1630506523350" />
+    <state x="468" y="206" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040/1920.0.1920.1040/-1920.6.1920.1040@0.0.1920.1040" timestamp="1630668985494" />
     <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1630606376274" />
     <state x="790" y="230" key="#com.intellij.openapi.roots.ui.configuration.libraryEditor.LibraryEditorDialog" timestamp="1630606598751">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -120,26 +115,25 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="666" y="261" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040/-1920.6.1920.1040@0.0.1920.1040" timestamp="1630504089300" />
-<<<<<<< Updated upstream
-    <state width="1876" height="272" key="GridCell.Tab.0.bottom" timestamp="1630611682663">
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1630674533973">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040/-1920.6.1920.1040@0.0.1920.1040" timestamp="1630507721895" />
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040/-1920.6.1920.1040@0.0.1920.1040" timestamp="1630674533973" />
     <state width="1876" height="272" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1630611682663" />
-    <state width="1876" height="272" key="GridCell.Tab.0.center" timestamp="1630611682663">
+    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1630674533973">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040/-1920.6.1920.1040@0.0.1920.1040" timestamp="1630507721894" />
+    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040/-1920.6.1920.1040@0.0.1920.1040" timestamp="1630674533973" />
     <state width="1876" height="272" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1630611682663" />
-    <state width="1876" height="272" key="GridCell.Tab.0.left" timestamp="1630611682662">
+    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1630674533973">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040/-1920.6.1920.1040@0.0.1920.1040" timestamp="1630507721894" />
+    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040/-1920.6.1920.1040@0.0.1920.1040" timestamp="1630674533973" />
     <state width="1876" height="272" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1630611682662" />
-    <state width="1876" height="272" key="GridCell.Tab.0.right" timestamp="1630611682663">
+    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1630674533973">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040/-1920.6.1920.1040@0.0.1920.1040" timestamp="1630507721894" />
+    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040/-1920.6.1920.1040@0.0.1920.1040" timestamp="1630674533973" />
     <state width="1876" height="272" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1630611682663" />
     <state width="1876" height="347" key="GridCell.Tab.1.bottom" timestamp="1630607760129">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -157,10 +151,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1876" height="347" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1630607760129" />
-    <state x="440" y="94" key="SettingsEditor" timestamp="1630606608580">
+    <state x="440" y="94" key="SettingsEditor" timestamp="1630668803930">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="440" y="94" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040/-1920.6.1920.1040@0.0.1920.1040" timestamp="1630504153893" />
+    <state x="440" y="94" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040/-1920.6.1920.1040@0.0.1920.1040" timestamp="1630668803930" />
     <state x="440" y="94" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1630606608580" />
   </component>
   <component name="XDebuggerManager">
@@ -188,31 +182,5 @@
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
-=======
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1630508708031">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040/-1920.6.1920.1040@0.0.1920.1040" timestamp="1630508708031" />
-    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1630508708031">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040/-1920.6.1920.1040@0.0.1920.1040" timestamp="1630508708031" />
-    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1630508708031">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040/-1920.6.1920.1040@0.0.1920.1040" timestamp="1630508708031" />
-    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1630508708031">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040/-1920.6.1920.1040@0.0.1920.1040" timestamp="1630508708031" />
-    <state x="440" y="94" key="SettingsEditor" timestamp="1630504153893">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="440" y="94" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040/-1920.6.1920.1040@0.0.1920.1040" timestamp="1630504153893" />
-    <state x="690" y="270" key="extract.method.dialog" timestamp="1630507903069">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="690" y="270" key="extract.method.dialog/0.0.1920.1040/1920.0.1920.1040/-1920.6.1920.1040@0.0.1920.1040" timestamp="1630507903069" />
->>>>>>> Stashed changes
   </component>
 </project>
