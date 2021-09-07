@@ -33,7 +33,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="ProjectId" id="1nKDMhqihQmpkyXxJCfwZ2w74wI" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -46,12 +46,12 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../jdbc" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.0" />
   </component>
-  <component name="RunManager" selected="Application.QuickSort">
+  <component name="RunManager" selected="Application.Sieve">
     <configuration name="InsertionSort" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="git.nikhrom.algorithms.InsertionSort" />
       <module name="algorithms" />
@@ -101,8 +101,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Sieve" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.github.nikhrom.javatraining.algorithms.Sieve" />
+      <module name="algorithms" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.github.nikhrom.javatraining.algorithms.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Sieve" />
         <item itemvalue="Application.QuickSort" />
         <item itemvalue="Application.MergeSort" />
         <item itemvalue="Application.InsertionSort" />
@@ -123,6 +137,7 @@
       <workItem from="1628511953479" duration="1128000" />
       <workItem from="1629728622475" duration="9050000" />
       <workItem from="1629801055936" duration="3891000" />
+      <workItem from="1631039129534" duration="1597000" />
     </task>
     <servers />
   </component>
@@ -147,22 +162,22 @@
     </state>
     <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040/-1920.6.1920.1040@0.0.1920.1040" timestamp="1628515346916" />
     <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1630602926243" />
-    <state width="1876" height="277" key="GridCell.Tab.0.bottom" timestamp="1629809093868">
+    <state width="1876" height="282" key="GridCell.Tab.0.bottom" timestamp="1631040125508">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1876" height="277" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1629809093868" />
-    <state width="1876" height="277" key="GridCell.Tab.0.center" timestamp="1629809093868">
+    <state width="1876" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1631040125508" />
+    <state width="1876" height="282" key="GridCell.Tab.0.center" timestamp="1631040125508">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1876" height="277" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1629809093868" />
-    <state width="1876" height="277" key="GridCell.Tab.0.left" timestamp="1629809093868">
+    <state width="1876" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1631040125508" />
+    <state width="1876" height="282" key="GridCell.Tab.0.left" timestamp="1631040125508">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1876" height="277" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1629809093868" />
-    <state width="1876" height="277" key="GridCell.Tab.0.right" timestamp="1629809093868">
+    <state width="1876" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1631040125508" />
+    <state width="1876" height="282" key="GridCell.Tab.0.right" timestamp="1631040125508">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1876" height="277" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1629809093868" />
+    <state width="1876" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1631040125508" />
     <state width="1876" height="342" key="GridCell.Tab.1.bottom" timestamp="1629751464551">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
