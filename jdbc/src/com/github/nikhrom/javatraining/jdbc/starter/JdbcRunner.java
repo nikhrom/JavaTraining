@@ -12,12 +12,34 @@ import java.util.stream.Stream;
 public class JdbcRunner {
 
     public static void main(String[] args) throws SQLException {
-        LocalDateTime start = LocalDateTime.of(2018, 1, 1, 1, 1, 1);
-        LocalDateTime end = LocalDateTime.of(2020, 1, 1, 1, 1, 1);
-
-        System.out.println(getFlightsBetween(start, end));
+        checkMetaData();
     }
 
+
+
+    private static void checkMetaData(){
+        try (var connection = ConnectionManager.open()) {
+            var metaData = connection.getMetaData();
+            var catalogs = metaData.getCatalogs();
+            while (catalogs.next()){
+                System.out.println(catalogs.getString(1));
+                var schemas = metaData.getSchemas();
+                while (schemas.next()){
+                    System.out.println(schemas.getString("TABLE_SCHEM"));
+
+                    var tables = metaData.getTables(null, null, "%", null);
+                    while (tables.next()){
+                        System.out.println(tables.getString("TABLE_NAME"));
+                    }
+                }
+
+            }
+
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+    }
 
     private static List<Integer> getFlightsBetween(LocalDateTime start, LocalDateTime end){
 
@@ -31,6 +53,8 @@ public class JdbcRunner {
 
         try (var connection = ConnectionManager.open();
             var preparedStatement = connection.prepareStatement(sql)){
+
+
 
             preparedStatement.setTimestamp(1, Timestamp.valueOf(start));
             preparedStatement.setTimestamp(2, Timestamp.valueOf(end));
