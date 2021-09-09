@@ -10,7 +10,7 @@ import java.sql.Statement;
 public class TransactionRunner {
 
     public static void main(String[] args) throws SQLException {
-        int flightId = 9;
+        int flightId = 7;
         var deleteFlightSql = "DELETE FROM flight WHERE id = %d;".formatted(flightId);
         var deleteTicketSql = "DELETE FROM ticket WHERE flight_id = %d;".formatted(flightId);
 
@@ -22,14 +22,16 @@ public class TransactionRunner {
             connection.setAutoCommit(false);
 
             statement = connection.createStatement();
-            statement.addBatch(deleteFlightSql);
             statement.addBatch(deleteTicketSql);
+            statement.addBatch(deleteFlightSql);
+            statement.executeBatch();
 
             connection.commit();
         } catch (SQLException e) {
             if (connection != null)
                 connection.rollback();
 
+            e.printStackTrace();
             throw e;
         } finally {
             if (connection != null)
