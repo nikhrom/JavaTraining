@@ -18,7 +18,7 @@ public class JdbcRunner {
 
 
     private static void checkMetaData(){
-        try (var connection = ConnectionManager.open()) {
+        try (var connection = ConnectionManager.get()) {
             var metaData = connection.getMetaData();
             var catalogs = metaData.getCatalogs();
             while (catalogs.next()){
@@ -51,7 +51,7 @@ public class JdbcRunner {
                 WHERE departure_date BETWEEN ? AND ?;
                 """;
 
-        try (var connection = ConnectionManager.open();
+        try (var connection = ConnectionManager.get();
             var preparedStatement = connection.prepareStatement(sql)){
 
 
@@ -84,7 +84,7 @@ public class JdbcRunner {
 
         List<Integer> ids = new ArrayList<>();
 
-        try(var connection = ConnectionManager.open();
+        try(var connection = ConnectionManager.get();
             var statement = connection.prepareStatement(sql)){
 
             statement.setInt(1, flightId);
@@ -124,7 +124,7 @@ public class JdbcRunner {
                 """;
 
 
-        try (var connection = ConnectionManager.open();
+        try (var connection = ConnectionManager.get();
              var statement = connection.createStatement()) {
 
             System.out.println(connection.getTransactionIsolation());
