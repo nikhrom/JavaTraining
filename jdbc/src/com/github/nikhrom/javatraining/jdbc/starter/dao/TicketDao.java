@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-public class TicketDao {
+public class TicketDao implements Dao<Integer, Ticket>{
 
     public static final TicketDao INSTANCE = new TicketDao();
     private static final String DELETE_SQL = """
@@ -97,6 +97,7 @@ public class TicketDao {
         }
     }
 
+    @Override
     public List<Ticket> findAll() {
         try (var connection = ConnectionManager.get();
              var preparedStatement = connection.prepareStatement(FIND_ALL_SQL)) {
@@ -115,6 +116,7 @@ public class TicketDao {
         }
     }
 
+    @Override
     public Optional<Ticket> findById(Integer id) {
 
         try (var connection = ConnectionManager.get();
@@ -146,6 +148,7 @@ public class TicketDao {
         );
     }
 
+    @Override
     public void update(Ticket ticket) {
         try (var connection = ConnectionManager.get();
              var preparedStatement = connection.prepareStatement(UPDATE_SQL)) {
@@ -164,6 +167,7 @@ public class TicketDao {
         }
     }
 
+    @Override
     public Ticket save(Ticket ticket) {
         try (var connection = ConnectionManager.get();
              var preparedStatement = connection.prepareStatement(SAVE_SQL, Statement.RETURN_GENERATED_KEYS)) {
@@ -187,6 +191,7 @@ public class TicketDao {
         }
     }
 
+    @Override
     public boolean delete(Integer id) {
         try (var connection = ConnectionManager.get();
              var preparedStatement = connection.prepareStatement(DELETE_SQL)) {
