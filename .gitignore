@@ -22,19 +22,8 @@
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 *.meta
-java/dmdev/.idea/dataSources.local.xml
-java/dmdev/.idea/dataSources.xml
-java/dmdev/.idea/workspace.xml
-java/dmdev/.idea/dataSources/555a10d5-da17-49f7-b891-ee1da76b89ca.xml
-java/dmdev/.idea/workspace.xml
-leetcode/.idea/dataSources.local.xml
-leetcode/.idea/dataSources.xml
-leetcode/.idea/dataSources/778051cf-8371-4bd7-b166-1235f06e07d9.xml
-leetcode/.idea/workspace.xml
-leetcode/.idea/workspace.xml
-java/algorithms/.idea/misc.xml
-java/algorithms/.idea/workspace.xml
-leetcode/.idea/dataSources/f6f3c65f-e49c-4ac1-a8a2-d3e5aeb8d1aa.xml
-leetcode/.idea/sqldialects.xml
-*.xml
+.idea/*
+out/*
+*/.idea/*
+*/out/*
 *.iml
