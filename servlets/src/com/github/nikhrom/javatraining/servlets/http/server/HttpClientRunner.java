@@ -17,7 +17,7 @@ public class HttpClientRunner {
 
 
         var request = HttpRequest.newBuilder()
-                .POST(HttpRequest.BodyPublishers.ofString("adawdawd"))
+                .POST(HttpRequest.BodyPublishers.ofString("send request"))
                 .header("content-type", "text/plain")
                 .uri(URI.create("http://localhost:80"))
                 .build();
