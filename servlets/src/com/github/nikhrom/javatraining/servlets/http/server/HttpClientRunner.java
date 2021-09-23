@@ -6,10 +6,11 @@ import java.net.http.HttpClient;
 import java.net.http.HttpHeaders;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.util.concurrent.ExecutionException;
 
 public class HttpClientRunner {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         var client = HttpClient.newBuilder()
                 .version(HttpClient.Version.HTTP_1_1)
                 .build();
@@ -17,7 +18,7 @@ public class HttpClientRunner {
 
 
         var request = HttpRequest.newBuilder()
-                .POST(HttpRequest.BodyPublishers.ofString("send request"))
+                .POST(HttpRequest.BodyPublishers.ofString("request"))
                 .header("content-type", "text/plain")
                 .uri(URI.create("http://localhost:80"))
                 .build();
@@ -27,13 +28,21 @@ public class HttpClientRunner {
 
         try {
             System.out.println("Отправляю");
-            var response = client.send(request, HttpResponse.BodyHandlers.ofString());
+
+            var response = client.sendAsync(request, HttpResponse.BodyHandlers.ofInputStream());
+            var response2 = client.sendAsync(request, HttpResponse.BodyHandlers.ofInputStream());
+            var response3 = client.sendAsync(request, HttpResponse.BodyHandlers.ofInputStream());
+
             System.out.println("Принял");
-            var headers = response.headers();
-            System.out.println(headers);
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (InterruptedException e) {
+
+            System.out.println(response.get().headers());
+            System.out.println(response2.get().headers());
+            System.out.println(response3.get().headers());
+
+
+
+
+        } catch (ExecutionException e) {
             e.printStackTrace();
         }
     }
