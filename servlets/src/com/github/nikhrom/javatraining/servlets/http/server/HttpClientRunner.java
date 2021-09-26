@@ -29,20 +29,20 @@ public class HttpClientRunner {
         try {
             System.out.println("Отправляю");
 
-            var response = client.sendAsync(request, HttpResponse.BodyHandlers.ofInputStream());
-            var response2 = client.sendAsync(request, HttpResponse.BodyHandlers.ofInputStream());
-            var response3 = client.sendAsync(request, HttpResponse.BodyHandlers.ofInputStream());
+            var response = client.send(request, HttpResponse.BodyHandlers.ofInputStream());
+            var response2 = client.send(request, HttpResponse.BodyHandlers.ofInputStream());
+            var response3 = client.send(request, HttpResponse.BodyHandlers.ofInputStream());
 
             System.out.println("Принял");
 
-            System.out.println(response.get().headers());
-            System.out.println(response2.get().headers());
-            System.out.println(response3.get().headers());
+            System.out.println(response.headers());
+            System.out.println(response2.headers());
+            System.out.println(response3.headers());
 
 
 
 
-        } catch (ExecutionException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }

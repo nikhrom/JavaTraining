@@ -8,8 +8,9 @@ import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.OptionalInt;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+import java.util.concurrent.*;
+
+
 
 public class HttpServer {
 
@@ -23,6 +24,7 @@ public class HttpServer {
 
         this.port = port;
     }
+
 
     public void run(){
         try (var server = new ServerSocket(port)){
@@ -38,33 +40,23 @@ public class HttpServer {
 
     private void processSocket(Socket socket) {
         try(socket;
-            var inputStream = new DataInputStream(socket.getInputStream());
+            var inputReader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             var outputStream = new DataOutputStream(socket.getOutputStream())){
 
             // handle request
-            List<String> inputHeaders = readHeaders(inputStream);
+            List<String> inputHeaders = readHeaders(inputReader);
             System.out.println(inputHeaders);
-            System.out.println(inputStream);
-            Thread.sleep(0);
             OptionalInt contentLength = getContentLength(inputHeaders);
 
-            if(contentLength.isPresent()){
+            contentLength.ifPresent((length) ->{
                 try {
-                    System.out.println("Request: " + new String(inputStream.readNBytes(contentLength.getAsInt())));
+                    char[] body = new char[length];
+                    inputReader.read(body);
+                    System.out.println("Body: " + new String(body));
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-            }
-//            contentLength.ifPresent((length) ->
-//                    {
-//                        try {
-//                            System.out.println("Request: " + new String(inputStream.readNBytes(length)));
-//                        } catch (IOException e) {
-//                            e.printStackTrace();
-//                        }
-//                    }
-//            );
-
+            });
 
 
 
@@ -80,7 +72,7 @@ public class HttpServer {
             outputStream.write(System.lineSeparator().getBytes());
             outputStream.write(body);
 
-        } catch (IOException | InterruptedException e) {
+        } catch (IOException e) {
             // TODO: 22.09.2021 log error message
             e.printStackTrace();
         }
@@ -90,15 +82,14 @@ public class HttpServer {
         return inputHeaders.stream()
                         .skip(1)
                         .map(line -> line.split(": "))
-//                        .map(line -> new String[]{line[0].trim(), line[1].trim()})
                         .filter(header -> header[0].toLowerCase().equals("Content-Length".toLowerCase()))
                         .mapToInt(line -> Integer.parseInt(String.valueOf(line[1])))
                         .findFirst();
     }
 
-    private List<String> readHeaders(InputStream inputStream) throws IOException {
+    private List<String> readHeaders(Reader reader) throws IOException {
 
-        var headerStream = new BufferedReader(new InputStreamReader(inputStream));
+        var headerStream = new BufferedReader(reader);
         List<String> inputHeaders = new ArrayList<>();
         String currentLine = headerStream.readLine();
         while (!currentLine.equals("")){
