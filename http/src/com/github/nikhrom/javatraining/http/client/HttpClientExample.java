@@ -1,4 +1,4 @@
-package com.github.nikhrom.javatraining.servlets.http.client;
+package com.github.nikhrom.javatraining.http.client;
 
 import java.io.IOException;
 import java.net.URI;

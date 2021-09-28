@@ -1,4 +1,4 @@
-package com.github.nikhrom.javatraining.servlets.http.socket;
+package com.github.nikhrom.javatraining.http.socket;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
