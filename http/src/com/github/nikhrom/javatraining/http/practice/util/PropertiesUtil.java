@@ -1,9 +1,13 @@
 package com.github.nikhrom.javatraining.http.practice.util;
 
+import lombok.SneakyThrows;
+import lombok.experimental.UtilityClass;
+
 import java.io.*;
 import java.util.Properties;
 import java.util.stream.Stream;
 
+@UtilityClass
 public class PropertiesUtil {
 
     private static final Properties PROPERTIES = new Properties();
@@ -12,16 +16,10 @@ public class PropertiesUtil {
         loadProperties();
     }
 
-    private PropertiesUtil() {
-
-    }
-
+    @SneakyThrows
     private static void loadProperties(){
-
         try(var resource = PropertiesUtil.class.getClassLoader().getResourceAsStream("application.properties")) {
             PROPERTIES.load(resource);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
         }
     }
 

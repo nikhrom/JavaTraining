@@ -20,6 +20,8 @@ public class FlightServlet extends HttpServlet {
         resp.setContentType("text/html");
         resp.setCharacterEncoding(StandardCharsets.UTF_8.name());
 
+
+
         try (var writer = resp.getWriter()) {
             writer.write("<h1>Список перелётов:</h1>");
             writer.write("<ul>");

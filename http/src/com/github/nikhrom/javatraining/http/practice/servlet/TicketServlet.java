@@ -31,7 +31,7 @@ public class TicketServlet extends HttpServlet {
             writer.write("<ul>");
 
             TicketService.getInstance()
-                    .findAll(TicketFilter.newBuilder().flightId(flightId).limit(10).build())
+                    .findAll(TicketFilter.builder().flightId(flightId).build())
                     .forEach(ticketDto -> {
                         writer.write("""
                                 <li> %s </li>

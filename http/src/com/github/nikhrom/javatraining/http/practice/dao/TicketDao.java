@@ -37,32 +37,32 @@ public class TicketDao implements Dao<Integer, Ticket> {
         List<Object> parameters = new ArrayList<>();
         List<String> wherePatterns = new ArrayList<>();
 
-        if(filter.seatNo() != null){
+        if(filter.getSeatNo() != null){
             wherePatterns.add("seat_no LIKE ?");
-            parameters.add("%" + filter.seatNo() + "%");
+            parameters.add("%" + filter.getSeatNo() + "%");
         }
 
-        if(filter.passengerName() != null){
+        if(filter.getPassengerName() != null){
             wherePatterns.add("passenger_name = ?");
-            parameters.add(filter.passengerName());
+            parameters.add(filter.getPassengerName());
         }
 
-        if(filter.flightId() != 0){
+        if(filter.getFlightId() != 0){
             wherePatterns.add("flight_id = ?");
-            parameters.add(filter.flightId());
+            parameters.add(filter.getFlightId());
         }
 
         StringBuilder where = new StringBuilder();
 
         where.append(String.join(" AND ", wherePatterns));
 
-        if(filter.limit() != 0) {
-            parameters.add(filter.limit());
+        if(filter.getLimit() != 0) {
+            parameters.add(filter.getLimit());
             where.append(" LIMIT ? ");
         }
 
-        if(filter.offset() != 0) {
-            parameters.add(filter.offset());
+        if(filter.getOffset() != 0) {
+            parameters.add(filter.getOffset());
             where.append(" OFFSET ? ");
         }
 

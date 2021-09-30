@@ -19,13 +19,12 @@ public class TicketService {
         return TicketDao.getInstance()
                 .findAll(filter)
                 .stream()
-                .map(ticket ->
-                    new TicketDto(
-                            ticket.getId(),
-                            "%s - %s - %s".formatted(
-                                    ticket.getSeatNo(), ticket.getPassengerName(), ticket.getCost()
-                            )
-                    ))
+                .map(ticket -> TicketDto.builder()
+                                .id(ticket.getId())
+                                .description("%s - %s - %s".formatted(
+                                        ticket.getSeatNo(), ticket.getPassengerName(), ticket.getCost()
+                                )).build()
+                )
                 .collect(toList());
     }
 
