@@ -1,4 +1,4 @@
-package com.github.nikhrom.javatraining.http.servlets;
+package com.github.nikhrom.javatraining.http.servlet;
 
 
 import javax.servlet.ServletException;
@@ -7,15 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.net.URL;
-import java.nio.ByteBuffer;
 import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 
 @WebServlet("/download")
 public class DownloadServlet extends HttpServlet {

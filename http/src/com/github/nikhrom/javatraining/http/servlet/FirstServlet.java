@@ -1,4 +1,4 @@
-package com.github.nikhrom.javatraining.http.servlets;
+package com.github.nikhrom.javatraining.http.servlet;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
