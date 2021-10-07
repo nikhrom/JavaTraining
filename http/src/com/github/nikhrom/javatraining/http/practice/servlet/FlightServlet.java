@@ -2,6 +2,7 @@ package com.github.nikhrom.javatraining.http.practice.servlet;
 
 import com.github.nikhrom.javatraining.http.practice.dto.FlightDto;
 import com.github.nikhrom.javatraining.http.practice.service.FlightService;
+import com.github.nikhrom.javatraining.http.util.JspHelper;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -15,29 +16,15 @@ import java.nio.charset.StandardCharsets;
 @WebServlet("/flights")
 public class FlightServlet extends HttpServlet {
 
+    private final FlightService service = FlightService.getInstance();
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        resp.setContentType("text/html");
-        resp.setCharacterEncoding(StandardCharsets.UTF_8.name());
+        req.setAttribute("flights", service.findAll());
+        req.getRequestDispatcher(JspHelper.getPath("flights"))
+                .forward(req, resp);
 
 
 
-        try (var writer = resp.getWriter()) {
-            writer.write("<h1>Список перелётов:</h1>");
-            writer.write("<ul>");
-            FlightService.getInstance()
-                    .findAll()
-                    .forEach(flightDto -> {
-                        writer.write("""
-                                <li>
-                                    <a href="/tickets?flightId=%d">%s</a>
-                                </li>
-                                """.formatted(flightDto.getId(), flightDto.getDescription())
-                        );
-                    });
-
-            writer.write("</ul>");
-
-        }
     }
 }

@@ -15,6 +15,13 @@ public class TicketService {
 
     private TicketService(){}
 
+    public List<TicketDto> findTicketsByFlightId(int flightId){
+        TicketFilter ticketFilter = TicketFilter.builder()
+                .flightId(flightId).build();
+
+        return findAll(ticketFilter);
+    }
+
     public List<TicketDto> findAll(TicketFilter filter){
         return TicketDao.getInstance()
                 .findAll(filter)
