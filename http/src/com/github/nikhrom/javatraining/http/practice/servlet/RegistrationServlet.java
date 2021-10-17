@@ -2,6 +2,7 @@ package com.github.nikhrom.javatraining.http.practice.servlet;
 
 import com.github.nikhrom.javatraining.http.practice.dto.CreateUserDto;
 import com.github.nikhrom.javatraining.http.practice.entity.User;
+import com.github.nikhrom.javatraining.http.practice.entity.UserRole;
 import com.github.nikhrom.javatraining.http.practice.service.UserService;
 import com.github.nikhrom.javatraining.http.util.JspHelper;
 
@@ -11,6 +12,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.List;
 
 
 @WebServlet("/registration")
@@ -20,6 +22,10 @@ public class RegistrationServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+        req.setAttribute("roles", List.of(UserRole.values()));
+        req.setAttribute("genders", List.of("male", "female"));
+
         req.getRequestDispatcher(JspHelper.getPath("registration"))
                 .forward(req, resp);
     }
