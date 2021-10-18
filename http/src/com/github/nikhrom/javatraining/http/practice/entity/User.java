@@ -19,5 +19,5 @@ public class User {
     String email;
     String password;
     UserRole role;
-    String gender;
+    Gender gender;
 }

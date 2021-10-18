@@ -12,16 +12,14 @@ import lombok.experimental.FieldDefaults;
 
 import java.time.LocalDate;
 
-@Data
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
-@FieldDefaults(level = AccessLevel.PRIVATE)
 public class UserService {
-    static final UserService INSTANCE = new UserService();
-    static final UserDao USER_DAO = UserDao.getInstance();
+    private static final UserService INSTANCE = new UserService();
+    private final UserDao userDao = UserDao.getInstance();
 
     public boolean saveUser(CreateUserDto userDto) {
         try {
-            USER_DAO.save(buildUser(userDto));
+            userDao.save(buildUser(userDto));
             return true;
         }catch (Exception exception){
             exception.printStackTrace();

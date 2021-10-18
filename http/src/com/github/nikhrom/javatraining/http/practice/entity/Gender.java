@@ -3,12 +3,12 @@ package com.github.nikhrom.javatraining.http.practice.entity;
 import java.util.Arrays;
 import java.util.Optional;
 
-public enum UserRole {
-    ADMIN, USER;
+public enum Gender {
+    MALE, FEMALE;
 
-    public static Optional<UserRole> find(String userRole){
+    public static Optional<Gender> find(String gender){
         return Arrays.stream(values())
-                .filter(it -> it.name().equals(userRole))
+                .filter(it -> it.name().equals(gender))
                 .findFirst();
     }
 }
