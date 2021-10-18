@@ -39,6 +39,21 @@
         <br>
         <button type="submit">Send</button>
     </form>
+    <c:choose>
+        <c:when test="${empty requestScope.errors}">
+            <div>
+                <span style="color: green">Успешно</span>
+            </div>
+        </c:when>
+        <c:otherwise>
+            <div>
+                <c:forEach var="error" items="${requestScope.errors}">
+                    <span style="color: red">${error.message}</span> <br>
+                </c:forEach>
+            </div>
+        </c:otherwise>
+    </c:choose>
+
 
 </body>
 </html>

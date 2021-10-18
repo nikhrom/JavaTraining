@@ -4,6 +4,10 @@ import com.github.nikhrom.javatraining.http.practice.dao.UserDao;
 import com.github.nikhrom.javatraining.http.practice.dto.CreateUserDto;
 import com.github.nikhrom.javatraining.http.practice.entity.User;
 import com.github.nikhrom.javatraining.http.practice.entity.UserRole;
+import com.github.nikhrom.javatraining.http.practice.exception.ValidationException;
+import com.github.nikhrom.javatraining.http.practice.mapper.CreateUserMapper;
+import com.github.nikhrom.javatraining.http.practice.validator.CreateUserValidator;
+import com.github.nikhrom.javatraining.http.practice.validator.ValidationResult;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Data;
@@ -16,29 +20,20 @@ import java.time.LocalDate;
 public class UserService {
     private static final UserService INSTANCE = new UserService();
     private final UserDao userDao = UserDao.getInstance();
+    private final CreateUserValidator createUserValidator = CreateUserValidator.getInstance();
+    private final CreateUserMapper createUserMapper = CreateUserMapper.getInstance();
 
-    public boolean saveUser(CreateUserDto userDto) {
-        try {
-            userDao.save(buildUser(userDto));
-            return true;
-        }catch (Exception exception){
-            exception.printStackTrace();
-            return false;
+    public Integer saveUser(CreateUserDto userDto) {
+        var validationResult = createUserValidator.isValid(userDto);
+        if (!validationResult.isValid()){
+            throw new ValidationException(validationResult.getErrors());
         }
+        var userEntity = createUserMapper.mapFrom(userDto);
+        var save = userDao.save(userEntity);
+        return save.getId();
     }
 
-    private User buildUser(CreateUserDto userDto) {
-        return User.builder()
-                .birthday(LocalDate.parse(userDto.getBirthday()))
-                .name(userDto.getName())
-                .email(userDto.getName())
-                .gender(userDto.getGender())
-                .role(UserRole.valueOf(userDto.getRole()))
-                .password(userDto.getPassword())
-                .build();
-    }
 
-    ;
 
     public static UserService getInstance() {
         return INSTANCE;

@@ -1,8 +1,10 @@
 package com.github.nikhrom.javatraining.http.practice.servlet;
 
 import com.github.nikhrom.javatraining.http.practice.dto.CreateUserDto;
+import com.github.nikhrom.javatraining.http.practice.entity.Gender;
 import com.github.nikhrom.javatraining.http.practice.entity.User;
 import com.github.nikhrom.javatraining.http.practice.entity.UserRole;
+import com.github.nikhrom.javatraining.http.practice.exception.ValidationException;
 import com.github.nikhrom.javatraining.http.practice.service.UserService;
 import com.github.nikhrom.javatraining.http.util.JspHelper;
 
@@ -18,13 +20,14 @@ import java.util.List;
 @WebServlet("/registration")
 public class RegistrationServlet extends HttpServlet {
 
-    private static final UserService USER_SERVICE = UserService.getInstance();
+    private static final RegistrationServlet INSTANCE = new RegistrationServlet();
 
+    private final UserService userService = UserService.getInstance();
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        req.setAttribute("roles", List.of(UserRole.values()));
-        req.setAttribute("genders", List.of("male", "female"));
+        req.setAttribute("roles", UserRole.values());
+        req.setAttribute("genders", Gender.values());
 
         req.getRequestDispatcher(JspHelper.getPath("registration"))
                 .forward(req, resp);
@@ -32,7 +35,6 @@ public class RegistrationServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        var name = req.getParameter("name");
         var userDto = CreateUserDto.builder()
                 .name(req.getParameter("name"))
                 .email(req.getParameter("email"))
@@ -42,11 +44,17 @@ public class RegistrationServlet extends HttpServlet {
                 .password(req.getParameter("password"))
                 .build();
 
-        boolean access = USER_SERVICE.saveUser(userDto);
+        try {
+            userService.saveUser(userDto);
+        }catch (ValidationException exception){
+            req.setAttribute("errors", exception.getErrors());
+        }
 
-        req.setAttribute("access", access);
-
-        req.getRequestDispatcher("");
+        doGet(req, resp);
     }
 
+
+    public static RegistrationServlet getInstance() {
+        return INSTANCE;
+    }
 }

@@ -4,6 +4,7 @@ import com.github.nikhrom.javatraining.http.practice.dao.UserDao;
 import com.github.nikhrom.javatraining.http.practice.dto.CreateUserDto;
 import com.github.nikhrom.javatraining.http.practice.entity.Gender;
 import com.github.nikhrom.javatraining.http.practice.entity.UserRole;
+import com.github.nikhrom.javatraining.http.practice.util.LocalDateFormatter;
 
 public class CreateUserValidator implements Validator<CreateUserDto> {
 
@@ -13,6 +14,10 @@ public class CreateUserValidator implements Validator<CreateUserDto> {
     @Override
     public ValidationResult isValid(CreateUserDto object) {
         ValidationResult validationResult = new ValidationResult();
+
+        if(!LocalDateFormatter.isValid(object.getBirthday())){
+            validationResult.add(Error.of("invalid.birthday", "Birthday is invalid"));
+        }
 
         if(Gender.find(object.getGender()).isEmpty()){
             validationResult.add(Error.of("invalid.gender", "Invalid gender"));
