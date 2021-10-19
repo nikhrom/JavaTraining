@@ -4,6 +4,7 @@ import lombok.*;
 import lombok.experimental.FieldDefaults;
 
 import java.time.LocalDate;
+import java.util.Optional;
 
 @Data
 @FieldDefaults(level = AccessLevel.PRIVATE)
@@ -20,4 +21,5 @@ public class User {
     String password;
     UserRole role;
     Gender gender;
+    Optional<String> image = Optional.empty();
 }

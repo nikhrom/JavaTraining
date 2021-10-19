@@ -2,19 +2,17 @@ package com.github.nikhrom.javatraining.http.practice.service;
 
 import com.github.nikhrom.javatraining.http.practice.dao.UserDao;
 import com.github.nikhrom.javatraining.http.practice.dto.CreateUserDto;
-import com.github.nikhrom.javatraining.http.practice.entity.User;
-import com.github.nikhrom.javatraining.http.practice.entity.UserRole;
 import com.github.nikhrom.javatraining.http.practice.exception.ValidationException;
 import com.github.nikhrom.javatraining.http.practice.mapper.CreateUserMapper;
 import com.github.nikhrom.javatraining.http.practice.validator.CreateUserValidator;
-import com.github.nikhrom.javatraining.http.practice.validator.ValidationResult;
 import lombok.AccessLevel;
-import lombok.Builder;
-import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.experimental.FieldDefaults;
+import lombok.SneakyThrows;
 
-import java.time.LocalDate;
+import javax.servlet.http.Part;
+import java.io.InputStream;
+import java.io.UncheckedIOException;
+import java.util.Optional;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class UserService {
@@ -22,6 +20,7 @@ public class UserService {
     private final UserDao userDao = UserDao.getInstance();
     private final CreateUserValidator createUserValidator = CreateUserValidator.getInstance();
     private final CreateUserMapper createUserMapper = CreateUserMapper.getInstance();
+    private final ImageService imageService = ImageService.getInstance();
 
     public Integer saveUser(CreateUserDto userDto) {
         var validationResult = createUserValidator.isValid(userDto);
@@ -29,10 +28,15 @@ public class UserService {
             throw new ValidationException(validationResult.getErrors());
         }
         var userEntity = createUserMapper.mapFrom(userDto);
+        imageService.upload(userEntity.getImage(), userDto.getImage().map(this::getInputStreamFromPart));
         var save = userDao.save(userEntity);
         return save.getId();
     }
 
+    @SneakyThrows
+    private InputStream getInputStreamFromPart(Part part){
+        return part.getInputStream();
+    }
 
 
     public static UserService getInstance() {

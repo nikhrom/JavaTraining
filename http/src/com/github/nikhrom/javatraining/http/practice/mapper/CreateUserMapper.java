@@ -8,23 +8,30 @@ import com.github.nikhrom.javatraining.http.practice.util.LocalDateFormatter;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 
+import javax.servlet.http.Part;
 import java.time.LocalDate;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class CreateUserMapper implements Mapper<CreateUserDto, User>{
 
     private static final CreateUserMapper INSTANCE = new CreateUserMapper();
+    private static final String IMAGE_FOLDER = "users/";
 
     @Override
     public User mapFrom(CreateUserDto object) {
-        return User.builder()
+        var build = User.builder()
                 .birthday(LocalDateFormatter.format(object.getBirthday()))
                 .name(object.getName())
                 .email(object.getEmail())
                 .gender(Gender.valueOf(object.getGender()))
                 .role(UserRole.valueOf(object.getRole()))
                 .password(object.getPassword())
+                .image(object.getImage()
+                        .map(Part::getSubmittedFileName)
+                        .filter(fileName -> !fileName.isEmpty())
+                        .map(fileName -> IMAGE_FOLDER + fileName))
                 .build();
+        return build;
     }
 
     public static CreateUserMapper getInstance() {

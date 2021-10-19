@@ -9,14 +9,17 @@ import com.github.nikhrom.javatraining.http.practice.service.UserService;
 import com.github.nikhrom.javatraining.http.util.JspHelper;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.Part;
 import java.io.IOException;
 import java.util.List;
+import java.util.Optional;
 
-
+@MultipartConfig(fileSizeThreshold = 1024 * 1024)
 @WebServlet("/registration")
 public class RegistrationServlet extends HttpServlet {
 
@@ -35,6 +38,7 @@ public class RegistrationServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        var image = Optional.of(req.getPart("image"));
         var userDto = CreateUserDto.builder()
                 .name(req.getParameter("name"))
                 .email(req.getParameter("email"))
@@ -42,6 +46,7 @@ public class RegistrationServlet extends HttpServlet {
                 .gender(req.getParameter("gender"))
                 .role(req.getParameter("role"))
                 .password(req.getParameter("password"))
+                .image(image)
                 .build();
 
         try {

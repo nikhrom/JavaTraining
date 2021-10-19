@@ -3,6 +3,9 @@ package com.github.nikhrom.javatraining.http.practice.dto;
 import lombok.Builder;
 import lombok.Value;
 
+import javax.servlet.http.Part;
+import java.util.Optional;
+
 @Value
 @Builder
 public class CreateUserDto {
@@ -12,4 +15,5 @@ public class CreateUserDto {
     String password;
     String role;
     String gender;
+    Optional<Part> image;
 }

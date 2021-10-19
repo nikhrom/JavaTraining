@@ -27,12 +27,12 @@ public class UserDao implements Dao<Integer, User>{
     static final UserDao INSTANCE = new UserDao();
 
     static final String SAVE_SQL = """
-            INSERT INTO users(name, birthday, email, password, role, gender) 
-            VALUES (?, ?, ?, ?, ?, ?)           
+            INSERT INTO users(name, birthday, email, password, role, gender, image) 
+            VALUES (?, ?, ?, ?, ?, ?, ?)           
             """;
 
     static final String FIND_ALL_SQL = """
-            SELECT id, name, birthday, email, password, role, gender
+            SELECT id, name, birthday, email, password, role, gender, image
             FROM users
             """;
 
@@ -101,6 +101,7 @@ public class UserDao implements Dao<Integer, User>{
                 .email(resultSet.getString("email"))
                 .name(resultSet.getString("name"))
                 .birthday(resultSet.getDate("birthday").toLocalDate())
+                .image(Optional.ofNullable(resultSet.getString("image")))
                 .build();
 
         return user;
@@ -123,6 +124,7 @@ public class UserDao implements Dao<Integer, User>{
             preparedStatement.setString(4, entity.getPassword());
             preparedStatement.setString(5, entity.getRole().name());
             preparedStatement.setString(6, entity.getGender().name());
+            preparedStatement.setString(7, entity.getImage().orElse(null));
 
             preparedStatement.executeUpdate();
             ResultSet generatedKeys = preparedStatement.getGeneratedKeys();
