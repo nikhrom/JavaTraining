@@ -1,6 +1,5 @@
 package com.github.nikhrom.javatraining.http.practice.servlet;
 
-import com.github.nikhrom.javatraining.http.practice.dto.FlightDto;
 import com.github.nikhrom.javatraining.http.practice.service.FlightService;
 import com.github.nikhrom.javatraining.http.util.JspHelper;
 
@@ -10,7 +9,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.nio.charset.StandardCharsets;
 
 
 @WebServlet("/flights")

@@ -2,8 +2,6 @@ package com.github.nikhrom.javatraining.http.practice.entity;
 
 import lombok.*;
 
-import java.util.Objects;
-
 @Data
 @AllArgsConstructor
 @NoArgsConstructor

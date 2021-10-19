@@ -1,7 +1,6 @@
 package com.github.nikhrom.javatraining.http.practice.validator;
 
 import lombok.Getter;
-import lombok.Value;
 
 import java.util.ArrayList;
 import java.util.List;

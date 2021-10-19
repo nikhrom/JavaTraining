@@ -4,15 +4,11 @@ import com.github.nikhrom.javatraining.http.practice.dto.TicketFilter;
 import com.github.nikhrom.javatraining.http.practice.entity.Ticket;
 import com.github.nikhrom.javatraining.http.practice.util.ConnectionManager;
 
-import java.security.KeyPair;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
-
-import static java.util.stream.Collectors.*;
 
 public class TicketDao implements Dao<Integer, Ticket> {
 

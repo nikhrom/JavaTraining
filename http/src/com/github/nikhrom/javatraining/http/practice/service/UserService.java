@@ -11,8 +11,6 @@ import lombok.SneakyThrows;
 
 import javax.servlet.http.Part;
 import java.io.InputStream;
-import java.io.UncheckedIOException;
-import java.util.Optional;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class UserService {

@@ -3,9 +3,7 @@ package com.github.nikhrom.javatraining.http.practice.entity;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.Objects;
 
 @Data
 @FieldDefaults(level = AccessLevel.PRIVATE)

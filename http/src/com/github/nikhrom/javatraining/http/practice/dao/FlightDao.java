@@ -4,7 +4,6 @@ import com.github.nikhrom.javatraining.http.practice.entity.Flight;
 import com.github.nikhrom.javatraining.http.practice.entity.FlightStatus;
 import com.github.nikhrom.javatraining.http.practice.util.ConnectionManager;
 
-import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;

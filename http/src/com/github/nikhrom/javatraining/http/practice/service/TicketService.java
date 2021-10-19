@@ -3,12 +3,10 @@ package com.github.nikhrom.javatraining.http.practice.service;
 import com.github.nikhrom.javatraining.http.practice.dao.TicketDao;
 import com.github.nikhrom.javatraining.http.practice.dto.TicketDto;
 import com.github.nikhrom.javatraining.http.practice.dto.TicketFilter;
-import com.github.nikhrom.javatraining.http.practice.entity.Ticket;
 
 import java.util.List;
 
-
-import static java.util.stream.Collectors.*;
+import static java.util.stream.Collectors.toList;
 
 public class TicketService {
     private static final TicketService INSTANCE = new TicketService();

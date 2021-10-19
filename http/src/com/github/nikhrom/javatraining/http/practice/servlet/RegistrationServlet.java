@@ -2,7 +2,6 @@ package com.github.nikhrom.javatraining.http.practice.servlet;
 
 import com.github.nikhrom.javatraining.http.practice.dto.CreateUserDto;
 import com.github.nikhrom.javatraining.http.practice.entity.Gender;
-import com.github.nikhrom.javatraining.http.practice.entity.User;
 import com.github.nikhrom.javatraining.http.practice.entity.UserRole;
 import com.github.nikhrom.javatraining.http.practice.exception.ValidationException;
 import com.github.nikhrom.javatraining.http.practice.service.UserService;
@@ -14,9 +13,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.Part;
 import java.io.IOException;
-import java.util.List;
 import java.util.Optional;
 
 @MultipartConfig(fileSizeThreshold = 1024 * 1024)

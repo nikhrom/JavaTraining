@@ -2,10 +2,8 @@ package com.github.nikhrom.javatraining.http.practice.service;
 
 import com.github.nikhrom.javatraining.http.practice.dao.FlightDao;
 import com.github.nikhrom.javatraining.http.practice.dto.FlightDto;
-import com.github.nikhrom.javatraining.http.practice.entity.Flight;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 import static java.util.stream.Collectors.toList;
 

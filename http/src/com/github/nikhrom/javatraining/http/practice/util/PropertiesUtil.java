@@ -3,9 +3,7 @@ package com.github.nikhrom.javatraining.http.practice.util;
 import lombok.SneakyThrows;
 import lombok.experimental.UtilityClass;
 
-import java.io.*;
 import java.util.Properties;
-import java.util.stream.Stream;
 
 @UtilityClass
 public class PropertiesUtil {

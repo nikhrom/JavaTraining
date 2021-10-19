@@ -9,7 +9,6 @@ import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 
 import javax.servlet.http.Part;
-import java.time.LocalDate;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class CreateUserMapper implements Mapper<CreateUserDto, User>{
