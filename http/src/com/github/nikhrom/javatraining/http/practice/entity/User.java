@@ -21,5 +21,6 @@ public class User {
     String password;
     UserRole role;
     Gender gender;
+    @Builder.Default
     Optional<String> image = Optional.empty();
 }

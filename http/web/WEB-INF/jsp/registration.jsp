@@ -13,6 +13,8 @@
 </head> 
 <body>
 
+    <img src="${pageContext.request.contextPath}/images/users/42.jpg" alt="User image">
+
     <form action="${pageContext.request.contextPath}/registration" method="post" enctype="multipart/form-data">
         <label for="name">Name:
             <input type="text" name="name" id="name">
@@ -43,7 +45,7 @@
         <button type="submit">Send</button>
     </form>
     <c:choose>
-        <c:when test="${empty requestScope.errors}">
+        <c:when test="${empty requestScope.errors && requestScope.errors ne null}">
             <div>
                 <span style="color: green">Успешно</span>
             </div>
