@@ -21,6 +21,9 @@ public class User {
     String password;
     UserRole role;
     Gender gender;
-    @Builder.Default
-    Optional<String> image = Optional.empty();
+    String image;
+
+    public Optional<String> getImage() {
+        return Optional.ofNullable(image);
+    }
 }

@@ -63,11 +63,13 @@ public class UserDao implements Dao<Integer, User>{
             parameters.add(filter.getEmail());
         }
 
-        var where = new StringBuilder();
-        where.append(String.join(" AND ", wherePatterns));
+        if(filter.getPassword() != null){
+            wherePatterns.add(" password LIKE ? ");
+            parameters.add(filter.getPassword());
+        }
 
         var sql = wherePatterns.isEmpty()? FIND_ALL_SQL:
-                  FIND_ALL_SQL + " WHERE " +  where.toString();
+                  FIND_ALL_SQL + " WHERE " + String.join(" AND ", wherePatterns);
 
 
         List<User> users = new ArrayList<>();
@@ -99,7 +101,7 @@ public class UserDao implements Dao<Integer, User>{
                 .email(resultSet.getString("email"))
                 .name(resultSet.getString("name"))
                 .birthday(resultSet.getDate("birthday").toLocalDate())
-                .image(Optional.ofNullable(resultSet.getString("image")))
+                .image(resultSet.getString("image"))
                 .build();
 
         return user;

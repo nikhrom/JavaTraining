@@ -34,12 +34,12 @@ public class ImageService {
     }
 
     @SneakyThrows
-    public void upload(Optional<String> imagePath, Optional<InputStream> imageContent){
-        if(imageContent.isPresent()) {
-            InputStream imageStream = imageContent.get();
+    public void upload(String imagePath, InputStream imageContent){
+        if(imageContent != null) {
+            InputStream imageStream = imageContent;
             try (imageStream) {
-                if (imagePath.isPresent()) {
-                    var imageFullPath = Path.of(baseDir + imagePath.get());
+                if (imagePath != null) {
+                    var imageFullPath = Path.of(baseDir + imagePath);
                     Files.createDirectories(imageFullPath.getParent());
                     Files.write(imageFullPath, imageStream.readAllBytes(), CREATE, TRUNCATE_EXISTING);
                 }

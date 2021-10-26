@@ -28,7 +28,8 @@ public class CreateUserMapper implements Mapper<CreateUserDto, User>{
                 .image(object.getImage()
                         .map(Part::getSubmittedFileName)
                         .filter(fileName -> !fileName.isEmpty())
-                        .map(fileName -> IMAGE_FOLDER + fileName))
+                        .map(fileName -> IMAGE_FOLDER + fileName)
+                        .orElse(null))
                 .build();
         return build;
     }

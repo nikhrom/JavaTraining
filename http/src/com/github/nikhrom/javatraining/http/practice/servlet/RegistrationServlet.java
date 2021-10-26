@@ -35,7 +35,6 @@ public class RegistrationServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        var image = Optional.of(req.getPart("image"));
         var userDto = CreateUserDto.builder()
                 .name(req.getParameter("name"))
                 .email(req.getParameter("email"))
@@ -43,16 +42,18 @@ public class RegistrationServlet extends HttpServlet {
                 .gender(req.getParameter("gender"))
                 .role(req.getParameter("role"))
                 .password(req.getParameter("password"))
-                .image(image)
+                .image(req.getPart("image"))
                 .build();
 
         try {
             userService.saveUser(userDto);
+            resp.sendRedirect(JspHelper.getPath("login"));
         }catch (ValidationException exception){
             req.setAttribute("errors", exception.getErrors());
+            doGet(req, resp);
         }
 
-        doGet(req, resp);
+
     }
 
 
