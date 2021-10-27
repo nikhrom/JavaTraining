@@ -15,12 +15,13 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.logging.Filter;
 
 import static java.sql.Statement.RETURN_GENERATED_KEYS;
 
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
-public class UserDao implements Dao<Integer, User>{
+public class UserDao implements Dao<Integer, User> {
 
     static final UserDao INSTANCE = new UserDao();
 
@@ -41,7 +42,7 @@ public class UserDao implements Dao<Integer, User>{
 
 
     @SneakyThrows
-    public boolean hasEmail(String email){
+    public boolean hasEmail(String email) {
         try (var connection = ConnectionManager.get();
              var preparedStatement = connection.prepareStatement(HAS_EMAIL_SQL)) {
 
@@ -53,36 +54,48 @@ public class UserDao implements Dao<Integer, User>{
         }
     }
 
+    public Optional<User> findByEmailAndPassword(String email, String password) {
+        var filterByEmailAndPassword = UserFilter.builder()
+                .email(email)
+                .password(password)
+                .build();
+
+        var users = findAll(filterByEmailAndPassword);
+
+        return users.isEmpty() ? Optional.empty()
+                : Optional.of(users.get(0));
+    }
+
     @SneakyThrows
-    public List<User> findAll(UserFilter filter){
+    public List<User> findAll(UserFilter filter) {
         List<String> wherePatterns = new ArrayList<>();
         List<Object> parameters = new ArrayList<>();
 
-        if(filter.getEmail() != null){
+        if (filter.getEmail() != null) {
             wherePatterns.add(" email LIKE ? ");
             parameters.add(filter.getEmail());
         }
 
-        if(filter.getPassword() != null){
+        if (filter.getPassword() != null) {
             wherePatterns.add(" password LIKE ? ");
             parameters.add(filter.getPassword());
         }
 
-        var sql = wherePatterns.isEmpty()? FIND_ALL_SQL:
-                  FIND_ALL_SQL + " WHERE " + String.join(" AND ", wherePatterns);
+        var sql = wherePatterns.isEmpty() ? FIND_ALL_SQL :
+                FIND_ALL_SQL + " WHERE " + String.join(" AND ", wherePatterns);
 
 
         List<User> users = new ArrayList<>();
 
         try (var connection = ConnectionManager.get();
-            var preparedStatement = connection.prepareStatement(sql)) {
+             var preparedStatement = connection.prepareStatement(sql)) {
 
-            for(int i = 0; i < parameters.size(); i++){
+            for (int i = 0; i < parameters.size(); i++) {
                 preparedStatement.setObject(i + 1, parameters.get(i));
             }
 
             var resultSet = preparedStatement.executeQuery();
-            while(resultSet.next()){
+            while (resultSet.next()) {
                 users.add(buildUser(resultSet));
             }
 
@@ -116,7 +129,7 @@ public class UserDao implements Dao<Integer, User>{
     @Override
     public User save(User entity) {
         try (var connection = ConnectionManager.get();
-            var preparedStatement = connection.prepareStatement(SAVE_SQL, RETURN_GENERATED_KEYS)) {
+             var preparedStatement = connection.prepareStatement(SAVE_SQL, RETURN_GENERATED_KEYS)) {
 
             preparedStatement.setString(1, entity.getName());
             preparedStatement.setDate(2, Date.valueOf(entity.getBirthday()));
