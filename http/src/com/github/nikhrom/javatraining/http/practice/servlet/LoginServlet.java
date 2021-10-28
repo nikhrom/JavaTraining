@@ -2,6 +2,7 @@ package com.github.nikhrom.javatraining.http.practice.servlet;
 
 import com.github.nikhrom.javatraining.http.practice.dto.UserDto;
 import com.github.nikhrom.javatraining.http.practice.service.UserService;
+import com.github.nikhrom.javatraining.http.practice.util.UrlPath;
 import com.github.nikhrom.javatraining.http.util.JspHelper;
 import lombok.SneakyThrows;
 
@@ -11,9 +12,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.Optional;
+import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 
-@WebServlet("/login")
+@WebServlet(UrlPath.LOGIN)
 public class LoginServlet extends HttpServlet {
     private static final LoginServlet INSTANCE = new LoginServlet();
 
@@ -22,10 +24,11 @@ public class LoginServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.getRequestDispatcher(JspHelper.getPath("login"))
             .forward(req, resp);
+
     }
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp){
         var login = userService.login(
                 req.getParameter("email"),
                 req.getParameter("password")

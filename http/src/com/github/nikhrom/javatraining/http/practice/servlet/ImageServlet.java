@@ -1,6 +1,7 @@
 package com.github.nikhrom.javatraining.http.practice.servlet;
 
 import com.github.nikhrom.javatraining.http.practice.service.ImageService;
+import com.github.nikhrom.javatraining.http.practice.util.UrlPath;
 import lombok.SneakyThrows;
 
 import javax.servlet.ServletException;
@@ -12,7 +13,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Optional;
 
-@WebServlet("/images/*")
+@WebServlet(UrlPath.IMAGES + "/*")
 public class ImageServlet extends HttpServlet{
 
     private final ImageService imageService = ImageService.getInstance();
