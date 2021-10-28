@@ -36,12 +36,11 @@ public class ImageService {
     @SneakyThrows
     public void upload(String imagePath, InputStream imageContent){
         if(imageContent != null) {
-            InputStream imageStream = imageContent;
-            try (imageStream) {
+            try (imageContent) {
                 if (imagePath != null) {
                     var imageFullPath = Path.of(baseDir + imagePath);
                     Files.createDirectories(imageFullPath.getParent());
-                    Files.write(imageFullPath, imageStream.readAllBytes(), CREATE, TRUNCATE_EXISTING);
+                    Files.write(imageFullPath, imageContent.readAllBytes(), CREATE, TRUNCATE_EXISTING);
                 }
             }
         }
