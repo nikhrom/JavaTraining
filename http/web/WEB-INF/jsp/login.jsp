@@ -7,15 +7,13 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <html>
 <head>
     <title>Login</title>
 </head>
 <body>
 
-    <fmt:setBundle basename="translations"/>
-    <fmt:setLocale value="ru_RU"/>
+    <%@include file="header.jsp"%>
 
     <form action="${pageContext.request.contextPath}/login" method="post">
         <label for="emailId"> <fmt:message key="page.login.email"/>:
