@@ -7,11 +7,17 @@ import java.util.List;
 
 public class UserService
 {
+    private List<UserDto> users = new ArrayList<>();
+
     public List<UserDto> getAll(){
-        return new ArrayList<>();
+        return users;
     }
     public static void main( String[] args )
     {
         System.out.println( "Hello World!" );
+    }
+
+    public void add(UserDto userDto) {
+        users.add(userDto);
     }
 }
