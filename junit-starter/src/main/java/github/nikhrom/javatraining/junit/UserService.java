@@ -1,10 +1,10 @@
-package github.nikhrom.javatraining.maven;
+package github.nikhrom.javatraining.junit;
 
 /**
  * Hello world!
  *
  */
-public class App
+public class UserService
 {
     public static void main( String[] args )
     {
