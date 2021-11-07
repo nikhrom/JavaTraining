@@ -4,6 +4,7 @@ import github.nikhrom.javatraining.junit.dto.UserDto;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class UserService
 {
@@ -19,5 +20,12 @@ public class UserService
 
     public void add(UserDto userDto) {
         users.add(userDto);
+    }
+
+    public Optional<UserDto> login(UserDto userDto) {
+        return users.stream()
+                .filter(user -> user.getEmail().equals(userDto.getEmail()))
+                .filter(user -> user.getPassword().equals(userDto.getPassword()))
+                .findFirst();
     }
 }
