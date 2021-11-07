@@ -6,19 +6,19 @@ import org.junit.jupiter.api.*;
 import java.util.List;
 import java.util.Optional;
 
+import static org.assertj.core.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.*;
-import static org.junit.jupiter.api.TestInstance.Lifecycle.PER_CLASS;
 import static org.junit.jupiter.api.TestInstance.Lifecycle.PER_METHOD;
 
 @TestInstance(PER_METHOD)
 class UserServiceTest {
 
     private UserService userService;
-    private static UserDto IVAN = UserDto.builder()
+    private static final UserDto IVAN = UserDto.builder()
             .email("ivan@mail.ru")
             .password("123")
             .build();
-    private static UserDto ALEX = UserDto.builder()
+    private static final UserDto ALEX = UserDto.builder()
             .email("alex@mail.ru")
             .password("example")
             .build();
@@ -33,7 +33,8 @@ class UserServiceTest {
     void usersEmptyIfNoUserAdded(){
         System.out.println("Test1: " + this);
         List<UserDto> all = userService.getAll();
-        assertTrue(all.isEmpty(), () -> "list should be empty");
+
+        assertThat(all).isEmpty();
     }
 
     @Test
@@ -45,9 +46,10 @@ class UserServiceTest {
         userService.add(userDto);
 
         Optional<UserDto> maybeUser = userService.login(userDto);
-        assertTrue(maybeUser.isPresent());
+        assertThat(maybeUser).isPresent();
 
-        maybeUser.ifPresent(user -> assertEquals(IVAN, user));
+
+        maybeUser.ifPresent(user -> assertThat(user).isEqualTo(IVAN));
     }
 
     @Test
@@ -59,7 +61,8 @@ class UserServiceTest {
         userService.add(userDto);
 
         Optional<UserDto> maybeUser = userService.login(userDto);
-        assertTrue(maybeUser.isPresent());
+
+        assertThat(maybeUser).isPresent();
     }
 
     @Test
@@ -71,7 +74,8 @@ class UserServiceTest {
         userService.add(userDto);
 
         Optional<UserDto> maybeUser = userService.login(userDto);
-        assertTrue(maybeUser.isPresent());
+
+        assertThat(maybeUser).isPresent();
     }
 
     @Test
@@ -80,7 +84,7 @@ class UserServiceTest {
         userService.add(ALEX);
         userService.add(IVAN);
 
-        assertEquals(2, userService.getAll().size());
+        assertThat(userService.getAll()).hasSize(2);
     }
 
     @AfterEach
