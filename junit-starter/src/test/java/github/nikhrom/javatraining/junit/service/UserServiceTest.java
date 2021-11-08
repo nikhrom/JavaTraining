@@ -1,7 +1,9 @@
 package github.nikhrom.javatraining.junit.service;
 
 import github.nikhrom.javatraining.junit.dto.UserDto;
+import github.nikhrom.javatraining.junit.paramresolver.UserServiceParameterResolver;
 import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.extension.ExtendWith;
 
 import java.util.List;
 import java.util.Optional;
@@ -13,6 +15,9 @@ import static org.junit.jupiter.api.TestInstance.Lifecycle.PER_METHOD;
 @Tag("fast")
 @Tag("user")
 @TestInstance(PER_METHOD)
+@ExtendWith({
+        UserServiceParameterResolver.class
+})
 class UserServiceTest {
 
     private UserService userService;
@@ -26,9 +31,9 @@ class UserServiceTest {
             .build();
 
     @BeforeEach
-    void prepare(){
+    void prepare(UserService userService){
         System.out.println("BeforeEach: " + this);
-        userService = new UserService();
+        this.userService = userService;
     }
 
     @Test
