@@ -15,5 +15,9 @@ public class CreateUserDto {
     String password;
     String role;
     String gender;
-    Optional<Part> image;
+    Part image;
+
+    public Optional<Part> getImage() {
+        return Optional.ofNullable(image);
+    }
 }

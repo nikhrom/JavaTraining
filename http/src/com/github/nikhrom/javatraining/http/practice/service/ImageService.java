@@ -5,6 +5,7 @@ import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 import lombok.SneakyThrows;
 
+import java.io.File;
 import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -25,17 +26,23 @@ public class ImageService {
     }
 
     @SneakyThrows
-    public void upload(Optional<String> imagePath, Optional<InputStream> imageContent){
-        if(imageContent.isPresent()) {
-            InputStream imageStream = imageContent.get();
-            try (imageStream) {
-                if (imagePath.isPresent()) {
-                    var imageFullPath = Path.of(baseDir + imagePath.get());
+    public Optional<InputStream> get(String imagePath) {
+        var imageFullPath = Path.of(baseDir, imagePath);
+        return Files.exists(imageFullPath)
+                ? Optional.of(Files.newInputStream(imageFullPath))
+                : Optional.empty();
+    }
+
+    @SneakyThrows
+    public void upload(String imagePath, InputStream imageContent){
+        if(imageContent != null) {
+            try (imageContent) {
+                if (imagePath != null) {
+                    var imageFullPath = Path.of(baseDir + imagePath);
                     Files.createDirectories(imageFullPath.getParent());
-                    Files.write(imageFullPath, imageStream.readAllBytes(), CREATE, TRUNCATE_EXISTING);
+                    Files.write(imageFullPath, imageContent.readAllBytes(), CREATE, TRUNCATE_EXISTING);
                 }
             }
         }
     }
-
 }

@@ -7,4 +7,5 @@ import lombok.Value;
 @Builder
 public class UserFilter {
     String email;
+    String password;
 }

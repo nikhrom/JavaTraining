@@ -5,6 +5,7 @@ import com.github.nikhrom.javatraining.http.practice.entity.Gender;
 import com.github.nikhrom.javatraining.http.practice.entity.UserRole;
 import com.github.nikhrom.javatraining.http.practice.exception.ValidationException;
 import com.github.nikhrom.javatraining.http.practice.service.UserService;
+import com.github.nikhrom.javatraining.http.practice.util.UrlPath;
 import com.github.nikhrom.javatraining.http.util.JspHelper;
 
 import javax.servlet.ServletException;
@@ -17,7 +18,7 @@ import java.io.IOException;
 import java.util.Optional;
 
 @MultipartConfig(fileSizeThreshold = 1024 * 1024)
-@WebServlet("/registration")
+@WebServlet(UrlPath.REGISTRATION)
 public class RegistrationServlet extends HttpServlet {
 
     private static final RegistrationServlet INSTANCE = new RegistrationServlet();
@@ -35,7 +36,6 @@ public class RegistrationServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        var image = Optional.of(req.getPart("image"));
         var userDto = CreateUserDto.builder()
                 .name(req.getParameter("name"))
                 .email(req.getParameter("email"))
@@ -43,16 +43,18 @@ public class RegistrationServlet extends HttpServlet {
                 .gender(req.getParameter("gender"))
                 .role(req.getParameter("role"))
                 .password(req.getParameter("password"))
-                .image(image)
+                .image(req.getPart("image"))
                 .build();
 
         try {
             userService.saveUser(userDto);
+            resp.sendRedirect("login");
         }catch (ValidationException exception){
             req.setAttribute("errors", exception.getErrors());
+            doGet(req, resp);
         }
 
-        doGet(req, resp);
+
     }
 
 
