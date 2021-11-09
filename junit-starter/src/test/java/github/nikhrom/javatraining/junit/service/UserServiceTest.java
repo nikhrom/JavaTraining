@@ -4,9 +4,14 @@ import github.nikhrom.javatraining.junit.dto.UserDto;
 import github.nikhrom.javatraining.junit.paramresolver.UserServiceParameterResolver;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.junit.jupiter.api.extension.ParameterResolver;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Stream;
 
 import static org.assertj.core.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.*;
@@ -59,48 +64,33 @@ class UserServiceTest {
     @DisplayName("user login test functionality")
     @Tag("login")
     class LoginTest{
-        @Test
-        void loginSuccessIfUserExists(){
+
+        @ParameterizedTest
+        @MethodSource({
+                "github.nikhrom.javatraining.junit.service.UserServiceTest#argumentsForLogin"
+        })
+        void loginParameterizedTest(String email, String password, Optional<UserDto> expectedUser){
+            expectedUser.ifPresent(user -> userService.add(user));
+
             UserDto userDto = UserDto.builder()
-                    .email(IVAN.getEmail())
-                    .password(IVAN.getPassword())
+                    .email(email)
+                    .password(password)
                     .build();
-            userService.add(userDto);
 
             Optional<UserDto> maybeUser = userService.login(userDto);
-            assertThat(maybeUser).isPresent();
-
-
-            maybeUser.ifPresent(user -> assertThat(user).isEqualTo(IVAN));
+            assertThat(maybeUser).isEqualTo(expectedUser);
         }
 
-        @Test
-        void loginFailureIfPasswordIsIncorrect(){
-            UserDto userDto = UserDto.builder()
-                    .email(IVAN.getEmail())
-                    .password("wrong")
-                    .build();
-            userService.add(userDto);
-
-            Optional<UserDto> maybeUser = userService.login(userDto);
-
-            assertThat(maybeUser).isPresent();
-        }
-
-        @Test
-        void loginFailureIfEmailIsIncorrect(){
-            UserDto userDto = UserDto.builder()
-                    .email("wrong")
-                    .password(IVAN.getPassword())
-                    .build();
-            userService.add(userDto);
-
-            Optional<UserDto> maybeUser = userService.login(userDto);
-
-            assertThat(maybeUser).isPresent();
-        }
     }
 
+    static Stream<Arguments> argumentsForLogin(){
+        return Stream.of(
+                Arguments.of(IVAN.getEmail(), IVAN.getPassword(), Optional.of(IVAN)),
+                Arguments.of("dummy", IVAN.getPassword(), Optional.empty()),
+                Arguments.of(IVAN.getEmail(), "dummy", Optional.empty()),
+                Arguments.of("dummy", "dummy", Optional.empty())
+        );
+    }
 
     @AfterEach
     void deleteDataFromDB(){
