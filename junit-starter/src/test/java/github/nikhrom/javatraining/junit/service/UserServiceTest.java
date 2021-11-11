@@ -1,13 +1,14 @@
 package github.nikhrom.javatraining.junit.service;
 
+import github.nikhrom.javatraining.junit.dao.UserDao;
 import github.nikhrom.javatraining.junit.dto.UserDto;
 import github.nikhrom.javatraining.junit.paramresolver.UserServiceParameterResolver;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.junit.jupiter.api.extension.ParameterResolver;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
+import org.mockito.Mockito;
 
 import java.util.List;
 import java.util.Optional;
@@ -25,20 +26,34 @@ import static org.junit.jupiter.api.TestInstance.Lifecycle.PER_METHOD;
 })
 class UserServiceTest {
 
+
+    private UserDao userDao;
     private UserService userService;
     private static final UserDto IVAN = UserDto.builder()
             .email("ivan@mail.ru")
             .password("123")
+            .id(1)
             .build();
     private static final UserDto ALEX = UserDto.builder()
             .email("alex@mail.ru")
             .password("example")
+            .id(2)
             .build();
 
     @BeforeEach
-    void prepare(UserService userService){
+    void prepare(){
         System.out.println("BeforeEach: " + this);
-        this.userService = userService;
+        this.userDao = Mockito.mock(UserDao.class);
+        this.userService = new UserService(this.userDao);
+    }
+
+    @Test
+    void shouldDeleteExistedUser(){
+        userService.add(IVAN);
+        Mockito.doReturn(true).when(userDao).delete(IVAN.getId());
+        var deleteResult = userService.delete(IVAN.getId());
+
+        assertThat(deleteResult).isTrue();
     }
 
     @Test

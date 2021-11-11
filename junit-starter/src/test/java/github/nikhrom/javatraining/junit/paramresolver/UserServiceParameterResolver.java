@@ -1,5 +1,6 @@
 package github.nikhrom.javatraining.junit.paramresolver;
 
+import github.nikhrom.javatraining.junit.dao.UserDao;
 import github.nikhrom.javatraining.junit.service.UserService;
 import org.junit.jupiter.api.extension.ExtensionContext;
 import org.junit.jupiter.api.extension.ParameterContext;
@@ -14,6 +15,6 @@ public class UserServiceParameterResolver implements ParameterResolver {
 
     @Override
     public Object resolveParameter(ParameterContext parameterContext, ExtensionContext extensionContext) throws ParameterResolutionException {
-        return new UserService();
+        return new UserService(new UserDao());
     }
 }

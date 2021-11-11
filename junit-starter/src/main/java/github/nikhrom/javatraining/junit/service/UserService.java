@@ -1,5 +1,6 @@
 package github.nikhrom.javatraining.junit.service;
 
+import github.nikhrom.javatraining.junit.dao.UserDao;
 import github.nikhrom.javatraining.junit.dto.UserDto;
 
 import java.util.ArrayList;
@@ -9,6 +10,15 @@ import java.util.Optional;
 public class UserService
 {
     private List<UserDto> users = new ArrayList<>();
+    private final UserDao userDao;
+
+    public UserService(UserDao userDao) {
+        this.userDao = userDao;
+    }
+
+    public boolean delete(Integer userId){
+        return userDao.delete(userId);
+    }
 
     public List<UserDto> getAll(){
         return users;
