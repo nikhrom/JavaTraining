@@ -9,7 +9,7 @@ public class ApplicationContextRunner {
     public static void main(String[] args) {
         try (var context = new ClassPathXmlApplicationContext("applicationContext.xml")) {
             var myPerson = context.getBean("myPerson", Person.class);
-            myPerson.say();
+            System.out.println(myPerson);
         }
     }
 

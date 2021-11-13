@@ -1,10 +1,9 @@
 package github.nikhrom.javatraining.spring.introduction.pet;
 
-public class Dog implements Pet {
+import lombok.Data;
 
-    public Dog(){
-        System.out.println("Dog is created");
-    }
+@Data
+public class Dog implements Pet {
 
     @Override
     public void say() {
