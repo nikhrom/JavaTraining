@@ -8,7 +8,7 @@ public class ConfigWithAnnotationRunner {
     public static void main(String[] args) {
         try (var context = new ClassPathXmlApplicationContext("applicationContextForAnnotations.xml")) {
             var person = context.getBean("personBean", Person.class);
-            person.say();
+            System.out.println(person);
         }
     }
 
