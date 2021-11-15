@@ -5,18 +5,21 @@ import lombok.Data;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 
 @Data
 @Component("personBean")
 public class Person {
+
     private Pet pet;
     private String name;
     private int age;
 
     @Autowired
-    public Person(Pet pet){
+    public Person(@Qualifier("dogBean") Pet pet){
         this.pet = pet;
     }
 
