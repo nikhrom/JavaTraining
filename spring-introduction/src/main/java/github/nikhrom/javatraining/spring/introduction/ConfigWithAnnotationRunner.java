@@ -7,6 +7,14 @@ public class ConfigWithAnnotationRunner {
 
     public static void main(String[] args) {
         try (var context = new ClassPathXmlApplicationContext("applicationContextForAnnotations.xml")) {
+            var personBeanOne = context.getBean("personBean");
+            var personBeanTwo = context.getBean("personBean");
+            System.out.println("Один и тот же бин? " + (personBeanOne == personBeanTwo ? "Да": "Нет"));
+        }
+    }
+
+    private static void createBeanWithDependency() {
+        try (var context = new ClassPathXmlApplicationContext("applicationContextForAnnotations.xml")) {
             var person = context.getBean("personBean", Person.class);
             System.out.println(person);
         }

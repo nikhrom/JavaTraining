@@ -13,6 +13,7 @@ import org.springframework.stereotype.Component;
 
 @Data
 @Component("personBean")
+@Scope("prototype")
 public class Person {
 
     private Pet pet;
