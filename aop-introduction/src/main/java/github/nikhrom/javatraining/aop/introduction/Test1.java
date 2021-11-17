@@ -9,6 +9,7 @@ public class Test1 {
         try (var context = new AnnotationConfigApplicationContext(Config.class)) {
             var library = context.getBean("libraryBean", Library.class);
             var book = library.getBook();
+            library.returnBook(book);
         }
 
     }
