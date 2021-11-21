@@ -16,7 +16,7 @@ public class UniversityLoggingAspect {
     private void getStudentsFromUniversity() {
     }
 
-    @Pointcut("execution(* github.nikhrom.javatraining.aop.introduction.University.getStudent(..))")
+    @Pointcut(value = "execution(* github.nikhrom.javatraining.aop.introduction.University.getStudent(..))")
     private void getStudentFromUniversity() {
     }
 
@@ -45,5 +45,11 @@ public class UniversityLoggingAspect {
 
         System.out.println("afterThrowingInGetStudentAdvice: логируем получение студента по индексу после" +
                 " выброса исключения в методе getStudent класса University");
+    }
+
+    @After(value = "getStudentFromUniversity() && args(index)")
+    public void afterGetStudentAdvice(int index) {
+        System.out.println("afterGetStudentAdvice: логируем получение студента по индексу после" +
+                " работы метода getStudent класса University");
     }
 }
