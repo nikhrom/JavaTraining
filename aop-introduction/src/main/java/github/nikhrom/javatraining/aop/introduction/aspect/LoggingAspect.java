@@ -1,10 +1,14 @@
 package github.nikhrom.javatraining.aop.introduction.aspect;
 
+import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.Signature;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
+
+import java.lang.reflect.Modifier;
 
 @Component
 @Aspect
@@ -12,8 +16,13 @@ import org.springframework.stereotype.Component;
 public class LoggingAspect{
 
     @Before("github.nikhrom.javatraining.aop.introduction.aspect.CommonLibraryPointcuts.libraryGetMethods()")
-    public void beforeLibraryGetMethodsAdvice(){
+    public void beforeLibraryGetMethodsAdvice(JoinPoint joinPoint){
         System.out.println("beforeLibraryGetMethodsAdvice: вызов get в Library");
+        var signature = joinPoint.getSignature();
+        System.out.println(signature.getDeclaringTypeName());
+        System.out.println(signature.getName());
+        System.out.println(Modifier.isPublic(signature.getModifiers()));
+        System.out.println(joinPoint);
     }
 
     @Before("github.nikhrom.javatraining.aop.introduction.aspect.CommonLibraryPointcuts.libraryReturnMethods()")
