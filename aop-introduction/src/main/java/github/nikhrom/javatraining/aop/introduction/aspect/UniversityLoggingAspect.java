@@ -1,8 +1,11 @@
 package github.nikhrom.javatraining.aop.introduction.aspect;
 
 import github.nikhrom.javatraining.aop.introduction.Student;
+import lombok.SneakyThrows;
 import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
+import org.aspectj.runtime.internal.AroundClosure;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
@@ -16,7 +19,7 @@ public class UniversityLoggingAspect {
     private void getStudentsFromUniversity() {
     }
 
-    @Pointcut(value = "execution(* github.nikhrom.javatraining.aop.introduction.University.getStudent(..))")
+    @Pointcut("execution(* github.nikhrom.javatraining.aop.introduction.University.getStudent(..))")
     private void getStudentFromUniversity() {
     }
 
@@ -47,9 +50,20 @@ public class UniversityLoggingAspect {
                 " выброса исключения в методе getStudent класса University");
     }
 
-    @After(value = "getStudentFromUniversity() && args(index)")
+    @After("getStudentFromUniversity() && args(index)")
     public void afterGetStudentAdvice(int index) {
         System.out.println("afterGetStudentAdvice: логируем получение студента по индексу после" +
                 " работы метода getStudent класса University");
     }
+
+
+    @Around("getStudentsFromUniversity()")
+    @SneakyThrows
+    public Object aroundGetStudentsAdvice(ProceedingJoinPoint joinPoint){
+        System.out.println("Перед getStudents()");
+        var students = joinPoint.proceed();
+        System.out.println("После getStudents()");
+        return students;
+    }
+
 }
