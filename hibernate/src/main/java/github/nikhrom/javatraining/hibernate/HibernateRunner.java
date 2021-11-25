@@ -1,6 +1,7 @@
 package github.nikhrom.javatraining.hibernate;
 
 
+import github.nikhrom.javatraining.hibernate.entity.Detail;
 import github.nikhrom.javatraining.hibernate.entity.Employee;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -12,21 +13,25 @@ import java.util.List;
 
 public class HibernateRunner {
     public static void main(String[] args) {
-        
-    }
-
-    private static void deleteEntity() {
-        SessionFactory configuration = new Configuration()
+        try (SessionFactory configuration = new Configuration()
                 .configure("hibernate.cfg.xml")
                 .addAnnotatedClass(Employee.class)
+                .addAnnotatedClass(Detail.class)
                 .buildSessionFactory();
+        ) {
+            deleteEntity(configuration);
+        }
 
+
+    }
+
+    private static void deleteEntity(SessionFactory configuration) {
         try (Session session = configuration.getCurrentSession()) {
 
             var transaction = session.beginTransaction();
 
             // first way
-            var employee = session.get(Employee.class, 10);
+            var employee = session.get(Employee.class, 15);
             session.delete(employee);
 
             // second way
@@ -38,12 +43,7 @@ public class HibernateRunner {
         }
     }
 
-    private static void updateEntity() {
-        SessionFactory configuration = new Configuration()
-                .configure("hibernate.cfg.xml")
-                .addAnnotatedClass(Employee.class)
-                .buildSessionFactory();
-
+    private static void updateEntity(SessionFactory configuration) {
         try (Session session = configuration.getCurrentSession()) {
 
             var transaction = session.beginTransaction();
@@ -56,12 +56,7 @@ public class HibernateRunner {
         }
     }
 
-    private static void getEntities() {
-        SessionFactory configuration = new Configuration()
-                .configure("hibernate.cfg.xml")
-                .addAnnotatedClass(Employee.class)
-                .buildSessionFactory();
-
+    private static void getEntities(SessionFactory configuration) {
         try (Session session = configuration.getCurrentSession()) {
 
             var transaction = session.beginTransaction();
@@ -79,35 +74,29 @@ public class HibernateRunner {
         }
     }
 
-    private static void getEntity() {
-        SessionFactory configuration = new Configuration()
-                .configure("hibernate.cfg.xml")
-                .addAnnotatedClass(Employee.class)
-                .buildSessionFactory();
-
+    private static void getEntity(SessionFactory configuration) {
         try (Session session = configuration.getCurrentSession()) {
 
             var transaction = session.beginTransaction();
 
-            var employee = session.get(Employee.class, 9);
+            var employee = session.get(Employee.class, 15);
 
             System.out.println(employee);
             transaction.commit();
         }
     }
 
-    private static void saveEntity() {
-        SessionFactory configuration = new Configuration()
-                .configure("hibernate.cfg.xml")
-                .addAnnotatedClass(Employee.class)
-                .buildSessionFactory();
-
+    private static void saveEntity(SessionFactory configuration) {
         try (Session session = configuration.getCurrentSession()) {
             var employee = Employee.builder()
                     .name("Nik")
                     .surname("Hrom")
                     .salary(100)
                     .department("Google")
+                    .detail(Detail.builder()
+                            .email("test3@gmail.com")
+                            .phoneNumber("+79827372622")
+                            .build())
                     .build();
 
 

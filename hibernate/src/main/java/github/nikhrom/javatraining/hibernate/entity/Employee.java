@@ -33,6 +33,10 @@ public class Employee {
     @Column(name = "salary")
     private Integer salary;
 
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "detail_id")
+    private Detail detail;
+
     public Optional<String> getDepartment() {
         return Optional.ofNullable(department);
     }
