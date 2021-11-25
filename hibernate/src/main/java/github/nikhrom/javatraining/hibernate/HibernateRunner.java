@@ -12,6 +12,33 @@ import java.util.List;
 
 public class HibernateRunner {
     public static void main(String[] args) {
+        
+    }
+
+    private static void deleteEntity() {
+        SessionFactory configuration = new Configuration()
+                .configure("hibernate.cfg.xml")
+                .addAnnotatedClass(Employee.class)
+                .buildSessionFactory();
+
+        try (Session session = configuration.getCurrentSession()) {
+
+            var transaction = session.beginTransaction();
+
+            // first way
+            var employee = session.get(Employee.class, 10);
+            session.delete(employee);
+
+            // second way
+            session.createQuery("delete from Employee " +
+                    "where id = 15")
+                    .executeUpdate();
+
+            transaction.commit();
+        }
+    }
+
+    private static void updateEntity() {
         SessionFactory configuration = new Configuration()
                 .configure("hibernate.cfg.xml")
                 .addAnnotatedClass(Employee.class)
