@@ -14,7 +14,7 @@ import java.util.Optional;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Detail{
+public class Detail {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,6 +31,10 @@ public class Detail{
 
     @Column(name = "email", nullable = false)
     private String email;
+
+    @OneToOne(mappedBy = "detail",
+            cascade = CascadeType.ALL)
+    private Employee employee;
 
     public Optional<String> getCity() {
         return Optional.ofNullable(city);

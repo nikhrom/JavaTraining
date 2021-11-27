@@ -19,7 +19,7 @@ public class HibernateRunner {
                 .addAnnotatedClass(Detail.class)
                 .buildSessionFactory();
         ) {
-            deleteEntity(configuration);
+            saveEntity(configuration);
         }
 
 
@@ -88,20 +88,24 @@ public class HibernateRunner {
 
     private static void saveEntity(SessionFactory configuration) {
         try (Session session = configuration.getCurrentSession()) {
+
             var employee = Employee.builder()
-                    .name("Nik")
-                    .surname("Hrom")
+                    .name("Nikolay")
+                    .surname("Nikolaev")
                     .salary(100)
                     .department("Google")
-                    .detail(Detail.builder()
-                            .email("test3@gmail.com")
-                            .phoneNumber("+79827372622")
-                            .build())
                     .build();
 
+            var detail = Detail.builder()
+                    .email("test1@gmail.com")
+                    .phoneNumber("+79827372621")
+                    .employee(employee)
+                    .build();
+
+            employee.setDetail(detail);
 
             var transaction = session.beginTransaction();
-            session.save(employee);
+            session.save(detail);
             transaction.commit();
         }
     }
