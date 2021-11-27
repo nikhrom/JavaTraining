@@ -27,21 +27,13 @@ public class Employee {
     @Column(name = "surname", nullable = false)
     private String surname;
 
-    @Column(name = "department")
+    @Column(name = "department", nullable = false)
     private String department;
 
-    @Column(name = "salary")
+    @Column(name = "salary", nullable = false)
     private Integer salary;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "detail_id")
     private Detail detail;
-
-    public Optional<String> getDepartment() {
-        return Optional.ofNullable(department);
-    }
-
-    public Optional<Integer> getSalary() {
-        return Optional.ofNullable(salary);
-    }
 }

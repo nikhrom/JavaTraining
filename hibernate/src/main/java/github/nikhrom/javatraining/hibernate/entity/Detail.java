@@ -26,10 +26,10 @@ public class Detail{
     @Nullable
     private String city;
 
-    @Column(name = "phone_number")
+    @Column(name = "phone_number", nullable = false)
     private String phoneNumber;
 
-    @Column(name = "email")
+    @Column(name = "email", nullable = false)
     private String email;
 
     public Optional<String> getCity() {
