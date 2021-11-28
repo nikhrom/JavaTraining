@@ -1,6 +1,7 @@
 package github.nikhrom.javatraining.hibernate;
 
 
+import github.nikhrom.javatraining.hibernate.entity.Department;
 import github.nikhrom.javatraining.hibernate.entity.Detail;
 import github.nikhrom.javatraining.hibernate.entity.Employee;
 import org.hibernate.Session;
@@ -17,6 +18,7 @@ public class HibernateRunner {
                 .configure("hibernate.cfg.xml")
                 .addAnnotatedClass(Employee.class)
                 .addAnnotatedClass(Detail.class)
+                .addAnnotatedClass(Department.class)
                 .buildSessionFactory();
         ) {
             saveEntity(configuration);
@@ -93,7 +95,6 @@ public class HibernateRunner {
                     .name("Nikolay")
                     .surname("Nikolaev")
                     .salary(100)
-                    .department("Google")
                     .build();
 
             var detail = Detail.builder()

@@ -19,8 +19,7 @@ public class Detail {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    @Builder.Default
-    private Integer id = 0;
+    private int id;
 
     @Column(name = "city")
     @Nullable
