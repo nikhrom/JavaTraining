@@ -1,13 +1,11 @@
 package github.nikhrom.javatraining.hibernate;
 
-import github.nikhrom.javatraining.hibernate.entity.Department;
-import github.nikhrom.javatraining.hibernate.entity.Detail;
-import github.nikhrom.javatraining.hibernate.entity.Employee;
+import github.nikhrom.javatraining.hibernate.entity.*;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-public class ManyToOneRunner {
+public class ManyToManyRunner {
 
     public static void main(String[] args) {
         try (SessionFactory configuration = new Configuration()
@@ -15,6 +13,7 @@ public class ManyToOneRunner {
                 .addAnnotatedClass(Employee.class)
                 .addAnnotatedClass(Department.class)
                 .addAnnotatedClass(Detail.class)
+                .addAnnotatedClass(LocalPhone.class)
                 .buildSessionFactory();
         ) {
             getEntities(configuration);
@@ -26,10 +25,6 @@ public class ManyToOneRunner {
 
             var transaction = session.beginTransaction();
 
-
-            session.createQuery("delete Employee where id = 5")
-                    .executeUpdate();
-
             transaction.commit();
         }
     }
@@ -39,9 +34,10 @@ public class ManyToOneRunner {
 
             var transaction = session.beginTransaction();
 
-            var department = session.get(Department.class, 1);
+            var phone = session.get(LocalPhone.class, 1);
 
-            System.out.println(department);
+            phone.getEmployees()
+                    .forEach(System.out::println);
 
             transaction.commit();
         }
@@ -50,28 +46,35 @@ public class ManyToOneRunner {
     private static void saveEntity(SessionFactory configuration) {
         try (Session session = configuration.getCurrentSession()) {
 
-            var department = Department.builder()
-                    .name("Google")
-                    .maxSalary(1_000_000)
-                    .minSalary(10_000)
+            LocalPhone firstPhone = LocalPhone.builder()
+                    .number("54-02")
+                    .type(LocalPhoneType.LOCAL.name())
                     .build();
 
-            var petr = Employee.builder()
+            LocalPhone secondPhone = LocalPhone.builder()
+                    .number("53-01")
+                    .type(LocalPhoneType.LOCAL.name())
+                    .build();
+
+            Employee nikita = Employee.builder()
+                    .name("Nikita")
+                    .surname("Nikitov")
+                    .build();
+
+            Employee petya = Employee.builder()
                     .name("Petr")
                     .surname("Petrov")
-                    .department(department)
                     .build();
 
-            var ivan = Employee.builder()
-                    .name("Ivan")
-                    .surname("Ivanov")
-                    .department(department)
-                    .build();
 
-            department.addEmployees(ivan, petr);
+            nikita.addLocalPhones(firstPhone, secondPhone);
+            petya.addLocalPhones(firstPhone);
+
 
             var transaction = session.beginTransaction();
-            session.persist(department);
+
+            session.persist(nikita);
+
             transaction.commit();
         }
     }

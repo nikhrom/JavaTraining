@@ -4,8 +4,7 @@ import com.sun.istack.NotNull;
 import lombok.*;
 
 import javax.persistence.*;
-import java.util.Optional;
-
+import java.util.*;
 
 @Entity
 @Table(name = "employee")
@@ -33,7 +32,8 @@ public class Employee {
             CascadeType.DETACH,
             CascadeType.MERGE,
             CascadeType.PERSIST,
-            CascadeType.REFRESH
+            CascadeType.REFRESH,
+
     })
     @JoinColumn(name = "department_id")
     private Department department;
@@ -41,4 +41,26 @@ public class Employee {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "detail_id")
     private Detail detail;
+
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "employee_phone",
+            joinColumns = @JoinColumn(name = "employee_id"),
+            inverseJoinColumns = @JoinColumn(name = "local_phone_id")
+    )
+    @ToString.Exclude
+    private List<LocalPhone> localPhones;
+
+
+    public void addLocalPhones(LocalPhone... phones) {
+        if (Objects.isNull(phones)) return;
+
+        if (Objects.isNull(localPhones)) {
+            localPhones = Arrays.asList(phones);
+            return;
+        }
+
+        localPhones.addAll(Arrays.asList(phones));
+    }
+
+    ;
 }

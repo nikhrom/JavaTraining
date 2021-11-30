@@ -32,7 +32,8 @@ public class Detail {
     private String email;
 
     @OneToOne(mappedBy = "detail",
-            cascade = CascadeType.ALL)
+            cascade = CascadeType.ALL,
+            fetch = FetchType.EAGER)
     private Employee employee;
 
     public Optional<String> getCity() {
