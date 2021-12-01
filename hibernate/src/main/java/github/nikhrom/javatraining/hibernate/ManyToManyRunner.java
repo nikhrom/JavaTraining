@@ -25,6 +25,10 @@ public class ManyToManyRunner {
 
             var transaction = session.beginTransaction();
 
+            var phone = session.get(LocalPhone.class, 5);
+
+            session.delete(phone);
+
             transaction.commit();
         }
     }
@@ -34,7 +38,7 @@ public class ManyToManyRunner {
 
             var transaction = session.beginTransaction();
 
-            var phone = session.get(LocalPhone.class, 1);
+            var phone = session.get(LocalPhone.class, 13);
 
             phone.getEmployees()
                     .forEach(System.out::println);
@@ -74,6 +78,7 @@ public class ManyToManyRunner {
             var transaction = session.beginTransaction();
 
             session.persist(nikita);
+            session.persist(petya);
 
             transaction.commit();
         }

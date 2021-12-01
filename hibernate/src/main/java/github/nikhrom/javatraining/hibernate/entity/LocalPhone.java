@@ -28,7 +28,7 @@ public class LocalPhone {
     @Column(name = "type")
     private String type;
 
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
     @JoinTable(name = "employee_phone",
             joinColumns = @JoinColumn(name = "local_phone_id"),
             inverseJoinColumns = @JoinColumn(name = "employee_id")
