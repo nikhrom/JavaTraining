@@ -14,12 +14,38 @@
     <context:component-scan base-package="github.nikhrom.javatraining.spring.mvc.introduction" />
     <mvc:annotation-driven/>
 
-    <bean
-            class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <property name="prefix" value="/WEB-INF/view/" />
-        <property name="suffix" value=".jsp" />
+
+    <bean id="templateResolver"
+          class="org.thymeleaf.spring5.templateresolver.SpringResourceTemplateResolver">
+        <property name="prefix" value="/WEB-INF/template/" />
+        <property name="suffix" value=".html" />
+        <property name="templateMode" value="HTML5" />
+        <property name="cacheable" value="true" />
+        <property name="characterEncoding" value="UTF-8"/>
+    </bean>
+    <bean id="templateEngine"
+          class="org.thymeleaf.spring5.SpringTemplateEngine">
+        <property name="templateResolver" ref="templateResolver" />
+        <property name="messageSource" ref="messageSource" />
+        <property name="enableSpringELCompiler" value="true" />
     </bean>
 
+<!--    <bean id="sss"-->
+<!--          class="org.thymeleaf."-->
+<!--    -->
+    <bean id="viewResolver"
+    class="org.thymeleaf.spring5.view.ThymeleafViewResolver">
+        <property name="templateEngine" ref="templateEngine" />
+        <property name="order" value="1" />
+        <property name="characterEncoding" value="UTF-8"/>
+    </bean>
+
+    <bean id="messageSource"
+        class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+        <property name="basename" value="classpath:translations" />
+        <property name="defaultEncoding" value="UTF-8"/>
+    </bean>
+    
 </beans>
 
 

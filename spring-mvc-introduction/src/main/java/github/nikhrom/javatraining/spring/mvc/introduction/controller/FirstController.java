@@ -1,14 +1,18 @@
 package github.nikhrom.javatraining.spring.mvc.introduction.controller;
 
+import org.springframework.core.io.ResourceLoader;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
-@Controller("/")
+import javax.servlet.http.HttpServletRequest;
+
+@Controller("firstController")
 public class FirstController{
 
-
     @GetMapping("/")
-    private String showFirstView(){
+    public String showFirstView(Model model){
+        model.addAttribute("lang", "en");
         return "first-view";
     }
 
