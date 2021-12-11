@@ -6,6 +6,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -15,4 +17,7 @@ public class EmployeeDto implements Serializable{
     int age;
     String name;
     String lastName;
+    String department;
+    String gender;
+    String[] preferLanguages;
 }

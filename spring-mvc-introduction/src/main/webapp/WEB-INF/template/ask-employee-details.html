@@ -1,23 +1,41 @@
-<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Ask details</title>
 </head>
 <body>
 <!--/*@thymesVar id="employee" type="github.nikhrom.javatraining.spring.mvc.introduction.dto.EmployeeDto"*/-->
 <form action="#" th:action="@{/employee}" th:object="${employee}" method="post">
-    <p>
-        <label th:text="#{name}"></label>
-        <input type="text" th:field="*{name}" />
-    </p>
-    <p>
-    <label th:text="#{lastName}"></label>
+
+    <span th:text="#{name} + ':'" th:remove="tag"></span>
+    <input type="text" th:field="*{name}" />
+    <br>
+    <span th:text="#{lastName} + ':'" th:remove="tag"></span>
     <input type="text" th:field="*{lastName}" />
-    </p>
-    <p>
-    <label th:text="#{age}"></label>
+    <br>
+    <span th:text="#{age} + ':'" th:remove="tag"></span>
     <input type="text" th:field="*{age}" />
-    </p>
-    <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+    <br>
+    <span th:text="#{department} + ':'" th:remove="tag"></span>
+    <select name="department">
+        <option th:each="department : ${T(github.nikhrom.javatraining.spring.mvc.introduction.entity.Department).values()}"
+                th:value="${department}" th:text="${department}" th:field="*{department}">
+        </option>
+    </select>
+    <br>
+    <span th:text="#{gender} + ':'" th:remove="tag"></span>
+    <div th:remove="tag" th:each="gender: ${T(github.nikhrom.javatraining.spring.mvc.introduction.entity.Gender).values()}">
+        <label th:for="${gender}" th:text="${gender}"></label>
+        <input type="radio" th:field="*{gender}" th:value="${gender}">
+    </div>
+    <br>
+    <span th:text="#{prefer-languages} + ':'" th:remove="tag"></span>
+    <div th:remove="tag" th:each="language: ${T(github.nikhrom.javatraining.spring.mvc.introduction.entity.Language).values()}">
+        <label th:for="${language}" th:text="${language}"></label>
+        <input type="checkbox" th:field="*{preferLanguages}" th:value="${language}">
+    </div>
+    <br>
+    <input type="submit" value="Submit" /> <input type="reset" value="Reset" />
+
 </form>
 
 </body>

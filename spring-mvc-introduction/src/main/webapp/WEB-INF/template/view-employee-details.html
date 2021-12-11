@@ -1,16 +1,24 @@
-<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>View details</title>
 </head>
 <body>
 
-<h1 th:text="#{template.view-employee-details.greeting}">!!!</h1>
+<h1 th:text="#{template.view-employee-details.greeting} + '!!!'"></h1>
 <!--/*@thymesVar id="employee" type="github.nikhrom.javatraining.spring.mvc.introduction.dto.EmployeeDto"*/-->
-<p th:with="employee = ${employee}">
-    <span th:text="#{name}"></span> <p th:text="${employee.name}"></p>
-    <span th:text="#{lastName}"></span> <p th:text="${employee.lastName}"></p>
-    <span th:text="#{age}"></span> <p th:text="${employee.age}"></p>
-</p>
+<div th:with="employee = ${employee}">
+    <p th:text="#{name} + ': ' + ${employee.name}"></p>
+    <p th:text="#{lastName} + ': ' + ${employee.lastName}"></p>
+    <p th:text="#{age} + ': ' + ${employee.age}"></p>
+    <p th:text="#{department} + ': ' + ${employee.department}"></p>
+    <p th:text="#{gender} + ': ' + ${employee.gender}"></p>
+    <span th:text="#{prefer-languages} + ': '"></span>
+    <ul>
+        <li th:each="language : ${employee.preferLanguages}">
+            <p th:remove="tag" th:text="${language} + ' '">
+        </li>
+    </ul>
+</div>
 
 </body>
 </html>
