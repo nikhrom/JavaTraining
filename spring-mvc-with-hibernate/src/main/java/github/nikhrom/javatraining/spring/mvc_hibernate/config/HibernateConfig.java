@@ -12,14 +12,13 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
-import org.springframework.orm.jpa.vendor.HibernateJpaDialect;
-import org.springframework.transaction.annotation.Transactional;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.sql.DataSource;
 import java.util.Properties;
 
 @Configuration
-@Transactional("transactionManager")
+@EnableTransactionManagement
 @PropertySource("classpath:/application.properties")
 public class HibernateConfig {
 
@@ -54,6 +53,8 @@ public class HibernateConfig {
         var properties = new Properties();
         properties.setProperty("hibernate.dialect", PostgreSQL10Dialect.class.getCanonicalName());
         properties.setProperty("show.sql", "true");
+        properties.setProperty("hibernate.connection.pool_size", "10");
+//        properties.setProperty("hibernate.current_session_context_class", "thread");
         sessionFactory.setHibernateProperties(properties);
         return sessionFactory;
     }

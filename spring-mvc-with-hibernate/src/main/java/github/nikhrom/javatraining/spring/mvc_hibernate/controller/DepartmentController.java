@@ -15,7 +15,8 @@ import java.util.List;
 @RequestMapping("/department")
 public class DepartmentController {
 
-    private final DepartmentService departmentService;
+    @Autowired
+    private DepartmentService departmentService;
 
     @GetMapping
     String showDepartments(Model model){
@@ -23,11 +24,5 @@ public class DepartmentController {
         model.addAttribute("departments", allDepartments);
 
         return "show-departments";
-    }
-
-
-    @Autowired
-    private DepartmentController(DepartmentService departmentService) {
-        this.departmentService = departmentService;
     }
 }
