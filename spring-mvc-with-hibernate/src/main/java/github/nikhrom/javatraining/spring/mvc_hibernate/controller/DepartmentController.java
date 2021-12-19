@@ -1,22 +1,21 @@
 package github.nikhrom.javatraining.spring.mvc_hibernate.controller;
 
 
-import github.nikhrom.javatraining.spring.mvc_hibernate.entity.Department;
+import github.nikhrom.javatraining.spring.mvc_hibernate.dto.DepartmentDto;
 import github.nikhrom.javatraining.spring.mvc_hibernate.service.DepartmentService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-
-import java.util.List;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("/department")
+@RequiredArgsConstructor
 public class DepartmentController {
 
-    @Autowired
-    private DepartmentService departmentService;
+    private final DepartmentService departmentService;
+
 
     @GetMapping
     String showDepartments(Model model){
@@ -24,5 +23,17 @@ public class DepartmentController {
         model.addAttribute("departments", allDepartments);
 
         return "show-departments";
+    }
+
+    @GetMapping("/add")
+    String addDepartment(Model model){
+        model.addAttribute("department", new DepartmentDto());
+        return "add-department";
+    }
+
+    @PostMapping("/add")
+    String onAddDepartment(@ModelAttribute("department") DepartmentDto departmentDto){
+        departmentService.addDepartment(departmentDto);
+        return "redirect:/department";
     }
 }

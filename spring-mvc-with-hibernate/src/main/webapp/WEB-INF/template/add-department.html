@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <form method="post" action="/department/add">
+
+        <span th:text="'Department name: '"></span>
+        <select name="name">
+            <option disabled selected></option>
+            <option th:each="name : ${T(github.nikhrom.javatraining.spring.mvc_hibernate.entity.DepartmentName).values()}"
+                th:value="${name}" th:text="${name}">
+            </option>
+        </select>
+        <br>
+        <label>
+            <span th:text="'Max salary: '"></span>
+            <input type="text" name="maxSalary"/>
+        </label>
+        <br>
+        <label>
+            <span th:text="'Min salary: '"></span>
+            <input type="text" name="minSalary"/>
+        </label>
+        <br>
+
+        <input type="submit" value="Submit">
+    </form>
+
+</body>
+</html>

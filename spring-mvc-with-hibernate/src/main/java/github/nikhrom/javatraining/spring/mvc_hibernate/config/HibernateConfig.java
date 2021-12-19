@@ -54,7 +54,6 @@ public class HibernateConfig {
         properties.setProperty("hibernate.dialect", PostgreSQL10Dialect.class.getCanonicalName());
         properties.setProperty("show.sql", "true");
         properties.setProperty("hibernate.connection.pool_size", "10");
-//        properties.setProperty("hibernate.current_session_context_class", "thread");
         sessionFactory.setHibernateProperties(properties);
         return sessionFactory;
     }
