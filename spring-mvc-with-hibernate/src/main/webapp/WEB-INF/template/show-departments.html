@@ -13,6 +13,7 @@
             <th>Department</th>
             <th>Min salary</th>
             <th>Max salary</th>
+            <th>Operations</th>
         </tr>
 
         <div th:each="department: ${departments}" th:remove="tag">
@@ -20,6 +21,7 @@
                 <td th:text="${department.name}"></td>
                 <td th:text="${department.minSalary}"></td>
                 <td th:text="${department.maxSalary}"></td>
+                
             </tr>
         </div>
 

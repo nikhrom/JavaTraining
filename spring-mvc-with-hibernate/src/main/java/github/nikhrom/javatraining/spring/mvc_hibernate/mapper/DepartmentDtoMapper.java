@@ -10,7 +10,7 @@ public class DepartmentDtoMapper implements Mapper<Department, DepartmentDto>{
     @Override
     public DepartmentDto mapFrom(Department object) {
         return DepartmentDto.builder()
-                .name(object.getName().name())
+                .name(object.getName())
                 .maxSalary(object.getMaxSalary().toString())
                 .minSalary(object.getMinSalary().toString())
                 .build();

@@ -7,14 +7,10 @@
 <body>
 
     <form method="post" action="/department/add">
-
-        <span th:text="'Department name: '"></span>
-        <select name="name">
-            <option disabled selected></option>
-            <option th:each="name : ${T(github.nikhrom.javatraining.spring.mvc_hibernate.entity.DepartmentName).values()}"
-                th:value="${name}" th:text="${name}">
-            </option>
-        </select>
+        <label>
+            <span th:text="'Department: '"></span>
+            <input type="text" name="name"/>
+        </label>
         <br>
         <label>
             <span th:text="'Max salary: '"></span>

@@ -22,9 +22,8 @@ public class Department {
     @Column(name = "id")
     Integer id;
 
-    @Column(name = "name", nullable = false)
-    @Enumerated(EnumType.STRING)
-    DepartmentName name;
+    @Column(name = "name", nullable = false, unique = true)
+    String name;
 
     @Column(name = "min_salary", nullable = false)
     BigDecimal minSalary;
