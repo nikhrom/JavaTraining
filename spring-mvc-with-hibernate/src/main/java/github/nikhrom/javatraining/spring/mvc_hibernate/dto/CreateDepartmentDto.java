@@ -9,8 +9,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class DepartmentDto {
-    int id;
+public class CreateDepartmentDto {
     String name;
     String minSalary;
     String maxSalary;

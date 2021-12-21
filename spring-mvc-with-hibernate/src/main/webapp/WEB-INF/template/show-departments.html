@@ -21,7 +21,9 @@
                 <td th:text="${department.name}"></td>
                 <td th:text="${department.minSalary}"></td>
                 <td th:text="${department.maxSalary}"></td>
-                
+                <td>
+                    <input type="button" value="Update" th:attr="onclick = 'window.location.href += \'' + '/update/' + ${department.id} + '\''">
+                </td>
             </tr>
         </div>
 

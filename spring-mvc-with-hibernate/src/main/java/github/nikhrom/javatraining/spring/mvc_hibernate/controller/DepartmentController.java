@@ -1,6 +1,7 @@
 package github.nikhrom.javatraining.spring.mvc_hibernate.controller;
 
 
+import github.nikhrom.javatraining.spring.mvc_hibernate.dto.CreateDepartmentDto;
 import github.nikhrom.javatraining.spring.mvc_hibernate.dto.DepartmentDto;
 import github.nikhrom.javatraining.spring.mvc_hibernate.service.DepartmentService;
 import lombok.RequiredArgsConstructor;
@@ -8,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.Optional;
 
 @Controller
 @RequestMapping("/department")
@@ -27,13 +30,26 @@ public class DepartmentController {
 
     @GetMapping("/add")
     String addDepartment(Model model){
-        model.addAttribute("department", new DepartmentDto());
+        model.addAttribute("department", new CreateDepartmentDto());
         return "add-department";
     }
 
     @PostMapping("/add")
-    String onAddDepartment(@ModelAttribute("department") DepartmentDto departmentDto){
+    String onAddDepartment(@ModelAttribute("department") CreateDepartmentDto departmentDto){
         departmentService.addDepartment(departmentDto);
+        return "redirect:/department";
+    }
+
+    @GetMapping("/update/{id:\\d+}")
+    String updateDepartment(@PathVariable String id, Model model){
+        var department = departmentService.getDepartmentById(Integer.valueOf(id));
+        department.ifPresent(departmentDto -> model.addAttribute("department", departmentDto));
+        return "update-department";
+    }
+
+    @PostMapping("/update/{id:\\d+}")
+    String onUpdateDepartment(@ModelAttribute("department") DepartmentDto departmentDto){
+        departmentService.updateDepartment(departmentDto);
         return "redirect:/department";
     }
 }

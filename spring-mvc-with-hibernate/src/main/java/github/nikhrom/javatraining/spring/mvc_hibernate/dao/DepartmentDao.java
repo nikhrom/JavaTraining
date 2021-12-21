@@ -18,7 +18,8 @@ public class DepartmentDao implements Dao<Integer, Department>{
 
     @Override
     public Optional<Department> get(Integer id) {
-        return Optional.empty();
+        Session currentSession = sessionFactory.getCurrentSession();
+        return Optional.ofNullable(currentSession.get(Department.class, id));
     }
 
     @Override
@@ -30,13 +31,14 @@ public class DepartmentDao implements Dao<Integer, Department>{
 
     @Override
     public void save(Department value) {
-        var currentSession = sessionFactory.getCurrentSession();
+        Session currentSession = sessionFactory.getCurrentSession();
         currentSession.save(value);
     }
 
     @Override
     public void update(Department value) {
-
+        Session currentSession = sessionFactory.getCurrentSession();
+        currentSession.update(value);
     }
 
     @Override
