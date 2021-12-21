@@ -43,6 +43,7 @@ public class DepartmentDao implements Dao<Integer, Department>{
 
     @Override
     public void delete(Department value) {
-
+        Session currentSession = sessionFactory.getCurrentSession();
+        currentSession.delete(value);
     }
 }

@@ -3,6 +3,7 @@ package github.nikhrom.javatraining.spring.mvc_hibernate.service;
 import github.nikhrom.javatraining.spring.mvc_hibernate.dao.DepartmentDao;
 import github.nikhrom.javatraining.spring.mvc_hibernate.dto.CreateDepartmentDto;
 import github.nikhrom.javatraining.spring.mvc_hibernate.dto.DepartmentDto;
+import github.nikhrom.javatraining.spring.mvc_hibernate.entity.Department;
 import github.nikhrom.javatraining.spring.mvc_hibernate.mapper.CreateDepartmentDtoMapper;
 import github.nikhrom.javatraining.spring.mvc_hibernate.mapper.DepartmentMapper;
 import github.nikhrom.javatraining.spring.mvc_hibernate.mapper.DepartmentDtoMapper;
@@ -48,4 +49,9 @@ public class DepartmentService {
         departmentDao.update(departmentDtoMapper.mapFrom(departmentDto));
     }
 
+    @Transactional
+    public void deleteDepartmentById(Integer id){
+        var department = Department.builder().id(id).build();
+        departmentDao.delete(department);
+    }
 }
