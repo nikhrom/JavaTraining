@@ -5,6 +5,7 @@ import lombok.Setter;
 import lombok.SneakyThrows;
 import org.hibernate.SessionFactory;
 import org.hibernate.dialect.PostgreSQL10Dialect;
+import org.springframework.beans.factory.FactoryBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -59,8 +60,8 @@ public class HibernateConfig {
     }
 
     @Bean
-    HibernateTransactionManager transactionManager(SessionFactory sessionFactory){
-        var manager = new HibernateTransactionManager(sessionFactory);
+    HibernateTransactionManager transactionManager(FactoryBean<SessionFactory> sessionFactory) throws Exception {
+        var manager = new HibernateTransactionManager(sessionFactory.getObject());
         return manager;
     }
 }
