@@ -30,9 +30,10 @@ public class DepartmentDao implements Dao<Integer, Department>{
     }
 
     @Override
-    public void save(Department value) {
+    public Department save(Department value) {
         Session currentSession = sessionFactory.getCurrentSession();
         currentSession.save(value);
+        return value;
     }
 
     @Override

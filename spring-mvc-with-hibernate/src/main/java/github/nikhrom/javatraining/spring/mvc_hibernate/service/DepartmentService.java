@@ -34,8 +34,10 @@ public class DepartmentService {
     };
 
     @Transactional
-    public void addDepartment(CreateDepartmentDto departmentDto){
-        departmentDao.save(createDepartmentDtoMapper.mapFrom(departmentDto));
+    public DepartmentDto addDepartment(CreateDepartmentDto departmentDto){
+        var department = createDepartmentDtoMapper.mapFrom(departmentDto);
+        var savedDepartment = departmentDao.save(department);
+        return departmentMapper.mapFrom(savedDepartment);
     }
 
     @Transactional

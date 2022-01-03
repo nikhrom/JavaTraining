@@ -1,5 +1,6 @@
 package github.nikhrom.javatraining.spring.mvc_hibernate.rest;
 
+import github.nikhrom.javatraining.spring.mvc_hibernate.dto.CreateDepartmentDto;
 import github.nikhrom.javatraining.spring.mvc_hibernate.dto.DepartmentDto;
 import github.nikhrom.javatraining.spring.mvc_hibernate.entity.Department;
 import github.nikhrom.javatraining.spring.mvc_hibernate.rest_exception.DepartmentIncorrectData;
@@ -31,6 +32,11 @@ public class DepartmentRestController {
         return departmentService.getDepartmentById(id)
                 .orElseThrow(() -> new NoSuchElementException("Department with id = " + id +
                         " doesn't exist"));
+    }
+
+    @PostMapping
+    public DepartmentDto addDepartment(@RequestBody CreateDepartmentDto createDepartment){
+        return departmentService.addDepartment(createDepartment);
     }
 
 }
