@@ -28,16 +28,9 @@ public class DepartmentRestController {
 
     @GetMapping("/{id:\\d+}")
     public DepartmentDto getDepartment(@PathVariable int id){
-
-
         return departmentService.getDepartmentById(id)
                 .orElseThrow(() -> new NoSuchElementException("Department with id = " + id +
                         " doesn't exist"));
     }
 
-    @ExceptionHandler
-    public ResponseEntity<DepartmentIncorrectData> handleException(NoSuchElementException exception){
-        var departmentIncorrectData = new DepartmentIncorrectData(exception.getMessage());
-        return new ResponseEntity<>(departmentIncorrectData, HttpStatus.NOT_FOUND);
-    }
 }
