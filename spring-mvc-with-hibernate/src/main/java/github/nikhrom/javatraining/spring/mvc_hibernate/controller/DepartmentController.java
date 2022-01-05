@@ -43,7 +43,7 @@ public class DepartmentController {
     @GetMapping("/update/{id:\\d+}")
     String updateDepartment(@PathVariable String id, Model model) {
         var department = departmentService.getDepartmentById(Integer.valueOf(id));
-        department.ifPresent(departmentDto -> model.addAttribute("department", departmentDto));
+        model.addAttribute("department", department);
         return "update-department";
     }
 

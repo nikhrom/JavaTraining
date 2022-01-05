@@ -1,4 +1,4 @@
-package github.nikhrom.javatraining.spring.mvc_hibernate.rest_exception;
+package github.nikhrom.javatraining.spring.mvc_hibernate.exception;
 
 public class RestException extends RuntimeException{
 

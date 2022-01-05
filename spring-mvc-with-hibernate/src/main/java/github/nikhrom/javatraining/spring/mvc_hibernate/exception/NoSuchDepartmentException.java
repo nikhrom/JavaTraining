@@ -1,4 +1,5 @@
-package github.nikhrom.javatraining.spring.mvc_hibernate.rest_exception;
+package github.nikhrom.javatraining.spring.mvc_hibernate.exception;
+
 
 public class NoSuchDepartmentException extends RestException{
 

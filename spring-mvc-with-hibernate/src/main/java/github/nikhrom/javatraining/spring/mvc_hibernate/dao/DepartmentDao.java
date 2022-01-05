@@ -4,7 +4,6 @@ import github.nikhrom.javatraining.spring.mvc_hibernate.entity.Department;
 import lombok.RequiredArgsConstructor;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -30,10 +29,9 @@ public class DepartmentDao implements Dao<Integer, Department>{
     }
 
     @Override
-    public Department save(Department value) {
+    public void save(Department value) {
         Session currentSession = sessionFactory.getCurrentSession();
         currentSession.save(value);
-        return value;
     }
 
     @Override

@@ -7,12 +7,15 @@ import github.nikhrom.javatraining.spring.mvc_hibernate.entity.Department;
 import github.nikhrom.javatraining.spring.mvc_hibernate.mapper.CreateDepartmentDtoMapper;
 import github.nikhrom.javatraining.spring.mvc_hibernate.mapper.DepartmentMapper;
 import github.nikhrom.javatraining.spring.mvc_hibernate.mapper.DepartmentDtoMapper;
+import github.nikhrom.javatraining.spring.mvc_hibernate.exception.NoSuchDepartmentException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Optional;
+import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
 @Component
@@ -36,24 +39,37 @@ public class DepartmentService {
     @Transactional
     public DepartmentDto addDepartment(CreateDepartmentDto departmentDto){
         var department = createDepartmentDtoMapper.mapFrom(departmentDto);
-        var savedDepartment = departmentDao.save(department);
-        return departmentMapper.mapFrom(savedDepartment);
+        departmentDao.save(department);
+        return departmentMapper.mapFrom(department);
     }
 
     @Transactional
-    public Optional<DepartmentDto> getDepartmentById(Integer id){
-        return departmentDao.get(id)
-                .map(departmentMapper::mapFrom);
+    public DepartmentDto getDepartmentById(Integer id){
+        Department department = departmentDao.get(id)
+                .orElseThrow(() -> new NoSuchDepartmentException("Department with id = " + id +
+                        " doesn't exist"));
+
+        return departmentMapper.mapFrom(department);
     }
 
     @Transactional
-    public void updateDepartment(DepartmentDto departmentDto){
-        departmentDao.update(departmentDtoMapper.mapFrom(departmentDto));
+    public DepartmentDto updateDepartment(DepartmentDto departmentDto){
+        var maybeDepartment = departmentDao.get(departmentDto.getId());
+        if(maybeDepartment.isEmpty())
+            throw new NoSuchDepartmentException(
+                    "Department with id = " + departmentDto.getId() +
+                     "doesn't exist"
+            );
+
+        var department = departmentDtoMapper.mapFrom(departmentDto);
+        departmentDao.update(department);
+        return departmentMapper.mapFrom(department);
     }
 
     @Transactional
-    public void deleteDepartmentById(Integer id){
+    public DepartmentDto deleteDepartmentById(Integer id){
         var department = Department.builder().id(id).build();
         departmentDao.delete(department);
+        return departmentMapper.mapFrom(department);
     }
 }
