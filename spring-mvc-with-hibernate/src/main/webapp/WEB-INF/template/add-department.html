@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <form method="post" action="/department/add">
+        <label>
+            <span th:text="'Department: '"></span>
+            <input type="text" name="name"/>
+        </label>
+        <br>
+        <label>
+            <span th:text="'Max salary: '"></span>
+            <input type="text" name="maxSalary"/>
+        </label>
+        <br>
+        <label>
+            <span th:text="'Min salary: '"></span>
+            <input type="text" name="minSalary"/>
+        </label>
+        <br>
+
+        <input type="submit" value="Submit">
+    </form>
+
+</body>
+</html>
