@@ -1,0 +1,53 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Ask details</title>
+</head>
+<body>
+<!--/*@thymesVar id="employee" type="github.nikhrom.javatraining.spring.mvc.introduction.dto.EmployeeDto"*/-->
+<form action="#" th:action="@{/employee}" th:object="${employee}" method="post">
+
+    <span th:text="#{name} + ':'" th:remove="tag"></span>
+    <input type="text" th:field="*{name}"/>
+    <span th:errors="*{name}"></span>
+    <br>
+    <span th:text="#{lastName} + ':'" th:remove="tag"></span>
+    <input type="text" th:field="*{lastName}" />
+    <span th:errors="*{lastName}"></span>
+    <br>
+    <span th:text="#{age} + ':'" th:remove="tag"></span>
+    <input type="text" th:field="*{age}" />
+    <span th:errors="*{age}"></span>
+    <br>
+    <span th:text="#{email} + ':'" th:remove="tag"></span>
+    <input type="text" th:field="*{email}" />
+    <span th:errors="*{email}"></span>
+    <br>
+    <span th:text="#{department} + ':'" th:remove="tag"></span>
+    <select name="department">
+        <option disabled selected value></option>
+        <option th:each="department : ${T(github.nikhrom.javatraining.spring.mvc.introduction.entity.Department).values()}"
+                th:value="${department}" th:text="${department}" th:field="*{department}">
+        </option>
+    </select>
+    <span th:errors="*{department}"></span>
+    <br>
+    <span th:text="#{gender} + ':'" th:remove="tag"></span>
+    <div th:remove="tag" th:each="gender: ${T(github.nikhrom.javatraining.spring.mvc.introduction.entity.Gender).values()}">
+        <label th:for="${gender}" th:text="${gender}"></label>
+        <input type="radio" th:field="*{gender}" th:value="${gender}">
+    </div>
+    <span th:errors="*{gender}"></span>
+    <br>
+    <span th:text="#{prefer-languages} + ':'" th:remove="tag"></span>
+    <div th:remove="tag" th:each="language: ${T(github.nikhrom.javatraining.spring.mvc.introduction.entity.Language).values()}">
+        <label th:for="${language}" th:text="${language}"></label>
+        <input type="checkbox" th:field="*{preferLanguages}" th:value="${language}">
+    </div>
+    <span th:errors="*{preferLanguages}"></span>
+    <br>
+    <input type="submit" value="Submit" /> <input type="reset" value="Reset" />
+
+</form>
+
+</body>
+</html>

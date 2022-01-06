@@ -1,0 +1,26 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!--/*@thymesVar id="employee" type="github.nikhrom.javatraining.spring.mvc.introduction.dto.EmployeeDto"*/-->
+
+    <title>View details</title>
+</head>
+<body>
+
+<h1 th:text="#{template.view-employee-details.greeting} + '!!!'"></h1>
+<div>
+    <p th:text="#{name} + ': ' + ${employee.name}"></p>
+    <p th:text="#{lastName} + ': ' + ${employee.lastName}"></p>
+    <p th:text="#{age} + ': ' + ${employee.age}"></p>
+    <p th:text="#{department} + ': ' + ${employee.department}"></p>
+    <p th:text="#{gender} + ': ' + ${employee.gender}"></p>
+    <p th:text="#{email} + ': ' + ${employee.email}"></p>
+    <span th:text="#{prefer-languages} + ': '"></span>
+    <ul>
+        <li th:each="language : ${employee.preferLanguages}">
+            <p th:remove="tag" th:text="${language} + ' '">
+        </li>
+    </ul>
+</div>
+
+</body>
+</html>
