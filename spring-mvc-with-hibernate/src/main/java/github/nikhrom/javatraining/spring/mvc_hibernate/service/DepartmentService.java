@@ -67,9 +67,9 @@ public class DepartmentService {
     }
 
     @Transactional
-    public DepartmentDto deleteDepartmentById(Integer id){
+    public int deleteDepartmentById(Integer id){
         var department = Department.builder().id(id).build();
         departmentDao.delete(department);
-        return departmentMapper.mapFrom(department);
+        return department.getId();
     }
 }

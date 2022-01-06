@@ -11,7 +11,6 @@ public class UncaughtExceptionHandler {
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     @ExceptionHandler(Exception.class)
     public void handleAll(Exception e) {
-        System.out.println("baad");
     }
 
 }

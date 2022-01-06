@@ -4,6 +4,7 @@ import github.nikhrom.javatraining.spring.mvc_hibernate.dto.CreateDepartmentDto;
 import github.nikhrom.javatraining.spring.mvc_hibernate.dto.DepartmentDto;
 import github.nikhrom.javatraining.spring.mvc_hibernate.service.DepartmentService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -38,8 +39,8 @@ public class DepartmentRestController {
     }
 
     @DeleteMapping("/{id:\\d+}")
-    public DepartmentDto deleteDepartment(@PathVariable int id){
-        return departmentService.deleteDepartmentById(id);
+    public ResponseEntity<String> deleteDepartment(@PathVariable int id){
+        return ResponseEntity.ok("Department with id = " + id + " was deleted");
     }
 
 }
