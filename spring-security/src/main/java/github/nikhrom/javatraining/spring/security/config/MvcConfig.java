@@ -44,7 +44,7 @@ public class MvcConfig{
     @Bean
     public SpringResourceTemplateResolver templateResolver(){
         var resolver = new SpringResourceTemplateResolver();
-        resolver.setPrefix("/");
+        resolver.setPrefix("/WEB-INF/template/");
         resolver.setSuffix(".html");
         resolver.setTemplateMode(TemplateMode.HTML);
         resolver.setCharacterEncoding(StandardCharsets.UTF_8.name());
