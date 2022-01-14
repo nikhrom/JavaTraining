@@ -1,14 +1,12 @@
 package github.nikhrom.javatraining.advanced_hibernate.entity;
 
+import github.nikhrom.javatraining.advanced_hibernate.converter.BirthdayConverter;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.time.LocalDate;
 
 @Data
@@ -23,7 +21,10 @@ public class User {
     private String firstname;
     private String lastname;
 
+
     @Column(name = "birth_date")
-    private LocalDate birthDate;
-    private Integer age;
+    private Birthday birthDate;
+
+    @Enumerated(EnumType.STRING)
+    private Role role;
 }

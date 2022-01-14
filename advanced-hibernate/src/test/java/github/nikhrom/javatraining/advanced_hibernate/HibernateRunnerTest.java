@@ -1,5 +1,6 @@
 package github.nikhrom.javatraining.advanced_hibernate;
 
+import github.nikhrom.javatraining.advanced_hibernate.entity.Birthday;
 import github.nikhrom.javatraining.advanced_hibernate.entity.User;
 import org.junit.jupiter.api.Test;
 
@@ -26,8 +27,7 @@ class HibernateRunnerTest {
                 .username("nikhrom")
                 .firstname("Ivan")
                 .lastname("Ivanov")
-                .birthDate(LocalDate.of(2000, 1, 1))
-                .age(22)
+                .birthDate(new Birthday(LocalDate.of(2000, 1, 1)))
                 .build();
 
         String sql = "insert\n" +
