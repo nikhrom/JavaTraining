@@ -27,7 +27,7 @@ class HibernateRunnerTest {
                 .username("nikhrom")
                 .firstname("Ivan")
                 .lastname("Ivanov")
-                .birthDate(new Birthday(LocalDate.of(2000, 1, 1)))
+                .birthday(new Birthday(LocalDate.of(2000, 1, 1)))
                 .build();
 
         String sql = "insert\n" +

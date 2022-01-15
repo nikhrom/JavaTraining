@@ -1,10 +1,14 @@
 package github.nikhrom.javatraining.advanced_hibernate.entity;
 
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.vladmihalcea.hibernate.type.json.JsonBinaryType;
+import com.vladmihalcea.hibernate.type.json.JsonStringType;
 import github.nikhrom.javatraining.advanced_hibernate.converter.BirthdayConverter;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -22,9 +26,12 @@ public class User {
     private String lastname;
 
 
-    @Column(name = "birth_date")
-    private Birthday birthDate;
+    @Column(name = "birthday")
+    private Birthday birthday;
 
     @Enumerated(EnumType.STRING)
     private Role role;
+
+    @Type(type = "jsonb")
+    private String info;
 }

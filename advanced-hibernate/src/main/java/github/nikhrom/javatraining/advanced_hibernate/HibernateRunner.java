@@ -1,5 +1,7 @@
 package github.nikhrom.javatraining.advanced_hibernate;
 
+import com.vladmihalcea.hibernate.type.json.JsonBinaryType;
+import com.vladmihalcea.hibernate.type.json.JsonStringType;
 import github.nikhrom.javatraining.advanced_hibernate.converter.BirthdayConverter;
 import github.nikhrom.javatraining.advanced_hibernate.entity.Birthday;
 import github.nikhrom.javatraining.advanced_hibernate.entity.Role;
@@ -14,6 +16,7 @@ public class HibernateRunner {
 
     public static void main(String[] args) {
         Configuration configuration = new Configuration();
+        configuration.registerTypeOverride(new JsonBinaryType());
         configuration.addAttributeConverter(BirthdayConverter.class);
         configuration.configure();
 
@@ -24,8 +27,12 @@ public class HibernateRunner {
                     .username("nikhrom")
                     .firstname("Ivan")
                     .lastname("Ivanov")
-                    .birthDate(new Birthday(LocalDate.of(2000, 1, 1)))
+                    .birthday(new Birthday(LocalDate.of(2000, 1, 1)))
                     .role(Role.ADMIN)
+                    .info(" {" +
+                            "\"name\": \"Ivan\"," +
+                            "\"id\": 25 " +
+                            "}")
                     .build();
 
             var transaction = session.beginTransaction();
