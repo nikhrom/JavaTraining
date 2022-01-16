@@ -9,6 +9,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.Type;
+import org.hibernate.annotations.TypeDef;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -19,14 +20,12 @@ import java.time.LocalDate;
 @Builder
 @Entity
 @Table(name = "users", schema = "public")
+@TypeDef(name = "jsonb", typeClass = JsonBinaryType.class)
 public class User {
     @Id
     private String username;
     private String firstname;
     private String lastname;
-
-
-    @Column(name = "birthday")
     private Birthday birthday;
 
     @Enumerated(EnumType.STRING)

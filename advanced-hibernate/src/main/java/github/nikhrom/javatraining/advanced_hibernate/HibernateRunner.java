@@ -1,47 +1,23 @@
 package github.nikhrom.javatraining.advanced_hibernate;
 
-import com.vladmihalcea.hibernate.type.json.JsonBinaryType;
-import com.vladmihalcea.hibernate.type.json.JsonStringType;
-import github.nikhrom.javatraining.advanced_hibernate.converter.BirthdayConverter;
-import github.nikhrom.javatraining.advanced_hibernate.entity.Birthday;
-import github.nikhrom.javatraining.advanced_hibernate.entity.Role;
-import github.nikhrom.javatraining.advanced_hibernate.entity.User;
+import github.nikhrom.javatraining.advanced_hibernate.util.HibernateUtil;
 import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
-import org.hibernate.cfg.Configuration;
-
-import java.time.LocalDate;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class HibernateRunner {
 
+    private static Logger logger = LoggerFactory.getLogger(HibernateRunner.class);
+
     public static void main(String[] args) {
-        Configuration configuration = new Configuration();
-        configuration.registerTypeOverride(new JsonBinaryType());
-        configuration.addAttributeConverter(BirthdayConverter.class);
-        configuration.configure();
-
-        try (SessionFactory sessionFactory = configuration.buildSessionFactory();
-            var session = sessionFactory.openSession()) {
-
-            var user = User.builder()
-                    .username("nikhrom")
-                    .firstname("Ivan")
-                    .lastname("Ivanov")
-                    .birthday(new Birthday(LocalDate.of(2000, 1, 1)))
-                    .role(Role.ADMIN)
-                    .info(" {" +
-                            "\"name\": \"Ivan\"," +
-                            "\"id\": 25 " +
-                            "}")
-                    .build();
-
-            var transaction = session.beginTransaction();
-
-            session.save(user);
-
-            transaction.commit();
+        try (SessionFactory sessionFactory = HibernateUtil.buildSessionFactory()) {
+            try (var session = sessionFactory.openSession()) {
+                var transaction = session.beginTransaction();
 
 
+
+                transaction.commit();
+            }
         }
     }
 
