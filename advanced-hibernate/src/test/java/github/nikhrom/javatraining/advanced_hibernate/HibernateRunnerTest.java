@@ -24,10 +24,6 @@ class HibernateRunnerTest {
     @Test
     void checkReflectionApi(){
         var user = User.builder()
-                .username("nikhrom")
-                .firstname("Ivan")
-                .lastname("Ivanov")
-                .birthday(new Birthday(LocalDate.of(2000, 1, 1)))
                 .build();
 
         String sql = "insert\n" +
