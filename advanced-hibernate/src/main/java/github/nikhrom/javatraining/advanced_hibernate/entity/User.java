@@ -19,6 +19,9 @@ import javax.persistence.*;
 @TypeDef(name = "jsonb", typeClass = JsonBinaryType.class)
 public class User {
 
+
+    /*@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "user_seq")
+    @SequenceGenerator(name = "user_seq", sequenceName = "users_id_seq", allocationSize = 1)*/
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -33,4 +36,8 @@ public class User {
 
     @Type(type = "jsonb")
     private String info;
+
+    @ManyToOne
+//    @JoinColumn(name = "company_id")
+    private Company company;
 }

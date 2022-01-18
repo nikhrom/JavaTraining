@@ -1,5 +1,6 @@
 package github.nikhrom.javatraining.advanced_hibernate;
 
+import github.nikhrom.javatraining.advanced_hibernate.entity.Company;
 import github.nikhrom.javatraining.advanced_hibernate.entity.PersonalData;
 import github.nikhrom.javatraining.advanced_hibernate.entity.User;
 import github.nikhrom.javatraining.advanced_hibernate.util.HibernateUtil;
@@ -10,11 +11,15 @@ import org.hibernate.SessionFactory;
 public class HibernateRunner {
 
     public static void main(String[] args) {
+        var google = Company.builder()
+                .name("Google")
+                .build();
         var user = User.builder()
                 .username("nikhrom2")
                 .personalData(PersonalData.builder()
                         .firstname("petr")
                         .lastname("petrov").build())
+                .company(google)
                 .build();
 
         log.info("User entity is transient, object: {}", user);
@@ -25,7 +30,8 @@ public class HibernateRunner {
             var transaction = session.beginTransaction();
 
             log.trace("Transaction is began: {}", transaction);
-            session.saveOrUpdate(user);
+            session.save(google);
+            session.save(user);
             log.trace("User is in persistent state: user {}, session {}", user, session);
 
             transaction.commit();
