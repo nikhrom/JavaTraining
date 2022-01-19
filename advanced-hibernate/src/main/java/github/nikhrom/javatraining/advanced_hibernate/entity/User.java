@@ -37,7 +37,7 @@ public class User {
     @Type(type = "jsonb")
     private String info;
 
-    @ManyToOne
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
 //    @JoinColumn(name = "company_id")
     private Company company;
 }

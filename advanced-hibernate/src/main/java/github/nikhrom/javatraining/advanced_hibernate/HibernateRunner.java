@@ -30,8 +30,10 @@ public class HibernateRunner {
             var transaction = session.beginTransaction();
 
             log.trace("Transaction is began: {}", transaction);
-            session.save(google);
-            session.save(user);
+            var user1 = session.get(User.class, 1L);
+
+//            session.save(google);
+//            session.save(user);
             log.trace("User is in persistent state: user {}, session {}", user, session);
 
             transaction.commit();
