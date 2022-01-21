@@ -1,7 +1,11 @@
 package github.nikhrom.javatraining.advanced_hibernate;
 
 import github.nikhrom.javatraining.advanced_hibernate.entity.Birthday;
+import github.nikhrom.javatraining.advanced_hibernate.entity.Company;
 import github.nikhrom.javatraining.advanced_hibernate.entity.User;
+import github.nikhrom.javatraining.advanced_hibernate.util.HibernateUtil;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 import org.junit.jupiter.api.Test;
 
 import javax.persistence.Column;
@@ -20,6 +24,21 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class HibernateRunnerTest {
 
+    @Test
+    void oneToMany(){
+        try(var sessionFactory = HibernateUtil.buildSessionFactory();
+            var session = sessionFactory.openSession()){
+
+            session.beginTransaction();
+
+            var company = session.get(Company.class, 1);
+            System.out.println();
+
+            session.getTransaction().commit();
+        }
+
+
+    }
 
     @Test
     void checkReflectionApi(){

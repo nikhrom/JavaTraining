@@ -2,6 +2,7 @@ package github.nikhrom.javatraining.advanced_hibernate;
 
 import github.nikhrom.javatraining.advanced_hibernate.entity.Company;
 import github.nikhrom.javatraining.advanced_hibernate.entity.PersonalData;
+import github.nikhrom.javatraining.advanced_hibernate.entity.Role;
 import github.nikhrom.javatraining.advanced_hibernate.entity.User;
 import github.nikhrom.javatraining.advanced_hibernate.util.HibernateUtil;
 import lombok.extern.slf4j.Slf4j;
@@ -31,9 +32,8 @@ public class HibernateRunner {
 
             log.trace("Transaction is began: {}", transaction);
             var user1 = session.get(User.class, 1L);
+            user1.setRole(Role.ADMIN);
 
-//            session.save(google);
-//            session.save(user);
             log.trace("User is in persistent state: user {}, session {}", user, session);
 
             transaction.commit();
