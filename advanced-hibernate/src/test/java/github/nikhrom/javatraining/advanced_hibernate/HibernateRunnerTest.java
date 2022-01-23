@@ -1,28 +1,109 @@
 package github.nikhrom.javatraining.advanced_hibernate;
 
-import github.nikhrom.javatraining.advanced_hibernate.entity.Birthday;
 import github.nikhrom.javatraining.advanced_hibernate.entity.Company;
+import github.nikhrom.javatraining.advanced_hibernate.entity.Profile;
 import github.nikhrom.javatraining.advanced_hibernate.entity.User;
 import github.nikhrom.javatraining.advanced_hibernate.util.HibernateUtil;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 import org.junit.jupiter.api.Test;
 
 import javax.persistence.Column;
 import javax.persistence.Table;
-import java.lang.reflect.Array;
-import java.lang.reflect.Field;
-import java.time.LocalDate;
 import java.util.Arrays;
-import java.util.Optional;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
-import static java.util.Optional.*;
-import static java.util.stream.Collectors.*;
-import static org.junit.jupiter.api.Assertions.*;
+import static java.util.Optional.ofNullable;
+import static java.util.stream.Collectors.joining;
 
 class HibernateRunnerTest {
+
+    @Test
+    void checkOneToOne(){
+        try(var sessionFactory = HibernateUtil.buildSessionFactory();
+            var session = sessionFactory.openSession()){
+
+            session.beginTransaction();
+
+            var user = User.builder()
+                    .username("nik2")
+                    .build();
+
+            var profile = Profile.builder()
+                    .user(user)
+                    .street("prospekt 2")
+                    .language("Rus")
+                    .build();
+
+            session.save(profile);
+
+            session.getTransaction().commit();
+        }
+    }
+
+    @Test
+    void checkOrphanRemoval(){
+        try(var sessionFactory = HibernateUtil.buildSessionFactory();
+            var session = sessionFactory.openSession()){
+
+            session.beginTransaction();
+
+            var company = session.get(Company.class, 7);
+            company.getUsers().removeIf(user -> user.getId() == 16);
+
+            session.getTransaction().commit();
+        }
+    }
+
+    @Test
+    void checkLazyInitialization(){
+        Company company;
+        try(var sessionFactory = HibernateUtil.buildSessionFactory();
+            var session = sessionFactory.openSession()){
+
+            session.beginTransaction();
+
+            company = session.get(Company.class, 7);
+
+            session.getTransaction().commit();
+        }
+
+        var users = company.getUsers();
+        users.forEach(System.out::println);
+    }
+
+    @Test
+    void deleteCompany(){
+        try(var sessionFactory = HibernateUtil.buildSessionFactory();
+            var session = sessionFactory.openSession()){
+
+            session.beginTransaction();
+
+            var company = session.get(Company.class, 6);
+            session.delete(company);
+
+            session.getTransaction().commit();
+        }
+    }
+
+    @Test
+    void addUserToNewCompany(){
+        try (var sessionFactory = HibernateUtil.buildSessionFactory();
+            var session = sessionFactory.openSession()) {
+
+            session.beginTransaction();
+
+            var company = Company.builder()
+                    .name("Facebook")
+                    .build();
+
+            var user = User.builder()
+                    .username("nikhrom@mail.ru")
+                    .build();
+
+            company.addUser(user);
+            session.save(company);
+
+            session.getTransaction().commit();
+        }
+    }
 
     @Test
     void oneToMany(){

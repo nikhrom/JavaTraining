@@ -8,6 +8,9 @@ import github.nikhrom.javatraining.advanced_hibernate.util.HibernateUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.hibernate.SessionFactory;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Slf4j
 public class HibernateRunner {
 

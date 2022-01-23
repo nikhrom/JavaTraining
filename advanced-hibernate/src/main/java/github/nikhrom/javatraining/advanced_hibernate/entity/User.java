@@ -12,12 +12,10 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Builder
 @Entity
-@ToString(exclude = "company")
+@EqualsAndHashCode(of = "username")
 @Table(name = "users", schema = "public")
 @TypeDef(name = "jsonb", typeClass = JsonBinaryType.class)
 public class User {
-
-
     /*@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "user_seq")
     @SequenceGenerator(name = "user_seq", sequenceName = "users_id_seq", allocationSize = 1)*/
     @Id
@@ -35,7 +33,7 @@ public class User {
     @Type(type = "jsonb")
     private String info;
 
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
 //    @JoinColumn(name = "company_id")
     private Company company;
 }

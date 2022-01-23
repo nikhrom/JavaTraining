@@ -14,6 +14,7 @@
 
     <mapping class="github.nikhrom.javatraining.advanced_hibernate.entity.User"/>
     <mapping class="github.nikhrom.javatraining.advanced_hibernate.entity.Company"/>
+    <mapping class="github.nikhrom.javatraining.advanced_hibernate.entity.Profile"/>
 
     <!-- DB schema will be updated if needed -->
     <!-- <property name="hibernate.hbm2ddl.auto">update</property> -->
