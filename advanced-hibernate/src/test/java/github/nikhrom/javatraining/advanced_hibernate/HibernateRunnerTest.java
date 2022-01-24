@@ -1,14 +1,12 @@
 package github.nikhrom.javatraining.advanced_hibernate;
 
-import github.nikhrom.javatraining.advanced_hibernate.entity.Chat;
-import github.nikhrom.javatraining.advanced_hibernate.entity.Company;
-import github.nikhrom.javatraining.advanced_hibernate.entity.Profile;
-import github.nikhrom.javatraining.advanced_hibernate.entity.User;
+import github.nikhrom.javatraining.advanced_hibernate.entity.*;
 import github.nikhrom.javatraining.advanced_hibernate.util.HibernateUtil;
 import org.junit.jupiter.api.Test;
 
 import javax.persistence.Column;
 import javax.persistence.Table;
+import java.time.Instant;
 import java.util.Arrays;
 
 import static java.util.Optional.ofNullable;
@@ -24,13 +22,16 @@ class HibernateRunnerTest {
             session.beginTransaction();
 
             var user = session.get(User.class, 1L);
+            var chat = session.get(Chat.class, 1L);
 
-            var chat = Chat.builder()
-                    .name("new_chat")
+            var userChat = UserChat.builder()
+                    .chat(chat)
+                    .user(user)
+                    .createdAt(Instant.now())
+                    .createdBy(user.getUsername())
                     .build();
 
-            session.save(chat);
-            user.addChat(chat);
+            session.save(userChat);
 
             session.getTransaction().commit();
         }

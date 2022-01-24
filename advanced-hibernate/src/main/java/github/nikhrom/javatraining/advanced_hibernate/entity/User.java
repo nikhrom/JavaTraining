@@ -15,6 +15,7 @@ import java.util.Set;
 @Builder
 @Entity
 @EqualsAndHashCode(of = "username")
+@ToString(exclude = "userChats")
 @Table(name = "users", schema = "public")
 @TypeDef(name = "jsonb", typeClass = JsonBinaryType.class)
 public class User {
@@ -39,15 +40,7 @@ public class User {
 //    @JoinColumn(name = "company_id")
     private Company company;
 
-    @ManyToMany
+    @OneToMany(mappedBy = "user")
     @Builder.Default
-    @JoinTable(name = "users_chat",
-                joinColumns = @JoinColumn(name = "user_id"),
-                inverseJoinColumns = @JoinColumn(name = "chat_id"))
-    private Set<Chat> chats = new HashSet<>();
-
-    public void addChat(Chat chat){
-        chats.add(chat);
-        chat.getUsers().add(this);
-    }
+    private Set<UserChat> userChats = new HashSet<>();
 }

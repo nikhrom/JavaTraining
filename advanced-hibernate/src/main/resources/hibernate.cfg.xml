@@ -16,6 +16,7 @@
     <mapping class="github.nikhrom.javatraining.advanced_hibernate.entity.Company"/>
     <mapping class="github.nikhrom.javatraining.advanced_hibernate.entity.Profile"/>
     <mapping class="github.nikhrom.javatraining.advanced_hibernate.entity.Chat"/>
+    <mapping class="github.nikhrom.javatraining.advanced_hibernate.entity.UserChat"/>
 
     <!-- DB schema will be updated if needed -->
     <!-- <property name="hibernate.hbm2ddl.auto">update</property> -->

@@ -12,8 +12,8 @@ import java.util.Set;
 @AllArgsConstructor
 @Builder
 @Entity
-@EqualsAndHashCode(exclude = "users")
-@ToString(exclude = "users")
+@EqualsAndHashCode(exclude = "userChats")
+@ToString(exclude = "userChats")
 public class Chat {
 
     @Id
@@ -21,8 +21,8 @@ public class Chat {
     private Long id;
     private String name;
 
-    @ManyToMany(mappedBy = "chats")
+    @OneToMany(mappedBy = "chat")
     @Builder.Default
-    private Set<User> users = new HashSet<>();
+    private Set<UserChat> userChats = new HashSet<>();
 
 }
