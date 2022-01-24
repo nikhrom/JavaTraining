@@ -6,6 +6,8 @@ import org.hibernate.annotations.GeneratorType;
 import org.hibernate.annotations.Type;
 import org.hibernate.annotations.TypeDef;
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Data
 @AllArgsConstructor
@@ -36,4 +38,16 @@ public class User {
     @ManyToOne(fetch = FetchType.LAZY)
 //    @JoinColumn(name = "company_id")
     private Company company;
+
+    @ManyToMany
+    @Builder.Default
+    @JoinTable(name = "users_chat",
+                joinColumns = @JoinColumn(name = "user_id"),
+                inverseJoinColumns = @JoinColumn(name = "chat_id"))
+    private Set<Chat> chats = new HashSet<>();
+
+    public void addChat(Chat chat){
+        chats.add(chat);
+        chat.getUsers().add(this);
+    }
 }

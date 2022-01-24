@@ -1,5 +1,6 @@
 package github.nikhrom.javatraining.advanced_hibernate;
 
+import github.nikhrom.javatraining.advanced_hibernate.entity.Chat;
 import github.nikhrom.javatraining.advanced_hibernate.entity.Company;
 import github.nikhrom.javatraining.advanced_hibernate.entity.Profile;
 import github.nikhrom.javatraining.advanced_hibernate.entity.User;
@@ -14,6 +15,26 @@ import static java.util.Optional.ofNullable;
 import static java.util.stream.Collectors.joining;
 
 class HibernateRunnerTest {
+
+    @Test
+    void checkManyToMany(){
+        try(var sessionFactory = HibernateUtil.buildSessionFactory();
+            var session = sessionFactory.openSession()){
+
+            session.beginTransaction();
+
+            var user = session.get(User.class, 1L);
+
+            var chat = Chat.builder()
+                    .name("new_chat")
+                    .build();
+
+            session.save(chat);
+            user.addChat(chat);
+
+            session.getTransaction().commit();
+        }
+    }
 
     @Test
     void checkOneToOne(){

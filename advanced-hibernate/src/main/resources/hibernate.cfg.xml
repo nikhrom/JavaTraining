@@ -4,7 +4,7 @@
     "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
   <session-factory>
-    <property name="connection.url">jdbc:postgresql://localhost:5432/postgres</property>
+    <property name="connection.url">jdbc:postgresql://localhost:5433/postgres</property>
     <property name="connection.driver_class">org.postgresql.Driver</property>
     <property name="connection.username">postgres</property>
     <property name="connection.password">postgres</property>
@@ -15,6 +15,7 @@
     <mapping class="github.nikhrom.javatraining.advanced_hibernate.entity.User"/>
     <mapping class="github.nikhrom.javatraining.advanced_hibernate.entity.Company"/>
     <mapping class="github.nikhrom.javatraining.advanced_hibernate.entity.Profile"/>
+    <mapping class="github.nikhrom.javatraining.advanced_hibernate.entity.Chat"/>
 
     <!-- DB schema will be updated if needed -->
     <!-- <property name="hibernate.hbm2ddl.auto">update</property> -->
