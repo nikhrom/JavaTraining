@@ -3,8 +3,8 @@ package github.nikhrom.javatraining.advanced_hibernate.entity;
 import lombok.*;
 
 import javax.persistence.*;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Data
@@ -22,7 +22,7 @@ public class Company {
     @Builder.Default
     @OneToMany(mappedBy = "company", cascade = CascadeType.ALL, orphanRemoval = true)
     //@JoinColumn(name = "company_id")
-    private Set<User> users = new HashSet<>();
+    private List<User> users = new ArrayList<>();
 
     public void addUser(User user){
         users.add(user);
