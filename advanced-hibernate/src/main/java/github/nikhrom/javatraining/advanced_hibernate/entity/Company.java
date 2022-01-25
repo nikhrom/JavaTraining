@@ -24,6 +24,11 @@ public class Company {
     //@JoinColumn(name = "company_id")
     private List<User> users = new ArrayList<>();
 
+    @ElementCollection
+    @CollectionTable(name = "company_locale")
+    @Builder.Default
+    private List<LocaleInfo> locales = new ArrayList<>();
+
     public void addUser(User user){
         users.add(user);
         user.setCompany(this);
