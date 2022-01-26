@@ -21,6 +21,7 @@ public class Company {
 
     @Builder.Default
     @OneToMany(mappedBy = "company", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OrderBy("username DESC, personalData.lastname DESC")
     //@JoinColumn(name = "company_id")
     private List<User> users = new ArrayList<>();
 
