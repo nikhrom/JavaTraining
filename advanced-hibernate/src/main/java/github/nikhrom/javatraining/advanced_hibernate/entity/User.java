@@ -17,7 +17,7 @@ import java.util.List;
 @EqualsAndHashCode(of = "username")
 @ToString(exclude = "userChats")
 @Table(name = "users", schema = "public")
-@TypeDef(name = "jsonb", typeClass = JsonBinaryType.class)
+//@TypeDef(name = "jsonb", typeClass = JsonBinaryType.class)
 public class User {
     /*@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "user_seq")
     @SequenceGenerator(name = "user_seq", sequenceName = "users_id_seq", allocationSize = 1)*/
@@ -33,8 +33,8 @@ public class User {
     @Enumerated(EnumType.STRING)
     private Role role;
 
-    @Type(type = "jsonb")
-    private String info;
+//    @Type(type = "jsonb")
+//    private String info;
 
     @ManyToOne(fetch = FetchType.LAZY)
 //    @JoinColumn(name = "company_id")

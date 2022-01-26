@@ -8,11 +8,37 @@ import javax.persistence.Column;
 import javax.persistence.Table;
 import java.time.Instant;
 import java.util.Arrays;
+import java.util.List;
 
 import static java.util.Optional.ofNullable;
 import static java.util.stream.Collectors.joining;
 
 class HibernateRunnerTest {
+
+    @Test
+    void checkH2(){
+        try(var sessionFactory = HibernateUtil.buildSessionFactory();
+            var session = sessionFactory.openSession()){
+
+            session.beginTransaction();
+
+            var user = User.builder()
+                    .username("nikhrom")
+                    .role(Role.USER)
+                    .build();
+
+            var company = Company.builder()
+                    .name("Google")
+                    .build();
+
+            company.addUser(user);
+
+            session.save(company);
+
+
+            session.getTransaction().commit();
+        }
+    }
 
     @Test
     void checkCollectionOrdering(){
