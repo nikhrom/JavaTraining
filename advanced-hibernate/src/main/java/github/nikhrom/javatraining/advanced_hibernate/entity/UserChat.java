@@ -12,12 +12,11 @@ import java.time.Instant;
 @Builder
 @Entity
 @Table(name = "users_chat")
-public class UserChat {
+public class UserChat extends AuditableEntity<Long>{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
 
     @ManyToOne
     private User user;
