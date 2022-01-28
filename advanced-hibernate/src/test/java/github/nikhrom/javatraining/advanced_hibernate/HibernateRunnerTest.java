@@ -2,6 +2,7 @@ package github.nikhrom.javatraining.advanced_hibernate;
 
 import github.nikhrom.javatraining.advanced_hibernate.entity.*;
 import github.nikhrom.javatraining.advanced_hibernate.util.HibernateUtil;
+import org.hibernate.query.Query;
 import org.junit.jupiter.api.Test;
 
 import javax.persistence.Column;
@@ -9,11 +10,30 @@ import javax.persistence.Table;
 import java.time.Instant;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 import static java.util.Optional.ofNullable;
 import static java.util.stream.Collectors.joining;
 
 class HibernateRunnerTest {
+
+    @Test
+    void checkHql(){
+        try(var sessionFactory = HibernateUtil.buildSessionFactory();
+            var session = sessionFactory.openSession()){
+
+            session.beginTransaction();
+
+            String username = "nikhrom";
+            var users = session.createQuery("from User u where u.username = :username", User.class)
+                    .setParameter("username", username)
+                    .list();
+
+
+
+            session.getTransaction().commit();
+        }
+    }
 
     @Test
     void checkInheritance(){
