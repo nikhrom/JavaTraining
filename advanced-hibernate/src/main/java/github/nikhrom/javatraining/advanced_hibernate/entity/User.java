@@ -16,8 +16,7 @@ import java.util.List;
 @EqualsAndHashCode(of = "username")
 @ToString(exclude = "userChats")
 @Table(name = "users", schema = "public")
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name = "type")
+@Inheritance(strategy = InheritanceType.JOINED)
 //@TypeDef(name = "jsonb", typeClass = JsonBinaryType.class)
 public abstract class User {
     /*@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "user_seq")
