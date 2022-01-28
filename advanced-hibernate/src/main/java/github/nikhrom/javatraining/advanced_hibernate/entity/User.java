@@ -12,17 +12,17 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
 @Entity
 @EqualsAndHashCode(of = "username")
 @ToString(exclude = "userChats")
 @Table(name = "users", schema = "public")
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 //@TypeDef(name = "jsonb", typeClass = JsonBinaryType.class)
-public class User {
+public abstract class User {
     /*@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "user_seq")
     @SequenceGenerator(name = "user_seq", sequenceName = "users_id_seq", allocationSize = 1)*/
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
 
     @Column(unique = true)
@@ -41,6 +41,5 @@ public class User {
     private Company company;
 
     @OneToMany(mappedBy = "user")
-    @Builder.Default
-    private List<UserChat> userChats = new ArrayList<>();
+    private List<UserChat> userChats;
 }

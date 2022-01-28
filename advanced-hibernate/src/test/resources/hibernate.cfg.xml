@@ -18,6 +18,8 @@
     <mapping class="github.nikhrom.javatraining.advanced_hibernate.entity.Profile"/>
     <mapping class="github.nikhrom.javatraining.advanced_hibernate.entity.Chat"/>
     <mapping class="github.nikhrom.javatraining.advanced_hibernate.entity.UserChat"/>
+    <mapping class="github.nikhrom.javatraining.advanced_hibernate.entity.Manager"/>
+    <mapping class="github.nikhrom.javatraining.advanced_hibernate.entity.Programmer"/>
     <!-- DB schema will be updated if needed -->
     <!-- <property name="hibernate.hbm2ddl.auto">update</property> -->
   </session-factory>

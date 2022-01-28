@@ -2,12 +2,15 @@ package github.nikhrom.javatraining.advanced_hibernate.entity;
 
 import lombok.Builder;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.time.Instant;
 
+
 @Data
+@EqualsAndHashCode(callSuper = true)
 @NoArgsConstructor
 @Builder
 @Entity

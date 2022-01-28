@@ -1,5 +1,6 @@
 package github.nikhrom.javatraining.advanced_hibernate.entity;
 
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -10,6 +11,7 @@ import java.time.Instant;
 
 @Getter
 @Setter
+@EqualsAndHashCode
 @MappedSuperclass
 public abstract class AuditableEntity<K extends Serializable> implements BaseEntity<K>{
 

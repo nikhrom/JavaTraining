@@ -16,29 +16,60 @@ import static java.util.stream.Collectors.joining;
 class HibernateRunnerTest {
 
     @Test
-    void checkH2(){
+    void checkTablePerClass(){
         try(var sessionFactory = HibernateUtil.buildSessionFactory();
             var session = sessionFactory.openSession()){
 
             session.beginTransaction();
 
-            var user = User.builder()
-                    .username("nikhrom")
-                    .role(Role.USER)
+            Manager manager = Manager.builder()
+                    .username("nikhrom_manager")
+                    .projectName("super_project")
                     .build();
 
-            var company = Company.builder()
-                    .name("Google")
+            Programmer programmer = Programmer.builder()
+                    .username("nikhrom_programmer")
+                    .language(Language.JAVA)
                     .build();
 
-            company.addUser(user);
+            session.save(manager);
+            session.save(programmer);
 
-            session.save(company);
+            session.flush();
+            session.clear();
+
+            manager = session.get(Manager.class, 1L);
+            var user = session.get(User.class, 2L);
 
 
             session.getTransaction().commit();
         }
     }
+
+//    @Test
+//    void checkH2(){
+//        try(var sessionFactory = HibernateUtil.buildSessionFactory();
+//            var session = sessionFactory.openSession()){
+//
+//            session.beginTransaction();
+//
+//            var user = User.builder()
+//                    .username("nikhrom")
+//                    .role(Role.USER)
+//                    .build();
+//
+//            var company = Company.builder()
+//                    .name("Google")
+//                    .build();
+//
+//            company.addUser(user);
+//
+//            session.save(company);
+//
+//
+//            session.getTransaction().commit();
+//        }
+//    }
 
     @Test
     void checkCollectionOrdering(){
@@ -92,28 +123,28 @@ class HibernateRunnerTest {
         }
     }
 
-    @Test
-    void checkOneToOne(){
-        try(var sessionFactory = HibernateUtil.buildSessionFactory();
-            var session = sessionFactory.openSession()){
-
-            session.beginTransaction();
-
-            var user = User.builder()
-                    .username("nik2")
-                    .build();
-
-            var profile = Profile.builder()
-                    .user(user)
-                    .street("prospekt 2")
-                    .language("Rus")
-                    .build();
-
-            session.save(profile);
-
-            session.getTransaction().commit();
-        }
-    }
+//    @Test
+//    void checkOneToOne(){
+//        try(var sessionFactory = HibernateUtil.buildSessionFactory();
+//            var session = sessionFactory.openSession()){
+//
+//            session.beginTransaction();
+//
+//            var user = User.builder()
+//                    .username("nik2")
+//                    .build();
+//
+//            var profile = Profile.builder()
+//                    .user(user)
+//                    .street("prospekt 2")
+//                    .language("Rus")
+//                    .build();
+//
+//            session.save(profile);
+//
+//            session.getTransaction().commit();
+//        }
+//    }
 
     @Test
     void checkOrphanRemoval(){
@@ -160,27 +191,27 @@ class HibernateRunnerTest {
         }
     }
 
-    @Test
-    void addUserToNewCompany(){
-        try (var sessionFactory = HibernateUtil.buildSessionFactory();
-            var session = sessionFactory.openSession()) {
-
-            session.beginTransaction();
-
-            var company = Company.builder()
-                    .name("Facebook")
-                    .build();
-
-            var user = User.builder()
-                    .username("nikhrom@mail.ru")
-                    .build();
-
-            company.addUser(user);
-            session.save(company);
-
-            session.getTransaction().commit();
-        }
-    }
+//    @Test
+//    void addUserToNewCompany(){
+//        try (var sessionFactory = HibernateUtil.buildSessionFactory();
+//            var session = sessionFactory.openSession()) {
+//
+//            session.beginTransaction();
+//
+//            var company = Company.builder()
+//                    .name("Facebook")
+//                    .build();
+//
+//            var user = User.builder()
+//                    .username("nikhrom@mail.ru")
+//                    .build();
+//
+//            company.addUser(user);
+//            session.save(company);
+//
+//            session.getTransaction().commit();
+//        }
+//    }
 
     @Test
     void oneToMany(){
@@ -198,39 +229,39 @@ class HibernateRunnerTest {
 
     }
 
-    @Test
-    void checkReflectionApi(){
-        var user = User.builder()
-                .build();
-
-        String sql = "insert\n" +
-                "into\n" +
-                "%s\n" +
-                "(%s)\n" +
-                "values\n" +
-                "(%s);\n";
-
-        var tableName = ofNullable(user.getClass().getAnnotation(Table.class))
-                .map(tableAnnotation -> tableAnnotation.schema() + "." + tableAnnotation.name())
-                .orElse(user.getClass().getName());
-
-        var declaredFields = user.getClass().getDeclaredFields();
-        var columnNames = Arrays.stream(declaredFields)
-                .map(field -> ofNullable(field.getAnnotation(Column.class))
-                        .map(Column::name)
-                        .orElse(field.getName()))
-                .collect(joining(", "));
-
-        var columnValues = Arrays.stream(declaredFields)
-                .map(field -> "?")
-                .collect(joining(", "));
-
-        sql = String.format(sql, tableName, columnNames, columnValues);
-
-        System.out.println(sql);
-
-        
-
-    }
+//    @Test
+//    void checkReflectionApi(){
+//        var user = User.builder()
+//                .build();
+//
+//        String sql = "insert\n" +
+//                "into\n" +
+//                "%s\n" +
+//                "(%s)\n" +
+//                "values\n" +
+//                "(%s);\n";
+//
+//        var tableName = ofNullable(user.getClass().getAnnotation(Table.class))
+//                .map(tableAnnotation -> tableAnnotation.schema() + "." + tableAnnotation.name())
+//                .orElse(user.getClass().getName());
+//
+//        var declaredFields = user.getClass().getDeclaredFields();
+//        var columnNames = Arrays.stream(declaredFields)
+//                .map(field -> ofNullable(field.getAnnotation(Column.class))
+//                        .map(Column::name)
+//                        .orElse(field.getName()))
+//                .collect(joining(", "));
+//
+//        var columnValues = Arrays.stream(declaredFields)
+//                .map(field -> "?")
+//                .collect(joining(", "));
+//
+//        sql = String.format(sql, tableName, columnNames, columnValues);
+//
+//        System.out.println(sql);
+//
+//
+//
+//    }
 
 }
