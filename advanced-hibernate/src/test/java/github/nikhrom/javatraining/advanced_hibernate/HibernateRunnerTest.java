@@ -18,6 +18,25 @@ import static java.util.stream.Collectors.joining;
 class HibernateRunnerTest {
 
     @Test
+    void checkNamedQuery(){
+        try(var sessionFactory = HibernateUtil.buildSessionFactory();
+            var session = sessionFactory.openSession()){
+
+            session.beginTransaction();
+
+            String username = "nikhrom";
+            var users = session.createNamedQuery("findByUserName", User.class)
+                    .setParameter("username", username)
+                    .list();
+
+
+
+            session.getTransaction().commit();
+        }
+    }
+
+
+    @Test
     void checkHql(){
         try(var sessionFactory = HibernateUtil.buildSessionFactory();
             var session = sessionFactory.openSession()){
