@@ -2,6 +2,7 @@ package github.nikhrom.javatraining.advanced_hibernate.entity;
 
 import lombok.*;
 
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -13,6 +14,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
+@DiscriminatorValue("programmer")
 public class Programmer extends User{
 
     @Enumerated(EnumType.STRING)

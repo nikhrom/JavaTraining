@@ -16,13 +16,14 @@ import java.util.List;
 @EqualsAndHashCode(of = "username")
 @ToString(exclude = "userChats")
 @Table(name = "users", schema = "public")
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "type")
 //@TypeDef(name = "jsonb", typeClass = JsonBinaryType.class)
 public abstract class User {
     /*@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "user_seq")
     @SequenceGenerator(name = "user_seq", sequenceName = "users_id_seq", allocationSize = 1)*/
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(unique = true)

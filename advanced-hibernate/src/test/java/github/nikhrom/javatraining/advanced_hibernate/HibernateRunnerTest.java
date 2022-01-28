@@ -16,7 +16,7 @@ import static java.util.stream.Collectors.joining;
 class HibernateRunnerTest {
 
     @Test
-    void checkTablePerClass(){
+    void checkInheritance(){
         try(var sessionFactory = HibernateUtil.buildSessionFactory();
             var session = sessionFactory.openSession()){
 
