@@ -30,7 +30,6 @@ class HibernateRunnerTest {
                     .list();
 
 
-
             session.getTransaction().commit();
         }
     }
@@ -61,12 +60,12 @@ class HibernateRunnerTest {
 
             session.beginTransaction();
 
-            Manager manager = Manager.builder()
+            Manager manager = Manager.managerBuilder()
                     .username("nikhrom_manager")
                     .projectName("super_project")
                     .build();
 
-            Programmer programmer = Programmer.builder()
+            Programmer programmer = Programmer.programmerBuilder()
                     .username("nikhrom_programmer")
                     .language(Language.JAVA)
                     .build();

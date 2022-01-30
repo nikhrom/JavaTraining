@@ -18,9 +18,9 @@ public class Programmer extends User{
     @Enumerated(EnumType.STRING)
     private Language language;
 
-    @Builder
-    public Programmer(Long id, String username, PersonalData personalData, Role role, Company company, List<UserChat> userChats, Language language) {
-        super(id, username, personalData, role, company, userChats);
+    @Builder(builderMethodName = "programmerBuilder")
+    public Programmer(Long id, String username, PersonalData personalData, Role role, Company company, List<Payment> payments, List<UserChat> userChats, Language language) {
+        super(id, username, personalData, role, company, payments, userChats);
         this.language = language;
     }
 }

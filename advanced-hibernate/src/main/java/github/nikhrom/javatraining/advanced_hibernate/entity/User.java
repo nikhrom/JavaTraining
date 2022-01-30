@@ -20,8 +20,9 @@ import java.util.List;
 @ToString(exclude = "userChats")
 @Table(name = "users", schema = "public")
 @Inheritance(strategy = InheritanceType.JOINED)
+@Builder
 //@TypeDef(name = "jsonb", typeClass = JsonBinaryType.class)
-public abstract class User {
+public class User implements BaseEntity<Long>{
     /*@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "user_seq")
     @SequenceGenerator(name = "user_seq", sequenceName = "users_id_seq", allocationSize = 1)*/
     @Id
@@ -42,6 +43,9 @@ public abstract class User {
     @ManyToOne(fetch = FetchType.LAZY)
 //    @JoinColumn(name = "company_id")
     private Company company;
+
+    @OneToMany(mappedBy = "receiver")
+    private List<Payment> payments;
 
     @OneToMany(mappedBy = "user")
     private List<UserChat> userChats;
