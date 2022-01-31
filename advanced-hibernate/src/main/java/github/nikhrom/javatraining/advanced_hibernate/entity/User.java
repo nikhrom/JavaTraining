@@ -17,7 +17,7 @@ import java.util.List;
 @NoArgsConstructor
 @Entity
 @EqualsAndHashCode(of = "username")
-@ToString(exclude = "userChats")
+@ToString(exclude = {"userChats", "payments"})
 @Table(name = "users", schema = "public")
 @Inheritance(strategy = InheritanceType.JOINED)
 @Builder

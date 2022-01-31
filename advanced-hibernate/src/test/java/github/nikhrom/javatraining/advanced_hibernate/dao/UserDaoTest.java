@@ -16,6 +16,8 @@ import org.junit.jupiter.api.TestInstance;
 
 import java.time.LocalDate;
 import java.time.Month;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.function.Function;
 import java.util.stream.Collectors;
@@ -74,7 +76,7 @@ public class UserDaoTest {
                     .collect(toList());
 
 
-            assertThat(firstNames).containsExactlyInAnyOrder(
+            assertThat(firstNames).contains(
                     "Bill"
             );
 
@@ -143,6 +145,47 @@ public class UserDaoTest {
         }
     }
 
+    @Test
+    public void findCompanyNamesWithAvgUserPaymentsOrderedByCompanyName(){
+        try (var session = sessionFactory.openSession()) {
+            session.beginTransaction();
+
+            var companyWithAvgPayments = userDao
+                    .findCompanyNamesWithAvgUserPaymentsOrderedByCompanyName(session);
+
+
+            List<Object[]> objects = new ArrayList<>();
+            objects.add(new Object[]{"Microsoft", 300.0});
+            objects.add(new Object[]{"Apple", 410.0});
+            objects.add(new Object[]{"Google", 400.0});
+
+            assertThat(companyWithAvgPayments.toArray()).contains(objects.toArray());
+
+            session.getTransaction().commit();
+        }
+    }
+
+    @Test
+    public void isItPossible(){
+        try (var session = sessionFactory.openSession()) {
+            session.beginTransaction();
+
+            var users = userDao.isItPossible(session);
+
+
+            List<Object[]> objects = new ArrayList<>();
+            objects.add(new Object[]{"SteveJobs", 450.0});
+            objects.add(new Object[]{"SergeyBrin", 500.0});
+
+            assertThat(
+                    users.stream()
+                    .map(objects1 -> new Object[]{((User)objects1[0]).getUsername(), objects1[1]})
+                    .toArray()
+            ).contains(objects.toArray());
+
+            session.getTransaction().commit();
+        }
+    }
 
     @AfterAll
     void finish(){

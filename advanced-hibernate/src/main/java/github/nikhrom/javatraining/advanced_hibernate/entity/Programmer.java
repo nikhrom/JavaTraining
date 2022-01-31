@@ -11,7 +11,6 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@DiscriminatorValue("programmer")
 @PrimaryKeyJoinColumn(name = "id")
 public class Programmer extends User{
 
