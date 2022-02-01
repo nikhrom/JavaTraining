@@ -1,5 +1,6 @@
 package github.nikhrom.javatraining.advanced_hibernate.dao;
 
+import github.nikhrom.javatraining.advanced_hibernate.dto.CompanyDto;
 import github.nikhrom.javatraining.advanced_hibernate.entity.Birthday;
 import github.nikhrom.javatraining.advanced_hibernate.entity.Payment;
 import github.nikhrom.javatraining.advanced_hibernate.entity.PersonalData;
@@ -154,12 +155,12 @@ public class UserDaoTest {
                     .findCompanyNamesWithAvgUserPaymentsOrderedByCompanyName(session);
 
 
-            List<Object[]> objects = new ArrayList<>();
-            objects.add(new Object[]{"Microsoft", 300.0});
-            objects.add(new Object[]{"Apple", 410.0});
-            objects.add(new Object[]{"Google", 400.0});
-
-            assertThat(companyWithAvgPayments.toArray()).contains(objects.toArray());
+            assertThat(companyWithAvgPayments.toArray())
+                    .contains(
+                            new CompanyDto("Microsoft", 300.0),
+                            new CompanyDto("Apple", 410.0),
+                            new CompanyDto("Google", 400.0)
+                    );
 
             session.getTransaction().commit();
         }
@@ -172,16 +173,15 @@ public class UserDaoTest {
 
             var users = userDao.isItPossible(session);
 
-
-            List<Object[]> objects = new ArrayList<>();
-            objects.add(new Object[]{"SteveJobs", 450.0});
-            objects.add(new Object[]{"SergeyBrin", 500.0});
-
             assertThat(
                     users.stream()
-                    .map(objects1 -> new Object[]{((User)objects1[0]).getUsername(), objects1[1]})
+                    .map(tuple -> new Object[]{tuple.get(0, User.class).getUsername(), tuple.get(1)})
+//                    .map(objects1 -> new Object[]{((User)objects1[0]).getUsername(), objects1[1]})
                     .toArray()
-            ).contains(objects.toArray());
+            ).contains(
+                    new Object[]{"SteveJobs", 450.0},
+                    new Object[]{"SergeyBrin", 500.0}
+            );
 
             session.getTransaction().commit();
         }
