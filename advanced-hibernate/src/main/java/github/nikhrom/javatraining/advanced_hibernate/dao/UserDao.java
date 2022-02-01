@@ -2,12 +2,20 @@ package github.nikhrom.javatraining.advanced_hibernate.dao;
 
 
 import github.nikhrom.javatraining.advanced_hibernate.entity.Payment;
+import github.nikhrom.javatraining.advanced_hibernate.entity.PersonalData_;
 import github.nikhrom.javatraining.advanced_hibernate.entity.User;
+import github.nikhrom.javatraining.advanced_hibernate.entity.User_;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
+import org.hibernate.Criteria;
 import org.hibernate.Session;
+import org.hibernate.query.NativeQuery;
 import org.hibernate.query.Query;
 
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Predicate;
+import javax.persistence.criteria.Root;
 import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.List;
@@ -23,7 +31,13 @@ public class UserDao {
      * Возвращает всех сотрудников
      */
     public List<User> findAll(Session session){
-        return session.createQuery("SELECT u FROM User u", User.class)
+//        return session.createQuery("SELECT u FROM User u", User.class)
+//                .list();
+        var cb = session.getCriteriaBuilder();
+        var criteria = cb.createQuery(User.class);
+        var user = criteria.from(User.class);
+        criteria.select(user);
+        return session.createQuery(criteria)
                 .list();
     }
 
@@ -31,12 +45,22 @@ public class UserDao {
      * Возвращает всех сотрудников с указанным firstName
      */
     public List<User> findAllByFirstName(Session session, String firstName){
-        return session.createQuery("""
-                SELECT u 
-                FROM User u 
-                WHERE u.personalData.firstname = :firstname
-                """, User.class)
-                .setParameter("firstname", firstName)
+//        return session.createQuery("""
+//                SELECT u
+//                FROM User u
+//                WHERE u.personalData.firstname = :firstname
+//                """, User.class)
+//                .setParameter("firstname", firstName)
+//                .list();
+
+        var cb = session.getCriteriaBuilder();
+        var criteria = cb.createQuery(User.class);
+        var user = criteria.from(User.class);
+        criteria.select(user).where(
+                cb.equal(user.get(User_.personalData).get(PersonalData_.firstname), firstName)
+        );
+
+        return session.createQuery(criteria)
                 .list();
     }
 
@@ -44,11 +68,23 @@ public class UserDao {
      * Возвращает первые {limit} сотрудников, упорядоченных по дате рождения (в порядке возрастания)
      */
     public List<User> findLimitedUsersOrderedByBirthday(Session session, int limit){
-        return session.createQuery("""
-                SELECT u 
-                FROM User u
-                ORDER BY u.personalData.birthday ASC
-                """, User.class)
+//        return session.createQuery("""
+//                SELECT u
+//                FROM User u
+//                ORDER BY u.personalData.birthday ASC
+//                """, User.class)
+//                .setMaxResults(limit)
+//                .list();
+
+        var cb = session.getCriteriaBuilder();
+        var criteria = cb.createQuery(User.class);
+        var user = criteria.from(User.class);
+
+        criteria.select(user).orderBy(
+                cb.asc(user.get(User_.personalData).get(PersonalData_.birthday))
+        );
+
+        return session.createQuery(criteria)
                 .setMaxResults(limit)
                 .list();
     }
@@ -133,7 +169,7 @@ public class UserDao {
                 SELECT u, avg(p.amount)
                 FROM User u
                 JOIN u.payments p
-                GROUP BY u
+                GROUP BY u.username
                 HAVING avg(p.amount) > (SELECT avg(p.amount)
                                        FROM Payment p)
                 ORDER BY u.username
@@ -141,7 +177,7 @@ public class UserDao {
 
         return query.list();
     }
-
+//    ORDER BY u.username
     public static UserDao getInstance(){
         return INSTANCE;
     }

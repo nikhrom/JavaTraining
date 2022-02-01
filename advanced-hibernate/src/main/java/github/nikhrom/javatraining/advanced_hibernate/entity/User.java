@@ -22,7 +22,7 @@ import java.util.List;
 @Inheritance(strategy = InheritanceType.JOINED)
 @Builder
 //@TypeDef(name = "jsonb", typeClass = JsonBinaryType.class)
-public class User implements BaseEntity<Long>{
+public class User implements Comparable<User>, BaseEntity<Long>{
     /*@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "user_seq")
     @SequenceGenerator(name = "user_seq", sequenceName = "users_id_seq", allocationSize = 1)*/
     @Id
@@ -49,4 +49,9 @@ public class User implements BaseEntity<Long>{
 
     @OneToMany(mappedBy = "user")
     private List<UserChat> userChats;
+
+    @Override
+    public int compareTo(User o) {
+        return username.compareTo(o.username);
+    }
 }
