@@ -1,10 +1,7 @@
 package github.nikhrom.javatraining.advanced_hibernate.dao;
 
 import github.nikhrom.javatraining.advanced_hibernate.dto.CompanyDto;
-import github.nikhrom.javatraining.advanced_hibernate.entity.Birthday;
-import github.nikhrom.javatraining.advanced_hibernate.entity.Payment;
-import github.nikhrom.javatraining.advanced_hibernate.entity.PersonalData;
-import github.nikhrom.javatraining.advanced_hibernate.entity.User;
+import github.nikhrom.javatraining.advanced_hibernate.entity.*;
 import github.nikhrom.javatraining.advanced_hibernate.util.HibernateUtil;
 import github.nikhrom.javatraining.advanced_hibernate.util.TestDataImporter;
 import org.assertj.core.api.Assertions;
@@ -23,6 +20,7 @@ import java.util.List;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
+import static github.nikhrom.javatraining.advanced_hibernate.entity.QUser.*;
 import static java.util.stream.Collectors.toList;
 import static org.assertj.core.api.Assertions.*;
 
@@ -114,6 +112,24 @@ public class UserDaoTest {
         }
     }
 
+    @Test
+    public void findByCompanyName(){
+        try(var session = sessionFactory.openSession()){
+            session.beginTransaction();
+
+            List<String> microsoftUsernames =
+                    userDao.findByCompanyName(session, "Apple")
+                    .stream()
+                    .map(User::getUsername)
+                    .collect(toList());
+
+            assertThat(microsoftUsernames).contains(
+                "SteveJobs",  "TimCook"
+            );
+
+            session.getTransaction().commit();
+        }
+    }
 
     @Test
     public void findAveragePaymentAmountByFirstAndLastName(){
@@ -152,14 +168,16 @@ public class UserDaoTest {
             session.beginTransaction();
 
             var companyWithAvgPayments = userDao
-                    .findCompanyNamesWithAvgUserPaymentsOrderedByCompanyName(session);
+                    .findCompanyNamesWithAvgUserPaymentsOrderedByCompanyName(session)
+                    .stream()
+                    .map(tuple -> new Object[]{tuple.get(0, String.class), tuple.get(1, Double.class)});
 
 
             assertThat(companyWithAvgPayments.toArray())
                     .contains(
-                            new CompanyDto("Microsoft", 300.0),
-                            new CompanyDto("Apple", 410.0),
-                            new CompanyDto("Google", 400.0)
+                        new Object[]{"Microsoft", 300.0},
+                        new Object[]{"Apple", 410.0},
+                        new Object[]{"Google", 400.0}
                     );
 
             session.getTransaction().commit();
@@ -175,7 +193,7 @@ public class UserDaoTest {
 
             assertThat(
                     users.stream()
-                    .map(tuple -> new Object[]{tuple.get(0, User.class).getUsername(), tuple.get(1)})
+                    .map(tuple -> new Object[]{tuple.get(user).getUsername(), tuple.get(1, Double.class)})
 //                    .map(objects1 -> new Object[]{((User)objects1[0]).getUsername(), objects1[1]})
                     .toArray()
             ).contains(
