@@ -1,6 +1,7 @@
 package github.nikhrom.javatraining.advanced_hibernate.entity;
 
 import lombok.*;
+import org.hibernate.annotations.BatchSize;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -13,6 +14,7 @@ import java.util.List;
 @Builder
 @EqualsAndHashCode(of = "name")
 @ToString(exclude = "users")
+@BatchSize(size = 3)
 public class Company {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

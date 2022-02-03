@@ -2,6 +2,7 @@ package github.nikhrom.javatraining.advanced_hibernate.entity;
 
 import com.vladmihalcea.hibernate.type.json.JsonBinaryType;
 import lombok.*;
+import org.hibernate.annotations.BatchSize;
 import org.hibernate.annotations.Type;
 import org.hibernate.annotations.TypeDef;
 
@@ -44,11 +45,14 @@ public class User implements Comparable<User>, BaseEntity<Long>{
 //    @JoinColumn(name = "company_id")
     private Company company;
 
+    @Builder.Default
+    @BatchSize(size = 3)
     @OneToMany(mappedBy = "receiver")
-    private List<Payment> payments;
+    private List<Payment> payments = new ArrayList<>();
 
+    @Builder.Default
     @OneToMany(mappedBy = "user")
-    private List<UserChat> userChats;
+    private List<UserChat> userChats = new ArrayList<>();
 
     @Override
     public int compareTo(User o) {
