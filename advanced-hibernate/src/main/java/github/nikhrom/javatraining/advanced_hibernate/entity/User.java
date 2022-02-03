@@ -47,7 +47,6 @@ public class User implements Comparable<User>, BaseEntity<Long>{
     private Company company;
 
     @Builder.Default
-    @Fetch(FetchMode.SUBSELECT)
     @OneToMany(mappedBy = "receiver")
     private List<Payment> payments = new ArrayList<>();
 

@@ -18,7 +18,12 @@ public class HibernateRunner {
              Session session = sessionFactory.openSession()){
             session.beginTransaction();
 
-            var users = session.createQuery("select user from User user", User.class)
+            var users = session.createQuery("""
+                    select user 
+                    from User user 
+                    join fetch user.payments
+                    join fetch user.company
+                    """, User.class)
                     .list();
 
 
