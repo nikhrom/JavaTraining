@@ -4,6 +4,7 @@ package github.nikhrom.javatraining.advanced_hibernate.dao;
 import com.querydsl.core.Tuple;
 import com.querydsl.core.types.Order;
 import com.querydsl.core.types.OrderSpecifier;
+import com.querydsl.core.types.Predicate;
 import com.querydsl.core.types.PredicateOperation;
 import com.querydsl.jpa.impl.JPAQuery;
 import github.nikhrom.javatraining.advanced_hibernate.dto.CompanyDto;
@@ -96,7 +97,7 @@ public class UserDao {
         return new JPAQuery<User>(session)
                 .select(user)
                 .from(company)
-                .join(company.users)
+                .join(company.users, user)
                 .where(company.name.eq(companyName))
                 .fetch();
     }
@@ -131,8 +132,7 @@ public class UserDao {
      * Возвращает среднюю зарплату сотрудника с указанными именем и фамилией
      */
     public Double findAveragePaymentAmountByFirstAndLastName(Session session,
-                                                             String firstname,
-                                                             String lastname){
+                                                             PaymentFilter filter){
 //        return session.createQuery("""
 //                    select avg (p.amount)
 //                    from Payment p
@@ -144,12 +144,17 @@ public class UserDao {
 //                .setParameter("lastname", lastname)
 //                .getSingleResult();
 
+        var predicate = QPredicate.builder()
+                .add(filter.getFirstname(), user.personalData.firstname::eq)
+                .add(filter.getLastname(), user.personalData.lastname::eq)
+                .buildAnd();
+
+
         return new JPAQuery<Double>(session)
                 .select(payment.amount.avg())
                 .from(payment)
                 .join(payment.receiver, user)
-                .where(user.personalData.firstname.eq(firstname),
-                        user.personalData.lastname.eq(lastname))
+                .where(predicate)
                 .fetchOne();
     }
 

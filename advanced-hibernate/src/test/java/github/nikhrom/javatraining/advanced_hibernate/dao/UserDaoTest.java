@@ -136,7 +136,7 @@ public class UserDaoTest {
         try (var session = sessionFactory.openSession()) {
             session.beginTransaction();
             Double avgPaymentInCompany = userDao
-                    .findAveragePaymentAmountByFirstAndLastName(session, "Bill", "Gates");
+                    .findAveragePaymentAmountByFirstAndLastName(session, PaymentFilter.builder().firstname("Bill").lastname("Gates").build());
 
             assertThat(avgPaymentInCompany).isEqualTo(300);
 
