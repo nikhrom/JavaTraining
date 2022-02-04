@@ -2,12 +2,15 @@ package github.nikhrom.javatraining.advanced_hibernate;
 
 import github.nikhrom.javatraining.advanced_hibernate.entity.Role;
 import github.nikhrom.javatraining.advanced_hibernate.entity.User;
+import github.nikhrom.javatraining.advanced_hibernate.entity.UserChat;
 import github.nikhrom.javatraining.advanced_hibernate.util.HibernateUtil;
 import github.nikhrom.javatraining.advanced_hibernate.util.TestDataImporter;
 import lombok.extern.slf4j.Slf4j;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.graph.GraphSemantic;
+import org.hibernate.graph.RootGraph;
+import org.hibernate.graph.SubGraph;
 import org.hibernate.jpa.QueryHints;
 import org.hibernate.query.Query;
 
@@ -23,10 +26,15 @@ public class HibernateRunner {
              Session session = sessionFactory.openSession()){
             session.beginTransaction();
 
+            var userGraph = session.createEntityGraph(User.class);
+            userGraph.addAttributeNodes("company", "userChats");
+            var userChatSubGraph = userGraph.addSubgraph("userChats", UserChat.class);
+            userChatSubGraph.addAttributeNodes("chat");
+
 
             // GraphSemantic.LOAD.getJpaHintName() == QueryHints.HINT_LOADGRAPH
             Map<String, Object> properties = Map.of(
-                    QueryHints.HINT_LOADGRAPH, session.getEntityGraph("withCompanyAndChats")
+                    QueryHints.HINT_LOADGRAPH, userGraph
             );
 
             var user = session.find(User.class, 1L, properties);
@@ -36,7 +44,7 @@ public class HibernateRunner {
 
 
             var users = session.createQuery("select u from User u", User.class)
-                    .setHint(QueryHints.HINT_LOADGRAPH, session.getEntityGraph("withCompanyAndChats"))
+                    .setHint(QueryHints.HINT_LOADGRAPH, userGraph)
                     .list();
 
             users.forEach(user1 -> System.out.println(user1.getCompany().getName()));
