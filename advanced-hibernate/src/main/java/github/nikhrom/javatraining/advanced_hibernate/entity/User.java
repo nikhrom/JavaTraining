@@ -13,7 +13,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-
+@NamedEntityGraph(name = "withCompanyAndChats",
+        attributeNodes = {
+            @NamedAttributeNode("company"),
+            @NamedAttributeNode(value = "userChats", subgraph = "chats")
+        },
+        subgraphs = {
+            @NamedSubgraph(name = "chats", attributeNodes = @NamedAttributeNode("chat"))
+        }
+)
 @FetchProfile(name = "withCompanyAndPayments", fetchOverrides = {
         @FetchOverride(entity = User.class, association = "company", mode = FetchMode.JOIN),
         @FetchOverride(entity = User.class, association = "payments", mode = FetchMode.JOIN)
