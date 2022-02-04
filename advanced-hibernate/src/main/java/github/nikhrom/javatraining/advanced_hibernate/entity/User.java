@@ -3,6 +3,7 @@ package github.nikhrom.javatraining.advanced_hibernate.entity;
 import com.vladmihalcea.hibernate.type.json.JsonBinaryType;
 import lombok.*;
 import org.hibernate.annotations.*;
+import org.hibernate.annotations.FetchProfile.FetchOverride;
 
 import javax.persistence.*;
 import javax.persistence.Entity;
@@ -11,6 +12,12 @@ import javax.persistence.Table;
 import java.util.ArrayList;
 import java.util.List;
 
+
+
+@FetchProfile(name = "withCompanyAndPayments", fetchOverrides = {
+        @FetchOverride(entity = User.class, association = "company", mode = FetchMode.JOIN),
+        @FetchOverride(entity = User.class, association = "payments", mode = FetchMode.JOIN)
+})
 @NamedQuery(name = "findByUserName", query =
         "select u from User u where u.username = :username"
 )
