@@ -4,6 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.OptimisticLockType;
+import org.hibernate.annotations.OptimisticLocking;
 
 import javax.persistence.*;
 
@@ -12,6 +14,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 @Builder
 @Entity
+@OptimisticLocking(type = OptimisticLockType.VERSION)
 public class Payment implements BaseEntity<Long> {
 
     @Id
@@ -19,6 +22,9 @@ public class Payment implements BaseEntity<Long> {
     private Long id;
 
     private Integer amount;
+
+    @Version
+    private Long version;
 
     @ManyToOne(optional = false)
     @JoinColumn(name = "receiver_id")
