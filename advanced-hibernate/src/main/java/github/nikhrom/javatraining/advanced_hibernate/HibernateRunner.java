@@ -23,14 +23,12 @@ public class HibernateRunner {
     public static void main(String[] args) {
         try (SessionFactory sessionFactory = HibernateUtil.buildSessionFactory();
              Session session = sessionFactory.openSession()){
+            TestDataImporter.importData(sessionFactory);
+            session.beginTransaction();
 
             var payment = session.get(Payment.class, 1L);
 
-            session.save(Payment.builder()
-                    .amount(payment.getAmount())
-                    .receiver(payment.getReceiver())
-                    .build()
-            );
+            session.getTransaction().commit();
         }
     }
 

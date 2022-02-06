@@ -4,8 +4,7 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Column;
-import javax.persistence.MappedSuperclass;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.time.Instant;
 
@@ -16,7 +15,18 @@ import java.time.Instant;
 public abstract class AuditableEntity<K extends Serializable> implements BaseEntity<K>{
 
     private Instant createdAt;
-
     private String createdBy;
 
+    private Instant updatedAt;
+    private String updatedBy;
+
+    @PrePersist
+    public void prePersist(){
+        setCreatedAt(Instant.now());
+    }
+
+    @PreUpdate
+    public void preUpdate(){
+        setUpdatedAt(Instant.now());
+    }
 }
