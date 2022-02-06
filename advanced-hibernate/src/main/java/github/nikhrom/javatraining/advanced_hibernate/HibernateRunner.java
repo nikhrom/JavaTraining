@@ -22,14 +22,19 @@ public class HibernateRunner {
 
     public static void main(String[] args) {
         try (SessionFactory sessionFactory = HibernateUtil.buildSessionFactory();
-             Session session = sessionFactory.openSession()){
+             Session session = sessionFactory.openSession();
+             Session session1 = sessionFactory.openSession()){
             session.beginTransaction();
+            session1.beginTransaction();
 
 
-            var payment = session.find(Payment.class, 1L, LockModeType.OPTIMISTIC); // OPTIMISTIC - по умолчанию
-            payment.setAmount(2);
+            var payment = session.find(Payment.class, 1L); // OPTIMISTIC - по умолчанию
+            payment.setAmount(payment.getAmount() + 2);
+            var payment2 = session1.find(Payment.class, 1L); // OPTIMISTIC - по умолчанию
+            payment2.setAmount(payment.getAmount() + 3);
 
             session.getTransaction().commit();
+            session1.getTransaction().commit();
 //
         }
     }
