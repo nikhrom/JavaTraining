@@ -15,9 +15,6 @@ import javax.persistence.*;
 @AllArgsConstructor
 @Builder
 @Entity
-@OptimisticLocking(type = OptimisticLockType.ALL)
-//@OptimisticLocking(type = OptimisticLockType.DIRTY)
-@DynamicUpdate
 public class Payment implements BaseEntity<Long> {
 
     @Id
@@ -25,9 +22,6 @@ public class Payment implements BaseEntity<Long> {
     private Long id;
 
     private Integer amount;
-
-//    @Version
-//    private Long version;
 
     @ManyToOne(optional = false)
     @JoinColumn(name = "receiver_id")
