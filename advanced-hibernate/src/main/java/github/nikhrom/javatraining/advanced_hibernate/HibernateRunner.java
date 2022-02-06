@@ -23,18 +23,14 @@ public class HibernateRunner {
     public static void main(String[] args) {
         try (SessionFactory sessionFactory = HibernateUtil.buildSessionFactory();
              Session session = sessionFactory.openSession()){
-            session.setDefaultReadOnly(true);
-            session.beginTransaction();
 
-            //READ ONLY транзакция на уровне БД(некоторые СУБД могут
-            // оптимизировать транзации в этом режиме)
-            session.createNativeQuery("SET TRANSACTION READ ONLY;")
-                    .executeUpdate();
+            var payment = session.get(Payment.class, 1L);
 
-            var payment = session.find(Payment.class, 1L); // OPTIMISTIC - по умолчанию
-            payment.setAmount(payment.getAmount() + 2);
-
-            session.getTransaction().commit();
+            session.save(Payment.builder()
+                    .amount(payment.getAmount())
+                    .receiver(payment.getReceiver())
+                    .build()
+            );
         }
     }
 
