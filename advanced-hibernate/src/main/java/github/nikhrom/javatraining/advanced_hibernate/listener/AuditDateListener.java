@@ -7,7 +7,7 @@ import javax.persistence.PreUpdate;
 import java.io.Serializable;
 import java.time.Instant;
 
-public class AuditListener {
+public class AuditDateListener {
 
     @PrePersist
     public void prePersist(AuditableEntity<?> entity){

@@ -1,6 +1,6 @@
 package github.nikhrom.javatraining.advanced_hibernate.entity;
 
-import github.nikhrom.javatraining.advanced_hibernate.listener.AuditListener;
+import github.nikhrom.javatraining.advanced_hibernate.listener.AuditDateListener;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
@@ -13,7 +13,7 @@ import java.time.Instant;
 @Setter
 @EqualsAndHashCode
 @MappedSuperclass
-@EntityListeners(AuditListener.class)
+@EntityListeners(AuditDateListener.class)
 public abstract class AuditableEntity<K extends Serializable> implements BaseEntity<K>{
 
     private Instant createdAt;

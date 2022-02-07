@@ -13,7 +13,7 @@ import java.util.List;
 @NoArgsConstructor
 @Builder
 @EqualsAndHashCode(of = "name")
-@ToString(exclude = "users")
+@ToString(exclude = {"users", "locales"})
 @BatchSize(size = 3)
 public class Company {
     @Id
