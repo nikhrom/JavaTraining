@@ -1,5 +1,6 @@
 package github.nikhrom.javatraining.advanced_hibernate.entity;
 
+import github.nikhrom.javatraining.advanced_hibernate.listener.UserChatListener;
 import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -15,6 +16,7 @@ import java.time.Instant;
 @Builder
 @Entity
 @Table(name = "users_chat")
+@EntityListeners(UserChatListener.class)
 public class UserChat extends AuditableEntity<Long>{
 
     @Id
