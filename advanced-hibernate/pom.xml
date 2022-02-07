@@ -35,6 +35,12 @@
     </dependency>
 
     <dependency>
+      <groupId>org.hibernate</groupId>
+      <artifactId>hibernate-envers</artifactId>
+      <version>5.6.3.Final</version>
+    </dependency>
+
+    <dependency>
       <groupId>com.vladmihalcea</groupId>
       <artifactId>hibernate-types-52</artifactId>
       <version>2.14.0</version>

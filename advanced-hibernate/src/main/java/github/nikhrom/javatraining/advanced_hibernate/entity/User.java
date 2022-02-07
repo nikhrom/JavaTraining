@@ -4,6 +4,8 @@ import com.vladmihalcea.hibernate.type.json.JsonBinaryType;
 import lombok.*;
 import org.hibernate.annotations.*;
 import org.hibernate.annotations.FetchProfile.FetchOverride;
+import org.hibernate.envers.Audited;
+import org.hibernate.envers.NotAudited;
 
 import javax.persistence.*;
 import javax.persistence.Entity;
@@ -38,6 +40,7 @@ import java.util.List;
 @Table(name = "users", schema = "public")
 @Inheritance(strategy = InheritanceType.JOINED)
 @Builder
+@Audited
 //@TypeDef(name = "jsonb", typeClass = JsonBinaryType.class)
 public class User implements Comparable<User>, BaseEntity<Long>{
     /*@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "user_seq")
@@ -61,10 +64,12 @@ public class User implements Comparable<User>, BaseEntity<Long>{
 //    @JoinColumn(name = "company_id")
     private Company company;
 
+    @NotAudited
     @Builder.Default
     @OneToMany(mappedBy = "receiver")
     private List<Payment> payments = new ArrayList<>();
 
+    @NotAudited
     @Builder.Default
     @OneToMany(mappedBy = "user")
     private List<UserChat> userChats = new ArrayList<>();

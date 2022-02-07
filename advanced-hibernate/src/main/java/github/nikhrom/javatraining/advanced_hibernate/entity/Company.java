@@ -2,6 +2,8 @@ package github.nikhrom.javatraining.advanced_hibernate.entity;
 
 import lombok.*;
 import org.hibernate.annotations.BatchSize;
+import org.hibernate.envers.Audited;
+import org.hibernate.envers.NotAudited;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -15,18 +17,21 @@ import java.util.List;
 @EqualsAndHashCode(of = "name")
 @ToString(exclude = {"users", "locales"})
 @BatchSize(size = 3)
+@Audited
 public class Company {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String name;
 
+    @NotAudited
     @Builder.Default
     @OneToMany(mappedBy = "company", cascade = CascadeType.ALL, orphanRemoval = true)
     @OrderBy("username DESC, personalData.lastname DESC")
     //@JoinColumn(name = "company_id")
     private List<User> users = new ArrayList<>();
 
+    @NotAudited
     @ElementCollection
     @CollectionTable(name = "company_locale")
     @Builder.Default
