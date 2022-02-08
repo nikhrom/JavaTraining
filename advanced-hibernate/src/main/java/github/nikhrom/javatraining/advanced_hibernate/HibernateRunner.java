@@ -28,17 +28,6 @@ public class HibernateRunner {
 
                 session.getTransaction().commit();
             }
-
-            try(Session session = sessionFactory.openSession()){
-                session.beginTransaction();
-
-                var auditReader = AuditReaderFactory.get(session);
-                var oldCompany = auditReader.find(Company.class, 1, new Date(1644338298805L));
-                session.replicate(oldCompany, ReplicationMode.OVERWRITE);
-
-
-                session.getTransaction().commit();
-            }
         }
     }
 

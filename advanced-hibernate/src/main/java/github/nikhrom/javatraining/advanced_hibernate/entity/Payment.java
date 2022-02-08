@@ -1,9 +1,6 @@
 package github.nikhrom.javatraining.advanced_hibernate.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.hibernate.annotations.DynamicUpdate;
 import org.hibernate.annotations.OptimisticLockType;
 import org.hibernate.annotations.OptimisticLocking;
@@ -12,6 +9,7 @@ import javax.persistence.*;
 import java.time.Instant;
 
 @Data
+@EqualsAndHashCode(of = {"id", "amount"})
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
