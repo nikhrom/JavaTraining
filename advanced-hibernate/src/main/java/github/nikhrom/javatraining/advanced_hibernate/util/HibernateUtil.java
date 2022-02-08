@@ -3,6 +3,7 @@ package github.nikhrom.javatraining.advanced_hibernate.util;
 import com.vladmihalcea.hibernate.type.json.JsonBinaryType;
 import github.nikhrom.javatraining.advanced_hibernate.converter.BirthdayConverter;
 import github.nikhrom.javatraining.advanced_hibernate.entity.Audit;
+import github.nikhrom.javatraining.advanced_hibernate.entity.Revision;
 import github.nikhrom.javatraining.advanced_hibernate.listener.AuditTableListener;
 import lombok.experimental.UtilityClass;
 import org.hibernate.SessionFactory;
@@ -22,6 +23,7 @@ public class HibernateUtil {
         configuration.registerTypeOverride(new JsonBinaryType());
         configuration.addAttributeConverter(BirthdayConverter.class);
         configuration.addAnnotatedClass(Audit.class);
+        configuration.addAnnotatedClass(Revision.class);
         configuration.setPhysicalNamingStrategy(new CamelCaseToUnderscoresNamingStrategy());
         configuration.configure();
 
