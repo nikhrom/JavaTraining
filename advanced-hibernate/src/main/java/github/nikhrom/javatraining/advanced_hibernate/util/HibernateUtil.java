@@ -6,6 +6,8 @@ import github.nikhrom.javatraining.advanced_hibernate.entity.Audit;
 import github.nikhrom.javatraining.advanced_hibernate.entity.Revision;
 import github.nikhrom.javatraining.advanced_hibernate.listener.AuditTableListener;
 import lombok.experimental.UtilityClass;
+import org.ehcache.config.builders.CacheManagerBuilder;
+import org.hibernate.Cache;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.model.naming.CamelCaseToUnderscoresNamingStrategy;
 import org.hibernate.cfg.Configuration;
@@ -28,6 +30,7 @@ public class HibernateUtil {
         configuration.configure();
 
         var sessionFactory = configuration.buildSessionFactory();
+
 //        registerListeners(sessionFactory);
 
 

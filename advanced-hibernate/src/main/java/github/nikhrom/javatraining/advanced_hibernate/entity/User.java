@@ -42,7 +42,7 @@ import java.util.List;
 @Inheritance(strategy = InheritanceType.JOINED)
 @Builder
 @Audited
-@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+@Cache(usage = CacheConcurrencyStrategy.READ_WRITE, region = "Users")
 //@TypeDef(name = "jsonb", typeClass = JsonBinaryType.class)
 public class User implements Comparable<User>, BaseEntity<Long>{
     /*@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "user_seq")
