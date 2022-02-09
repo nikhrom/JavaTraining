@@ -1,5 +1,6 @@
 package github.nikhrom.javatraining.advanced_hibernate;
 
+import github.nikhrom.javatraining.advanced_hibernate.dao.PaymentRepository;
 import github.nikhrom.javatraining.advanced_hibernate.entity.Audit;
 import github.nikhrom.javatraining.advanced_hibernate.entity.Company;
 import github.nikhrom.javatraining.advanced_hibernate.entity.Payment;
@@ -20,38 +21,16 @@ import java.util.List;
 public class HibernateRunner {
 
     public static void main(String[] args) {
-        try (SessionFactory sessionFactory = HibernateUtil.buildSessionFactory()){
-            User user = null;
-             try(Session session = sessionFactory.openSession()){
+        try (SessionFactory sessionFactory = HibernateUtil.buildSessionFactory();
+             Session session = sessionFactory.openSession()){
                 session.beginTransaction();
 
-                user = session.get(User.class, 1L);
-                var user1 = session.get(User.class, 1L);
-                System.out.println(user1.getUserChats().size());
+            var paymentRepository = PaymentRepository.getInstance(sessionFactory);
 
-                 var userId = session.createQuery("select p from Payment p where p.receiver.id = :userId", Payment.class)
-                         .setParameter("userId", 1L)
-                         .setCacheable(true)
-                         //.setCacheRegion("queries")
-                         .getResultList();
+            paymentRepository.findById(1L).ifPresent(System.out::println);
 
 
-                 session.getTransaction().commit();
-            }
-            try(Session session = sessionFactory.openSession()){
-                session.beginTransaction();
-
-                var user2 = session.get(User.class, 1L);
-                System.out.println(user2.getUserChats().size());
-
-
-                var userId = session.createQuery("select p from Payment p where p.receiver.id = :userId", Payment.class)
-                        .setParameter("userId", 1L)
-                        .setCacheable(true)
-                        .getResultList();
-
-                session.getTransaction().commit();
-            }
+            session.getTransaction().commit();
         }
     }
 
