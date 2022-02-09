@@ -20,11 +20,21 @@ public class HibernateRunner {
 
     public static void main(String[] args) {
         try (SessionFactory sessionFactory = HibernateUtil.buildSessionFactory()){
+            User user = null;
              try(Session session = sessionFactory.openSession()){
                 session.beginTransaction();
 
-                var company = session.get(Company.class, 1);
-                company.setName(company.getName() + '0');
+                user = session.get(User.class, 1L);
+                var user1 = session.get(User.class, 1L);
+                 System.out.println(user1.getUserChats().size());
+
+                session.getTransaction().commit();
+            }
+            try(Session session = sessionFactory.openSession()){
+                session.beginTransaction();
+
+                var user2 = session.get(User.class, 1L);
+                System.out.println(user2.getUserChats().size());
 
                 session.getTransaction().commit();
             }

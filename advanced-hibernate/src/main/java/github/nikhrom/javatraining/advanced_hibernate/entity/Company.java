@@ -2,8 +2,10 @@ package github.nikhrom.javatraining.advanced_hibernate.entity;
 
 import lombok.*;
 import org.hibernate.annotations.BatchSize;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.hibernate.envers.Audited;
 import org.hibernate.envers.NotAudited;
+import org.hibernate.annotations.Cache;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -18,6 +20,7 @@ import java.util.List;
 @ToString(exclude = {"users", "locales"})
 @BatchSize(size = 3)
 @Audited
+@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 public class Company {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

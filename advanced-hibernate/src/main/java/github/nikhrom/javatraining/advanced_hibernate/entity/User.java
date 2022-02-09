@@ -3,6 +3,7 @@ package github.nikhrom.javatraining.advanced_hibernate.entity;
 import com.vladmihalcea.hibernate.type.json.JsonBinaryType;
 import lombok.*;
 import org.hibernate.annotations.*;
+import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.FetchProfile.FetchOverride;
 import org.hibernate.envers.Audited;
 import org.hibernate.envers.NotAudited;
@@ -41,6 +42,7 @@ import java.util.List;
 @Inheritance(strategy = InheritanceType.JOINED)
 @Builder
 @Audited
+@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 //@TypeDef(name = "jsonb", typeClass = JsonBinaryType.class)
 public class User implements Comparable<User>, BaseEntity<Long>{
     /*@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "user_seq")
@@ -72,6 +74,7 @@ public class User implements Comparable<User>, BaseEntity<Long>{
     @NotAudited
     @Builder.Default
     @OneToMany(mappedBy = "user")
+    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
     private List<UserChat> userChats = new ArrayList<>();
 
     @Override
