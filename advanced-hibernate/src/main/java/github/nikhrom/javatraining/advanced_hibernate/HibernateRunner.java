@@ -14,6 +14,7 @@ import org.hibernate.envers.AuditReader;
 import org.hibernate.envers.AuditReaderFactory;
 
 import java.util.Date;
+import java.util.List;
 
 @Slf4j
 public class HibernateRunner {
@@ -26,15 +27,28 @@ public class HibernateRunner {
 
                 user = session.get(User.class, 1L);
                 var user1 = session.get(User.class, 1L);
-                 System.out.println(user1.getUserChats().size());
+                System.out.println(user1.getUserChats().size());
 
-                session.getTransaction().commit();
+                 var userId = session.createQuery("select p from Payment p where p.receiver.id = :userId", Payment.class)
+                         .setParameter("userId", 1L)
+                         .setCacheable(true)
+                         //.setCacheRegion("queries")
+                         .getResultList();
+
+
+                 session.getTransaction().commit();
             }
             try(Session session = sessionFactory.openSession()){
                 session.beginTransaction();
 
                 var user2 = session.get(User.class, 1L);
                 System.out.println(user2.getUserChats().size());
+
+
+                var userId = session.createQuery("select p from Payment p where p.receiver.id = :userId", Payment.class)
+                        .setParameter("userId", 1L)
+                        .setCacheable(true)
+                        .getResultList();
 
                 session.getTransaction().commit();
             }

@@ -8,6 +8,7 @@ import org.hibernate.envers.NotAudited;
 import org.hibernate.annotations.Cache;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,7 +22,7 @@ import java.util.List;
 @BatchSize(size = 3)
 @Audited
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE, region = "Companies")
-public class Company {
+public class Company implements BaseEntity<Integer> {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -43,5 +44,10 @@ public class Company {
     public void addUser(User user){
         users.add(user);
         user.setCompany(this);
+    }
+
+    @Override
+    public void setId(Integer id) {
+        this.id = id;
     }
 }
