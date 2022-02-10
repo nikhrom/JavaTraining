@@ -14,6 +14,8 @@ import org.hibernate.SessionFactory;
 import org.hibernate.envers.AuditReader;
 import org.hibernate.envers.AuditReaderFactory;
 
+import javax.persistence.EntityManager;
+import java.lang.reflect.Proxy;
 import java.util.Date;
 import java.util.List;
 
@@ -21,14 +23,16 @@ import java.util.List;
 public class HibernateRunner {
 
     public static void main(String[] args) {
-        try (SessionFactory sessionFactory = HibernateUtil.buildSessionFactory();
-             Session session = sessionFactory.openSession()){
-                session.beginTransaction();
+        try  (SessionFactory sessionFactory = HibernateUtil.buildSessionFactory()){
 
-            var paymentRepository = PaymentRepository.getInstance(sessionFactory);
+            var session = (Session) Proxy.newProxyInstance(Session.class.getClassLoader(), new Class[]{Session.class},
+                    (proxy, method, args1) -> method.invoke(sessionFactory.getCurrentSession(), args1) );
+
+            session.beginTransaction();
+
+            var paymentRepository = new PaymentRepository(session);
 
             paymentRepository.findById(1L).ifPresent(System.out::println);
-
 
             session.getTransaction().commit();
         }
