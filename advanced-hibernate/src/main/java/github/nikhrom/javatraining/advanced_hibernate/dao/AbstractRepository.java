@@ -4,15 +4,19 @@ import com.querydsl.jpa.impl.JPAQuery;
 import github.nikhrom.javatraining.advanced_hibernate.entity.BaseEntity;
 import github.nikhrom.javatraining.advanced_hibernate.entity.QPayment;
 import lombok.Cleanup;
+import lombok.Data;
+import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.hibernate.SessionFactory;
 
 import javax.persistence.EntityManager;
 import java.io.Serializable;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @RequiredArgsConstructor
+@Getter
 public abstract class AbstractRepository<K extends Serializable, E extends BaseEntity<K>>
         implements Repository<K, E> {
 
@@ -38,8 +42,8 @@ public abstract class AbstractRepository<K extends Serializable, E extends BaseE
     }
 
     @Override
-    public Optional<E> findById(K id) {
-        return Optional.ofNullable(entityManager.find(clazz, id));
+    public Optional<E> findById(K id, Map<String, Object> properties) {
+        return Optional.ofNullable(entityManager.find(clazz, id, properties));
     }
 
     @Override
