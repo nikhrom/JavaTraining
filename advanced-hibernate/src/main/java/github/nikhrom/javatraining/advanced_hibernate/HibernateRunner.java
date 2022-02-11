@@ -56,12 +56,7 @@ public class HibernateRunner {
             var userCreateDto = UserCreateDto.builder()
                     .companyId(1)
                     .role(Role.USER)
-                    .userName("nikhrom2")
-                    .personalData(PersonalData.builder()
-                            .firstname("Ivan")
-                            .lastname("Ivanov")
-                            .birthday(new Birthday(LocalDate.of(2000, 1, 1)))
-                            .build())
+                    .userName("nikhrom5")
                     .info("Some info")
                     .build();
 

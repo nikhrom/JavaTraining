@@ -11,8 +11,13 @@ import lombok.RequiredArgsConstructor;
 import org.hibernate.jpa.QueryHints;
 
 import javax.transaction.Transactional;
+import javax.validation.ConstraintViolation;
+import javax.validation.ConstraintViolationException;
+import javax.validation.Validation;
+import javax.validation.Validator;
 import java.util.Map;
 import java.util.Optional;
+import java.util.Set;
 
 @RequiredArgsConstructor
 public class UserService {
@@ -24,7 +29,12 @@ public class UserService {
 
     @Transactional
     public Long create(UserCreateDto userCreateDto){
-        //validation
+        var validator = Validation.buildDefaultValidatorFactory().getValidator();
+        var validationResult = validator.validate(userCreateDto);
+        if(!validationResult.isEmpty()){
+            throw new ConstraintViolationException(validationResult);
+        }
+
         var userEntity = userCreateMapper.mapFrom(userCreateDto);
         return userRepository.save(userEntity)
                 .getId();
