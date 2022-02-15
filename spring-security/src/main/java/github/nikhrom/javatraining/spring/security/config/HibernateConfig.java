@@ -1,0 +1,73 @@
+package github.nikhrom.javatraining.spring.security.config;
+
+import com.mchange.v2.c3p0.ComboPooledDataSource;
+import lombok.SneakyThrows;
+import org.hibernate.SessionFactory;
+import org.hibernate.dialect.PostgreSQL10Dialect;
+import org.springframework.beans.factory.FactoryBean;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.core.env.Environment;
+import org.springframework.orm.hibernate5.HibernateTransactionManager;
+import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
+
+import javax.sql.DataSource;
+import java.util.Properties;
+
+@Configuration
+@EnableTransactionManagement
+@PropertySource("classpath:application.properties")
+public class HibernateConfig {
+
+
+    private Environment environment;
+
+    private static final String JDBC_DRIVER_KEY = "jdbc.driver";
+    private static final String JDBC_URL_KEY = "jdbc.url";
+    private static final String DATABASE_PASSWORD_KEY = "database.password";
+    private static final String DATABASE_USERNAME_KEY = "database.username";
+
+    @Autowired
+    public void setEnvironment(Environment environment) {
+        this.environment = environment;
+    }
+
+    @Bean(destroyMethod = "close")
+    @SneakyThrows
+    public ComboPooledDataSource dataSource(){
+        var dataSource = new ComboPooledDataSource();
+        dataSource.setDriverClass(environment.getProperty(JDBC_DRIVER_KEY));
+        dataSource.setJdbcUrl(environment.getProperty(JDBC_URL_KEY));
+        dataSource.setPassword(environment.getProperty(DATABASE_PASSWORD_KEY));
+        dataSource.setUser(environment.getProperty(DATABASE_USERNAME_KEY));
+        dataSource.setMaxPoolSize(10);
+        return dataSource;
+    }
+
+    @Bean
+    public LocalSessionFactoryBean sessionFactory(DataSource dataSource){
+        var sessionFactory = new LocalSessionFactoryBean();
+        sessionFactory.setDataSource(dataSource);
+        sessionFactory.setPackagesToScan("github.nikhrom.javatraining.spring.security");
+        sessionFactory.setHibernateProperties(hibernateProperties());
+        return sessionFactory;
+    }
+
+    @Bean
+    public Properties hibernateProperties(){
+        var properties = new Properties();
+        properties.setProperty("hibernate.dialect", PostgreSQL10Dialect.class.getCanonicalName());
+        properties.setProperty("show.sql", "true");
+        return properties;
+    }
+
+    @Bean
+    public HibernateTransactionManager transactionManager(FactoryBean<SessionFactory> sessionFactory) throws Exception {
+        var manager = new HibernateTransactionManager(sessionFactory.getObject());
+        return manager;
+    }
+
+}

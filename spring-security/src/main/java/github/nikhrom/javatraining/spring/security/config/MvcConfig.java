@@ -1,5 +1,7 @@
 package github.nikhrom.javatraining.spring.security.config;
 
+import com.mchange.v2.c3p0.ComboPooledDataSource;
+import lombok.SneakyThrows;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -17,6 +19,8 @@ import org.thymeleaf.spring5.view.ThymeleafViewResolver;
 import org.thymeleaf.templatemode.TemplateMode;
 import org.thymeleaf.templateresolver.ITemplateResolver;
 
+import javax.sql.DataSource;
+import java.beans.PropertyVetoException;
 import java.nio.charset.StandardCharsets;
 
 @Configuration
@@ -53,4 +57,5 @@ public class MvcConfig{
         resolver.setCacheable(true);
         return resolver;
     }
+
 }

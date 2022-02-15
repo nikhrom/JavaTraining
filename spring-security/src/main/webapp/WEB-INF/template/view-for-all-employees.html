@@ -10,7 +10,7 @@
 <h3>Info for all employees</h3>
 
 <br><br>
-<div sec:authorize="hasRole('HR')">
+<div sec:authorize="hasAuthority('HR')">
 
     <input type="button" value="HR"
             onclick="window.location.href = 'hr'">
@@ -20,7 +20,7 @@
 
 <br><br>
 
-<div sec:authorize="hasRole('IT')">
+<div sec:authorize="hasAuthority('IT')">
     <input type="button" value="IT"
            onclick="window.location.href = 'it'">
     For IT only
