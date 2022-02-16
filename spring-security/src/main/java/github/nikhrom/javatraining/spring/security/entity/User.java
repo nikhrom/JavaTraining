@@ -1,18 +1,17 @@
 package github.nikhrom.javatraining.spring.security.entity;
 
-
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
+import lombok.*;
 import javax.persistence.*;
-import java.util.Set;
+import java.util.List;
 
 @Entity
 @Table(name = "users")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
+@EqualsAndHashCode(exclude = "authorities")
+@ToString(exclude = "authorities")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,5 +22,5 @@ public class User {
     private Boolean enabled;
 
     @OneToMany(mappedBy = "user")
-    private Set<Authority> authorities;
+    private List<Authority> authorities;
 }

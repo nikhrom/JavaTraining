@@ -13,7 +13,6 @@ public class MyController {
 
     @GetMapping("/")
     public String getInfoForAllEmployees(){
-        System.out.println(userService.getAll());
         return "view-for-all-employees";
     }
 

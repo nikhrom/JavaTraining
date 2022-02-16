@@ -1,6 +1,9 @@
 package github.nikhrom.javatraining.spring.security.repository;
 
+import com.sun.istack.NotNull;
 import github.nikhrom.javatraining.spring.security.entity.User;
+import lombok.RequiredArgsConstructor;
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -9,10 +12,10 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public class UserRepository {
+@RequiredArgsConstructor
+public class UserRepository{
 
-    @Autowired
-    private SessionFactory sessionFactory;
+    private final SessionFactory sessionFactory;
 
     public List<User> list() {
         return sessionFactory
