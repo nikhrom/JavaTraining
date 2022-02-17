@@ -1,12 +1,13 @@
 package github.nikhrom.javatraining.spring.boot.springboot.rest;
 
 
+import github.nikhrom.javatraining.spring.boot.springboot.dto.CreateDepartmentDto;
 import github.nikhrom.javatraining.spring.boot.springboot.dto.ReadDepartmentDto;
+import github.nikhrom.javatraining.spring.boot.springboot.dto.UpdateDepartmentDto;
 import github.nikhrom.javatraining.spring.boot.springboot.service.DepartmentService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -20,6 +21,26 @@ public class DepartmentRestController {
     @GetMapping
     public List<ReadDepartmentDto> getAllDepartments(){
         return departmentService.getAllDepartments();
+    }
+
+    @GetMapping("/{id:\\d+}")
+    public ReadDepartmentDto getDepartment(@PathVariable int id){
+        return departmentService.getDepartmentById(id);
+    }
+
+    @PostMapping
+    public ReadDepartmentDto addDepartment(@RequestBody CreateDepartmentDto createDepartment){
+        return departmentService.addDepartment(createDepartment);
+    }
+
+    @PutMapping
+    public ReadDepartmentDto updateDepartment(@RequestBody UpdateDepartmentDto updateDepartment){
+        return departmentService.updateDepartment(updateDepartment);
+    }
+
+    @DeleteMapping("/{id:\\d+}")
+    public ResponseEntity<String> deleteDepartment(@PathVariable int id){
+        return ResponseEntity.ok("Department with id = " + id + " was deleted");
     }
 
 }
