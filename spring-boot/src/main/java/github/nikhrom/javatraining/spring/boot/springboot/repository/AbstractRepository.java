@@ -33,7 +33,7 @@ public abstract class AbstractRepository<K extends Serializable, E>
 
     @Override
     public void delete(K id) {
-        get(id).ifPresent(entityManager::detach);
+        get(id).ifPresent(entityManager::remove);
         entityManager.flush();
     }
 }

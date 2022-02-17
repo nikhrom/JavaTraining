@@ -19,27 +19,28 @@ public class DepartmentRestController {
     private final DepartmentService departmentService;
 
     @GetMapping
-    public List<ReadDepartmentDto> getAllDepartments(){
+    public List<ReadDepartmentDto> getAllDepartments() {
         return departmentService.getAllDepartments();
     }
 
     @GetMapping("/{id:\\d+}")
-    public ReadDepartmentDto getDepartment(@PathVariable int id){
+    public ReadDepartmentDto getDepartment(@PathVariable int id) {
         return departmentService.getDepartmentById(id);
     }
 
     @PostMapping
-    public ReadDepartmentDto addDepartment(@RequestBody CreateDepartmentDto createDepartment){
+    public ReadDepartmentDto addDepartment(@RequestBody CreateDepartmentDto createDepartment) {
         return departmentService.addDepartment(createDepartment);
     }
 
     @PutMapping
-    public ReadDepartmentDto updateDepartment(@RequestBody UpdateDepartmentDto updateDepartment){
+    public ReadDepartmentDto updateDepartment(@RequestBody UpdateDepartmentDto updateDepartment) {
         return departmentService.updateDepartment(updateDepartment);
     }
 
     @DeleteMapping("/{id:\\d+}")
-    public ResponseEntity<String> deleteDepartment(@PathVariable int id){
+    public ResponseEntity<String> deleteDepartment(@PathVariable int id) {
+        departmentService.deleteDepartmentById(id);
         return ResponseEntity.ok("Department with id = " + id + " was deleted");
     }
 

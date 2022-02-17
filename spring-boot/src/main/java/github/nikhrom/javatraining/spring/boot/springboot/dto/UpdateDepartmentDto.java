@@ -11,8 +11,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class UpdateDepartmentDto {
-    int id;
-    String name;
-    String minSalary;
-    String maxSalary;
+    private int id;
+    private String name;
+    private String minSalary;
+    private String maxSalary;
 }

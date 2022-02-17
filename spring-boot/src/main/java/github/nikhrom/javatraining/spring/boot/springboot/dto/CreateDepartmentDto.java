@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class CreateDepartmentDto {
-    String name;
-    String minSalary;
-    String maxSalary;
+    private String name;
+    private String minSalary;
+    private String maxSalary;
 }
