@@ -27,7 +27,7 @@ public class DepartmentService {
     private final UpdateDepartmentDtoMapper updateDepartmentDtoMapper;
 
     public List<ReadDepartmentDto> getAllDepartments() {
-        return departmentRepository.getAll()
+        return departmentRepository.findAll()
                 .stream()
                 .map(readDepartmentDtoMapper::mapFrom)
                 .collect(toList());
@@ -40,7 +40,7 @@ public class DepartmentService {
     }
 
     public ReadDepartmentDto getDepartmentById(Integer id) {
-        Department department = departmentRepository.get(id)
+        Department department = departmentRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Department with id = " + id +
                         " doesn't exist"));
 
@@ -48,26 +48,25 @@ public class DepartmentService {
     }
 
     public ReadDepartmentDto updateDepartment(UpdateDepartmentDto updateDepartmentDto) {
-        var maybeDepartment = departmentRepository.get(updateDepartmentDto.getId());
-        maybeDepartment.orElseThrow(() -> new RuntimeException(
-                "Department with id = " + updateDepartmentDto.getId() +
-                        "doesn't exist"
-        ));
+        departmentRepository.findById(updateDepartmentDto.getId()).
+                orElseThrow(() -> new RuntimeException(
+                        "Department with id = " + updateDepartmentDto.getId() +
+                                " doesn't exist"
+                ));
 
         var department = updateDepartmentDtoMapper.mapFrom(updateDepartmentDto);
-        departmentRepository.update(department);
+        departmentRepository.save(department);
         return readDepartmentDtoMapper.mapFrom(department);
     }
 
-    public int deleteDepartmentById(Integer id) {
-        var department = departmentRepository.get(id).
+    public void deleteDepartmentById(Integer id) {
+        var department = departmentRepository.findById(id).
                 orElseThrow(() -> new RuntimeException(
                         "Department with id = " + id +
-                                "doesn't exist"
+                                " doesn't exist"
                 ));
 
-        departmentRepository.delete(department.getId());
-        return department.getId();
+        departmentRepository.deleteById(department.getId());
     }
 
 
