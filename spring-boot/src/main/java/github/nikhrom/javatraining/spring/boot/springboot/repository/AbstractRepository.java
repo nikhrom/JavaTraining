@@ -1,9 +1,12 @@
 package github.nikhrom.javatraining.spring.boot.springboot.repository;
 
+import com.querydsl.core.types.dsl.EntityPathBase;
+import com.querydsl.jpa.impl.JPAQuery;
 import lombok.RequiredArgsConstructor;
 
 import javax.persistence.EntityManager;
 import java.io.Serializable;
+import java.util.List;
 import java.util.Optional;
 
 @RequiredArgsConstructor
@@ -11,6 +14,7 @@ public abstract class AbstractRepository<K extends Serializable, E>
         implements Repository<K, E> {
 
     private final EntityManager entityManager;
+    private final EntityPathBase<E> entityPathBase;
     private final Class<E> clazz;
 
 
@@ -36,4 +40,11 @@ public abstract class AbstractRepository<K extends Serializable, E>
         get(id).ifPresent(entityManager::remove);
         entityManager.flush();
     }
+
+    public List<E> getAll() {
+        return new JPAQuery<E>(entityManager)
+                .from(entityPathBase)
+                .fetch();
+    }
+
 }
