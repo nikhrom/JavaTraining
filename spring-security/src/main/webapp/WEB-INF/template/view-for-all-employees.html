@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h3>Info for all employees</h3>
+
+<br><br>
+<div sec:authorize="hasRole('HR')">
+
+    <input type="button" value="HR"
+            onclick="window.location.href = 'hr'">
+    For HR only
+</div>
+
+
+<br><br>
+
+<div sec:authorize="hasRole('IT')">
+    <input type="button" value="IT"
+           onclick="window.location.href = 'it'">
+    For IT only
+</div>
+</body>
+</html>
