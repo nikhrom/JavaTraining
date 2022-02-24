@@ -1,4 +1,4 @@
-package github.nikhrom.javatraining.spring.websocket;
+package github.nikhrom.javatraining.spring.websocket.dto;
 
 public class HelloMessage {
 

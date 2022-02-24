@@ -1,4 +1,4 @@
-package github.nikhrom.javatraining.spring.websocket;
+package github.nikhrom.javatraining.spring.websocket.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.messaging.simp.config.MessageBrokerRegistry;
